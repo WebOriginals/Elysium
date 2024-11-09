@@ -1,26 +1,23 @@
-title: Nuxt UI Pro - Landing template
-description: Nuxt UI Pro is a collection of premium Vue components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes.
+title: Лендинги для событий и продуктов
+description: Создаем страницы, которые раскрывают ваши идеи и привлекают внимание к мероприятиям и услугам.
 hero:
-  title: Build your landing in seconds
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-  headline:
-    label: Made with Nuxt UI Pro
-    to: https://ui.nuxt.com/pro
-    icon: i-heroicons-arrow-top-right-on-square-20-solid
+  title: Лендинги для событий и продуктов
+  description: Создаем страницы, которые раскрывают ваши идеи и привлекают внимание к мероприятиям и услугам.
+
   links:
-    - label: Get started
+    - label: Почему мы?
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
       to: '#features'
       size: xl
-    - label: Use this template
-      icon: i-simple-icons-github
+    - label: Телеграм
+      icon: i-simple-icons-telegram
       size: xl
       color: gray
-      to: https://github.com/nuxt-ui-pro/landing
+      to: https://t.me/elysiumcode
       target: _blank
 logos:
-  title: Trusted by the world's best
+  title: Истории успеха наших клиентов
   icons:
     - i-simple-icons-amazonaws
     - i-simple-icons-heroku
@@ -28,27 +25,27 @@ logos:
     - i-simple-icons-vercel
     - i-simple-icons-cloudflare
 features:
-  headline: Features
-  title: Why choose our service?
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  headline: Особенности
+  title: Почему именно мы?
+  description: Мы создаем лендинги для мероприятий, ориентированные на вашу целевую аудиторию, интерактивные с индивидуальным дизайном.
   items:
-    - title: Easy to use
-      description: Id laborum laboris duis nostrud excepteur ut velit nulla magna Lorem proident non.
+    - title: Только уникальные решения
+      description: Персонализированный дизайн, программирование и адаптация под аудиторию.
       icon: i-heroicons-cog
-    - title: Reliable
-      description: Magna Lorem ex cillum fugiat ad enim aute irure sit duis minim.
+    - title: Понимание целевой аудитории
+      description: Создание контента, интересного и понятного аудитории мероприятия.
       icon: i-heroicons-check
-    - title: Secure
-      description: Proident nostrud excepteur sint ut culpa consectetur aute adipisicing non anim ullamco.
+    - title: Интерактивные элементы
+      description: Анимации, всплывающие окна и чаты для вовлечения пользователей.
       icon: i-heroicons-lock-closed
-    - title: Fast
-      description: Qui reprehenderit nostrud dolore nisi ad fugiat labore eiusmod sint aliquip nisi voluptate.
+    - title: Сроки реализации
+      description: Способность уложиться в сжатые сроки до даты проведения мероприятия.
       icon: i-heroicons-rocket-launch
-    - title: Affordable
-      description: Reprehenderit fugiat elit in do ipsum ut pariatur.
+    - title: Интеграция оплаты
+      description: Возможность легко приобрести билет или оформить регистрацию.
       icon: i-heroicons-currency-dollar
-    - title: Scalable
-      description: Lorem deserunt et eiusmod. Ea in consectetur minim officia ullamco enim deserunt est.
+    - title: Интеграция с CRM
+      description: Автоматизация для сбора данных о пользователях.
       icon: i-heroicons-chart-bar
 pricing:
   headline: Pricing
@@ -102,52 +99,54 @@ pricing:
         - 100 SSL Certificates
         - 100 Support Tickets
 testimonials:
-  headline: Testimonials
-  title: What our customers are saying.
-  description: Proident sunt exercitation minim laborum enim laboris labore esse.
+  headline: Рецензии
+  title: Что говорят наши клиенты.
+  description: Отзывы наших клиентов успех проектов, индивидуальный подход и высокое качество работы — вот что ценят наши партнеры.
   items:
-    - quote: Nostrud tempor sunt fugiat. Dolor in sint dolore labore non occaecat adipisicing Lorem labore ullamco enim excepteur. In fugiat Lorem sit velit id veniam esse eiusmod non ea voluptate cupidatat reprehenderit ullamco dolore. Mollit laborum occaecat aliquip.
+    - quote: Работа с Elysium была на высшем уровне! Лендинг для экскурсий по заводу и виноградникам получился информативным, удобным и визуально привлекательным. Все задачи были выполнены точно в срок. Очень довольны результатом!
       author:
-        name: Rose Roberson
-        description: CEO at Company
+        name: Ирина Соловьева
+        description: Руководитель маркетингово отдела
         avatar:
-          src: https://i.pravatar.cc/120?img=1
+          src: https://i.pravatar.cc/120?img=23
           loading: lazy
-    - quote: Eiusmod dolor aute ut nulla pariatur officia consequat aute amet exercitation.
+    - quote: Страница для нашего продукта по внутреннему ремонту получился ярким, информативным и привлек внимание клиентов с первого взгляда. Результат превзошел ожидания!
       author:
-        name: Chace Rodgers
-        description: CEO at Company
+        name: Генадий  Золотой
+        description: Реформат
         avatar:
-          src: https://i.pravatar.cc/120?img=7
+          src: https://i.pravatar.cc/120?img=11
           loading: lazy
-    - quote: Id duis velit enim officia ad nisi incididunt magna ex dolor minim deserunt dolor. Esse incididunt cillum nostrud esse do quis amet labore amet nulla eiusmod amet nulla Lorem. Incididunt ex voluptate irure officia laboris ea proident est qui.
+    - quote: Лендинг для нашей IT-компании был создан с учётом всех наших пожеланий, сочетая стиль, функциональность и высокую конверсию. Как человек, который ценит четкость и результат, могу смело рекомендовать компанию как надежного партнера.
       author:
-        name: Cornelius Sheppard
-        description: CEO at Company
+        name: Сергей Скрипочкин
+        description: CEO KeepCode
         avatar:
-          src: https://i.pravatar.cc/120?img=3
+          src: https://i.pravatar.cc/120?img=18
           loading: lazy
-    - quote: Velit consectetur in adipisicing culpa eiusmod commodo eu ex dolore. Officia irure nisi dolor dolore velit fugiat. Aliqua sint aliqua aute elit eu sunt.
+    - quote: Лендинг для нашего proxy-продукта получился не только стильным, но и суперэффективным. Всё, что нужно для привлечения клиентов — на высшем уровне! Рекомендуем!
       author:
-        name: Destinee Woods
-        description: CEO at Company
-        avatar:
-          src: https://i.pravatar.cc/120?img=5
-          loading: lazy
-    - quote: Proident quis deserunt qui ex exercitation veniam id Lorem est cupidatat ipsum irure aliquip ad.
-      author:
-        name: Kaleb Mccormick
-        description: CEO at Company
+        name: Сергей Женило
+        description: Proxy SA
         avatar:
           src: https://i.pravatar.cc/120?img=8
           loading: lazy
-    - quote: Magna officia quis ea ea in officia non voluptate ipsum culpa do labore sunt. Aute est dolore commodo sint officia ad laboris dolor magna aliquip exercitation tempor commodo.
+    - quote: Работа с Elysium превзошла все ожидания! Лендинг для нашей детской школы архитектуры и дизайна получился ярким, информативным и привлекающим внимание. Команда профессионалов учла все наши пожелания, создав уникальный и функциональный сайт. Благодарим за отличную работу!
       author:
-        name: Jazmin Mccall
-        description: CEO at Company
+        name: Руслан Третьяков
+        description: Основатель BrickToBrick
         avatar:
-          src: https://i.pravatar.cc/120?img=9
+          src: https://i.pravatar.cc/120?img=3
           loading: lazy
+    - quote: Выражаю благодарность команде  Elysium за создание лендинга для наших продутов. С вами приятно было работать - все сделано в срок, качественно и профессионально. Рекомендую!
+      author:
+        name: Мария Лебедева
+        description: Маркетолог Teejet
+        avatar:
+          src: https://i.pravatar.cc/120?img=5
+          loading: lazy
+
+
 cta:
   title: Get started today
   description: Nisi mollit id aliquip sunt est laborum sit sit.
@@ -155,19 +154,19 @@ cta:
     - label: Sign up for free
       size: xl
 faq:
-  title: Frequently asked questions
-  description: Culpa consectetur dolor pariatur commodo aliqua amet tempor nisi enim deserunt elit cillum.
+  title: Часто задаваемые вопросы
+  description: Ответы на часто задаваемые вопросы всё, что нужно знать о создании и запуске лендинга для вашего бизнеса.
   items:
-    - label: Is this a secure service?
-      content: Qui sunt nostrud aliquip reprehenderit enim proident veniam magna aliquip velit occaecat eiusmod nisi deserunt sunt.
+    - label: Что такое лендинг и зачем он нужен для моего бизнеса?
+      content: Лендинг — это одностраничный сайт, созданный для продвижения конкретного продукта или услуги. Он помогает увеличить конверсии и привлечь целевых клиентов.
       defaultOpen: true
-    - label: How can I cancel my subscription?
-      content: Consectetur irure Lorem nostrud adipisicing aliqua mollit Lorem sit officia magna eiusmod cupidatat.
-    - label: How does the free trial work?
-      content: Quis officia commodo magna eu qui aliquip duis.
-    - label: Can I switch plans later?
-      content: Dolore irure ullamco dolore eu occaecat magna eiusmod dolor aliqua culpa labore.
-    - label: Do you offer refunds?
-      content: Duis mollit nostrud voluptate mollit Lorem dolore commodo veniam incididunt eiusmod.
-    - label: Do you offer support?
-      content: Aliqua sit nisi consequat pariatur Lorem minim irure qui.
+    - label: Как долго займет разработка лендинга для моего проекта?
+      content: Время разработки зависит от сложности проекта, но в среднем мы создаем лендинги за 7-14 рабочих дней.
+    - label: Могу ли я внести изменения в лендинг после его запуска?
+      content: Конечно! Мы предоставляем доступ для редактирования контента, а также оказываем поддержку для внесения изменений.
+    - label: Какие технологии вы используете при разработке лендингов?
+      content: Мы используем современные веб-технологии, такие как HTML5, CSS3, JavaScript, а также системы управления контентом для удобного обновления информации.
+    - label: Как я могу отслеживать эффективность моего лендинга?
+      content: Мы интегрируем системы аналитики, такие как Google Analytics, для отслеживания посещаемости, конверсий и других ключевых показателей.
+    - label: Что входит в стоимость разработки лендинга?
+      content: Стоимость включает весь процесс — от анализа ваших потребностей и разработки макета до финального тестирования и публикации на хостинге.

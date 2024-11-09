@@ -3,17 +3,17 @@ const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
 const links = computed(() => [{
-  label: 'Features',
+  label: 'Особенности',
   to: '#features',
   icon: 'i-heroicons-cube-transparent',
   active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
 }, {
-  label: 'Pricing',
+  label: 'Цена',
   to: '#pricing',
   icon: 'i-heroicons-credit-card',
   active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('testimonials')
 }, {
-  label: 'Testimonials',
+  label: 'Рецензии',
   to: '#testimonials',
   icon: 'i-heroicons-academic-cap',
   active: activeHeadings.value.includes('testimonials')
@@ -37,11 +37,7 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
 <template>
   <UHeader :links="links">
     <template #logo>
-      Elysium <UBadge
-        label="Landing"
-        variant="subtle"
-        class="mb-0.5"
-      />
+      Elysium
     </template>
 
     <template #right>
@@ -58,9 +54,9 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
       <UAsideLinks :links="links" />
 
       <UDivider class="my-6" />
-
+      <UColorModeButton size="sm" />
       <UButton
-        label="Sign in"
+        label="Заказать звонок"
         color="white"
         block
         class="mb-3"
