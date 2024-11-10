@@ -29,14 +29,37 @@ useSeoMeta({
         :title="page.logos.title"
         align="center"
       >
-        <reformat/>
-        <Brik/>
-        <keepcode/>
-        <mishako/>
-        <proxy-s-a/>
-        <teejet/>
+        <nuxt-link to="https://weboriginals.github.io/reformat/" target="_blank">
+          <reformat/>
+        </nuxt-link>
+        <nuxt-link to="https://weboriginals.github.io/childSchool/dist/" target="_blank">
+          <Brik/>
+        </nuxt-link>
+        <nuxt-link to="https://keepcode.org/" target="_blank">
+          <keepcode/>
+        </nuxt-link>
+        <nuxt-link to="https://myskhako.ru/" target="_blank">
+          <mishako/>
+        </nuxt-link>
+        <nuxt-link to="https://weboriginals.github.io/proxy-mobile/dist/" target="_blank">
+          <proxy-s-a/>
+        </nuxt-link>
+        <nuxt-link to="https://weboriginals.github.io/Power_of_three/app/" target="_blank">
+          <teejet/>
+        </nuxt-link>
       </ULandingLogos>
     </ULandingHero>
+
+    <ULandingSection
+      v-for="(section, index) in page.sections"
+      :key="index"
+      :title="section.title"
+      :description="section.description"
+      :align="section.align"
+      :features="section.features"
+    >
+      <ImagePlaceholder />
+    </ULandingSection>
 
     <ULandingSection
       :title="page.features.title"
