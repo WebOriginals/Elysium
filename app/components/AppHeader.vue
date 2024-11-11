@@ -1,28 +1,33 @@
 <script setup lang="ts">
 const nuxtApp = useNuxtApp()
-const { activeHeadings, updateHeadings } = useScrollspy()
+const {activeHeadings, updateHeadings} = useScrollspy()
 
-const links = computed(() => [{
-  label: 'Особенности',
-  to: '#features',
-  icon: 'i-heroicons-cube-transparent',
-  active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
-}, {
-  label: 'Цена',
-  to: '#pricing',
-  icon: 'i-heroicons-credit-card',
-  active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('testimonials')
-}, {
-  label: 'Рецензии',
-  to: '#testimonials',
-  icon: 'i-heroicons-academic-cap',
-  active: activeHeadings.value.includes('testimonials')
-}, {
-  label: 'FAQ',
-  to: '#faq',
-  icon: 'i-heroicons-question-mark-circle',
-  active: activeHeadings.value.includes('faq')
-}])
+const links = computed(() => [
+  {
+    label: 'Особенности',
+    to: '#features',
+    icon: 'i-heroicons-cube-transparent',
+    active: activeHeadings.value.includes('features') && !activeHeadings.value.includes('pricing')
+  },
+  {
+    label: 'Цена',
+    to: '#pricing',
+    icon: 'i-heroicons-credit-card',
+    active: activeHeadings.value.includes('pricing') && !activeHeadings.value.includes('testimonials')
+  },
+  {
+    label: 'Рецензии',
+    to: '#testimonials',
+    icon: 'i-heroicons-academic-cap',
+    active: activeHeadings.value.includes('testimonials')
+  },
+  {
+    label: 'FAQ',
+    to: '#faq',
+    icon: 'i-heroicons-question-mark-circle',
+    active: activeHeadings.value.includes('faq')
+  }
+])
 
 nuxtApp.hooks.hookOnce('page:finish', () => {
   updateHeadings([
@@ -41,25 +46,29 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
     </template>
 
     <template #right>
+      <UColorModeButton size="sm"/>
+
       <UButton
-        label="Sign in"
+        label="Заказать звонок"
         color="white"
         variant="ghost"
-        trailing-icon="i-heroicons-arrow-right-20-solid"
+        trailing-icon="i-heroicons-device-phone-mobile"
         class="hidden lg:flex"
+        to="tel.:+79885242737"
       />
     </template>
 
     <template #panel>
-      <UAsideLinks :links="links" />
+      <UAsideLinks :links="links"/>
 
-      <UDivider class="my-6" />
-      <UColorModeButton size="sm" />
+      <UDivider class="my-6"/>
+      <UColorModeButton size="sm"/>
       <UButton
         label="Заказать звонок"
         color="white"
         block
         class="mb-3"
+        href="tel:+79885242737"
       />
       <UButton
         label="Get started"

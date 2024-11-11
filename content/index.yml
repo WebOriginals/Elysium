@@ -18,6 +18,12 @@ hero:
       color: gray
       to: https://t.me/elysiumcode
       target: _blank
+    - label: Вконтакте
+      icon: i-simple-icons-vk
+      size: xl
+      color: gray
+      to: https://vk.com/elysiumcode
+      target: _blank
 logos:
   title: Истории успеха наших клиентов
   icons:
@@ -147,6 +153,13 @@ testimonials:
         avatar:
           src: https://i.pravatar.cc/120?img=5
           loading: lazy
+    - quote: Компания Keepcode благодарит вас за разработку лендинга, который ярко и точно отражает нашу деятельность, ценности и культуру. Ваш профессиональный подход позволил создать сайт, который помогает клиентам и соискателям узнать нас лучше. Мы признательны за ваше внимание к деталям и оперативность в работе. Надеемся на дальнейшее сотрудничество!
+      author:
+        name: Кирилл Тимченко
+        description: ооо КИПКОД
+        avatar:
+          src: https://i.pravatar.cc/120?img=14
+          loading: lazy
 sections:
   - title: Учебный центр “B A C”
     description:
@@ -174,6 +187,10 @@ sections:
         size: md
         class: ml-8
         target: _blank
+      - label: Получить презентацию
+        size: xl
+        color: blue
+        icon: i-heroicons-presentation-chart-line
 
   - title: V мебельный центр
     description:
@@ -200,6 +217,10 @@ sections:
         size: md
         class: ml-8
         target: _blank
+      - label: Получить презентацию
+        size: xl
+        color: blue
+        icon: i-heroicons-presentation-chart-line
 
   - title: IT компания KeepCode
     description:
@@ -227,6 +248,10 @@ sections:
         size: md
         class: ml-8
         target: _blank
+      - label: Получить презентацию
+        size: xl
+        color: blue
+        icon: i-heroicons-presentation-chart-line
 
   - title: SMSHUB
     description:
@@ -253,13 +278,18 @@ sections:
         size: md
         class: ml-8
         target: _blank
+      - label: Получить презентацию
+        size: xl
+        color: blue
+        icon: i-heroicons-presentation-chart-line
 
 cta:
-  title: Get started today
-  description: Nisi mollit id aliquip sunt est laborum sit sit.
+  title: Получи подарок от Elysium
+  description: Скачай PDF-документ "5 ключевых элементов успешного лендинга для мероприятий", чтобы узнать, как создать эффективный лендинг для своего проекта.
   links:
-    - label: Sign up for free
+    - label: Получить презентацию
       size: xl
+      color: blue
 faq:
   title: Часто задаваемые вопросы
   description: Ответы на часто задаваемые вопросы всё, что нужно знать о создании и запуске лендинга для вашего бизнеса.
