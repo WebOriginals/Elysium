@@ -1,10 +1,17 @@
+<script setup lang="ts">
+const props = defineProps({
+  srcImg: String,
+  altImg: String,
+});
+</script>
+
 <template>
   <div class="relative">
     <div class="bg-background border-gradient rounded-xl p-4">
       <div class="aspect-w-16 aspect-h-9 rounded-lg relative overflow-hidden border border-dashed border-gray-950/10 dark:border-white/10">
         <img
-          src="/staf.jpg"
-          alt="Hero"
+          :src="props.srcImg"
+          :alt="altImg"
           class="object-cover w-full h-full">
       </div>
     </div>

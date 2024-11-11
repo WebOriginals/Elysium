@@ -23,7 +23,10 @@ useSeoMeta({
       :description="page.hero.description"
       :links="page.hero.links"
     >
-      <ImagePlaceholder />
+      <ImagePlaceholder
+        :src-img="page.hero.image.src"
+        :alt-img="page.hero.image.alt"
+      />
 
       <ULandingLogos
         :title="page.logos.title"
