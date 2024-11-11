@@ -5,6 +5,7 @@ import Mishako from "~~/content/icons/mishako.vue";
 import Teejet from "~~/content/icons/teejet.vue";
 import Reformat from "~~/content/icons/reformat.vue";
 import ProxySA from "~~/content/icons/proxySA.vue";
+import PortfolioImg from "~/components/PortfolioImg.vue";
 
 const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
 
@@ -60,8 +61,13 @@ useSeoMeta({
       :description="section.description"
       :align="section.align"
       :features="section.features"
+      :links="section.links"
     >
-      <ImagePlaceholder />
+      <PortfolioImg
+        :src-img="section.image.src"
+        :alt-img="section.image.alt"
+        class-name="object-contain"
+      />
     </ULandingSection>
 
     <ULandingSection

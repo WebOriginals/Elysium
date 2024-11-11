@@ -4,7 +4,7 @@ hero:
   title: Лендинги для событий и продуктов
   description: Создаем страницы, которые раскрывают ваши идеи и привлекают внимание к мероприятиям и услугам.
   image:
-    src: staf.jpg
+    src: staff.jpg
     alt: Лендинги для событий и продуктов
   links:
     - label: Почему мы?
@@ -148,10 +148,13 @@ testimonials:
           src: https://i.pravatar.cc/120?img=5
           loading: lazy
 sections:
-  - title: Лендинг под продукт
-    description: Бала создана страница
+  - title: Учебный центр “B A C”
+    description:
     id: features
     align: left
+    image:
+      src: bca.png
+      alt: Лендинг под продукт
     features:
       - name: Цель проекта
         description: Разработка современного лендинга для учебного центра “British Academic Centre” с целью улучшения пользовательского опыта и увеличения конверсии записей на курсы.
@@ -163,34 +166,94 @@ sections:
         description: Готовый лендинг успешно увеличил количество заявок через форму обратной связи и стал универсальным решением для мобильных и десктопных устройств, соответствующим целям учебного центра.
         icon: i-heroicons-lock-closed
     links:
-      - label: Explore components
-        to: /pro/components
+      - label: Смотреть проект
+        to: https://weboriginals.github.io/BAC/
         color: gray
         icon: i-heroicons-arrow-right-20-solid
         trailing: true
         size: md
         class: ml-8
-  - title: The speed of our service
-    description: Cillum sint enim excepteur ut deserunt qui nisi in deserunt in. Deserunt aliquip quis aliquip eu quis ex velit velit nostrud sit.
+        target: _blank
+
+  - title: V мебельный центр
+    description:
     align: right
+    image:
+      src: viktoria.png
+      alt: Изготовление мягкой мебели
     features:
-      - name: Fast
-        description: Qui reprehenderit nostrud dolore nisi ad fugiat labore eiusmod.
+      - name: Задачи проекта
+        description: Создать привлекательный и функциональный лендинг для компании, занимающейся изготовлением и ремонтом мягкой мебели, с целью повышения узнаваемости бренда и увеличения количества заявок на услуги.
         icon: i-heroicons-rocket-launch
-      - name: Affordable
-        description: Reprehenderit fugiat elit in do ipsum ut pariatur.
+      - name: Процесс разработки
+        description: Команда Elysium проанализировала рынок и ожидания клиентов, разработала прототип лендинга и реализовала его с акцентом на стильный дизайн и удобство навигации. Использовались современные технологии для адаптивного дизайна и плавного взаимодействия с пользователем.
         icon: i-heroicons-currency-dollar
-      - name: Scalable
-        description: Lorem deserunt et eiusmod. Ea in consectetur minim officia.
+      - name: Результаты
+        description: Созданный лендинг помог повысить вовлечённость клиентов, увеличив количество заявок на услуги компании. Лендинг адаптирован под мобильные устройства, что значительно расширило аудиторию и улучшило клиентский опыт.
         icon: i-heroicons-chart-bar
     links:
-      - label: Learn more
-        to: /pro/guide/content
+      - label: Смотреть проект
+        to: https://weboriginals.github.io/Viktoria/
         color: gray
         icon: i-heroicons-arrow-right-20-solid
         trailing: true
         size: md
         class: ml-8
+        target: _blank
+
+  - title: IT компания KeepCode
+    description:
+    id: features
+    align: left
+    image:
+      src: keepcode.svg
+      alt: KeepCode
+    features:
+      - name: Цель проекта
+        description: Создать презентационный лендинг для IT-компании KeepCode, который эффективно представляет компанию, её ценности, услуги и достижения, а также формирует профессиональный и современный имидж бренда.
+        icon: i-heroicons-cog
+      - name: Процесс разработки
+        description: Команда Elysium провела исследование бренда KeepCode и ожиданий целевой аудитории. На основе этих данных был создан прототип с акцентом на минималистичный и технологичный дизайн. Лендинг был разработан с использованием современных веб-технологий для обеспечения высокой производительности и интерактивного пользовательского опыта.
+        icon: i-heroicons-check
+      - name: Результаты
+        description: Презентационный лендинг успешно подчеркнул уникальность компании KeepCode и улучшил восприятие бренда на рынке. Он привлёк больше клиентов и партнёров, демонстрируя компетенции и профессионализм компании на различных устройствах благодаря адаптивному дизайну.
+        icon: i-heroicons-lock-closed
+    links:
+      - label: Смотреть проект
+        to: https://keepcode.org
+        color: gray
+        icon: i-heroicons-arrow-right-20-solid
+        trailing: true
+        size: md
+        class: ml-8
+        target: _blank
+
+  - title: SMSHUB
+    description:
+    align: right
+    image:
+      src: smshub.png
+      alt: SMSHUB
+    features:
+      - name: Задачи проекта
+        description: Разработать лендинг для IT-компании smshub, который информирует пользователей о сотрудничестве с крупнейшей платформой SMS Activat и объясняет, как можно зарабатывать на сервисе.
+        icon: i-heroicons-rocket-launch
+      - name: Процесс разработки
+        description: Команда Elysium изучила ключевые особенности сотрудничества с SMS Activat и целевую аудиторию проекта. На основе полученных данных был создан прототип лендинга с удобной навигацией и функциональным дизайном, позволяющим быстро и ясно представить возможности заработка. Для разработки использовались современные веб-технологии, обеспечивающие производительность и кросс-платформенную совместимость.
+        icon: i-heroicons-currency-dollar
+      - name: Результаты
+        description: Разработанный лендинг эффективно презентовал услуги smshub и способствовал привлечению новых пользователей, заинтересованных в сотрудничестве с SMS Activat. Адаптивный дизайн сайта позволил охватить широкую аудиторию, улучшив пользовательский опыт и конверсию посетителей в зарегистрированных участников.
+        icon: i-heroicons-chart-bar
+    links:
+      - label: Смотреть проект (под VPN)
+        to: https://agent.smshub.org/
+        color: gray
+        icon: i-heroicons-arrow-right-20-solid
+        trailing: true
+        size: md
+        class: ml-8
+        target: _blank
+
 cta:
   title: Get started today
   description: Nisi mollit id aliquip sunt est laborum sit sit.

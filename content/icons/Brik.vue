@@ -34,12 +34,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import {computed, ref, watch} from 'vue'
 
 const colorMode: Ref<string> = useColorMode()
-const fillColor: Ref<string> = ref(colorMode.value === 'dark' ? 'white' : 'black')
 
-watch(colorMode, (newValue: string) => {
-  fillColor.value = newValue === 'dark' ? 'white' : 'black'
+const fillColor = computed(() => {
+  return colorMode.value === 'dark' ? 'white' : 'black'
 })
 </script>
