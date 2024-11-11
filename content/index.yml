@@ -4,7 +4,7 @@ hero:
   title: Лендинги для событий и продуктов
   description: Создаем страницы, которые раскрывают ваши идеи и привлекают внимание к мероприятиям и услугам.
   image:
-    src: content/images/staf.jpg
+    src: staf.jpg
     alt: Лендинги для событий и продуктов
   links:
     - label: Почему мы?
@@ -191,7 +191,6 @@ sections:
         trailing: true
         size: md
         class: ml-8
-
 cta:
   title: Get started today
   description: Nisi mollit id aliquip sunt est laborum sit sit.
