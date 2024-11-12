@@ -25,10 +25,10 @@ hero:
       to: https://vk.com/elysiumcode
       target: _blank
     - label: Дзен
-      icon: i-simple-icons-vk
+      icon: i-simple-icons-andela
       size: xl
       color: gray
-      to: https://vk.com/elysiumcode
+      to: https://dzen.ru/id/66f503af06ec2b139e271289
       target: _blank
 logos:
   title: Истории успеха наших клиентов

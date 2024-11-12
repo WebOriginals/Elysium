@@ -51,10 +51,10 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
       <UButton
         label="Заказать звонок"
         color="white"
-        variant="ghost"
+        variant="soft"
         trailing-icon="i-heroicons-device-phone-mobile"
         class="hidden lg:flex"
-        to="tel.:+79885242737"
+        href="tel.:+79885242737"
       />
     </template>
 
