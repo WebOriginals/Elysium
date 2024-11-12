@@ -6,6 +6,8 @@ import Teejet from "~~/content/icons/teejet.vue";
 import Reformat from "~~/content/icons/reformat.vue";
 import ProxySA from "~~/content/icons/proxySA.vue";
 import PortfolioImg from "~/components/PortfolioImg.vue";
+import BaseModalPresent from "~/components/modal/BaseModalPresent.vue";
+
 
 const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
 
@@ -15,6 +17,12 @@ useSeoMeta({
   description: page.value.description,
   ogDescription: page.value.description
 })
+
+const showModal = ref(false)
+
+const openModal = () => {
+  showModal.value = !showModal.value
+}
 </script>
 
 <template>
@@ -62,6 +70,7 @@ useSeoMeta({
       :align="section.align"
       :features="section.features"
       :links="section.links"
+      @click="openModal"
     >
       <PortfolioImg
         :src-img="section.image.src"
@@ -128,6 +137,7 @@ useSeoMeta({
       <ULandingCTA
         v-bind="page.cta"
         :card="false"
+
       />
     </ULandingSection>
 
@@ -152,5 +162,9 @@ useSeoMeta({
       />
     </ULandingSection>
 
+    <base-modal-present
+      v-if="showModal"
+      @close-modal="openModal"
+      />
   </div>
 </template>

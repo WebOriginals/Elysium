@@ -191,6 +191,7 @@ sections:
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
+        click: openModal
 
   - title: V мебельный центр
     description:
@@ -285,12 +286,13 @@ sections:
 
 cta:
   title: Получи подарок от Elysium
-  description: Скачай PDF-документ "5 ключевых элементов успешного лендинга для мероприятий", чтобы узнать, как создать эффективный лендинг для своего проекта.
+  description: 5 ключевых элементов успешного лендинга для мероприятий
   links:
     - label: Получить презентацию
       size: xl
       color: blue
       icon: i-heroicons-gift
+      click: openModal
 faq:
   title: Часто задаваемые вопросы
   description: Ответы на часто задаваемые вопросы всё, что нужно знать о создании и запуске лендинга для вашего бизнеса.

@@ -28,4 +28,5 @@ useSeoMeta({
   <AppFooter />
 
   <UNotifications />
+
 </template>
