@@ -79,6 +79,14 @@ const openModal = () => {
       />
     </ULandingSection>
 
+    <ULandingSection >
+      <ULandingCTA
+        v-bind="page.cta2"
+        :card="true"
+
+      />
+    </ULandingSection>
+
     <ULandingSection
       :title="page.features.title"
       :description="page.features.description"
@@ -95,6 +103,7 @@ const openModal = () => {
         />
       </UPageGrid>
     </ULandingSection>
+
 
     <ULandingSection
       :title="page.pricing.title"
@@ -137,7 +146,6 @@ const openModal = () => {
       <ULandingCTA
         v-bind="page.cta"
         :card="false"
-
       />
     </ULandingSection>
 

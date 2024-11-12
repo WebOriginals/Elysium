@@ -289,7 +289,6 @@ sections:
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
-
 cta:
   title: Получи подарок от Elysium
   description: 5 ключевых элементов успешного лендинга для мероприятий
@@ -298,7 +297,16 @@ cta:
       size: xl
       color: blue
       icon: i-heroicons-gift
-      click: openModal
+
+cta2:
+  title: Запросить расчет
+  description: Заполните бриф и получите расчет стоимости разработки лендинга для вашего мероприятия.
+  links:
+    - label: Заполнить бриф
+      size: xl
+      color: blue
+      icon: i-heroicons-briefcase
+
 faq:
   title: Часто задаваемые вопросы
   description: Ответы на часто задаваемые вопросы всё, что нужно знать о создании и запуске лендинга для вашего бизнеса.

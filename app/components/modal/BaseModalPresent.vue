@@ -63,7 +63,7 @@ import DefaultModal from '~/components/modal/DefaultModal.vue';
 import {ref} from 'vue'
 import {useFetch} from '#app'
 
-const emit = defineEmits()
+const emit = defineEmits(['closeModal']);
 
 const props = defineProps({
   title: {
