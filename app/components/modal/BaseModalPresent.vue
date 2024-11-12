@@ -49,7 +49,7 @@
             <p style="text-align: right">Основатель Elysium <br> Дмитрий Обора</p>
           </p>
         </div>
-        <div class="presentation__image">
+        <div class="presentation-thank__image">
           <img src="/Dima.png" alt="Подарок"/>
 
         </div>
@@ -151,7 +151,7 @@ const closeModal = (value) => {
     color: #9B9B9B;
   }
 
-  &__thank {
+  &-thank {
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
@@ -170,16 +170,18 @@ const closeModal = (value) => {
     p {
       font-size: 16px;
     }
-  }
-  &__image{
-    display: none;
-    @media (min-width: 768px) {
-      display: block;
-      position: absolute;
-      width: 350px;
-      right: 8px;
-      bottom: -47px;
+
+    &__image{
+      display: none;
+      @media (min-width: 768px) {
+        display: block;
+        position: absolute;
+        width: 350px;
+        right: 8px;
+        bottom: -47px;
+      }
     }
   }
+
 }
 </style>
