@@ -2,7 +2,7 @@
   <DefaultModal :model-value="true" :title="title" size="l" @update:model-value="(v) => emit('closeModal', v)">
     <template #body>
       <div class="presentation">
-        <h2 class="presentation__title">Получите подарок — презентацию <br> "5 ключевых элементов успешного лендинга для мероприятий"!</h2>
+        <h2 class="presentation__title">Получите подарок — презентацию "5 ключевых элементов успешного лендинга"!</h2>
         <p class="presentation__subTitle">Узнайте, как сделать вашу страницу эффективной и привлекать больше участников! Оставьте свои данные, чтобы скачать бесплатную презентацию и применить проверенные методы уже сегодня.</p>
         <div class="presentation__grid">
           <form @submit.prevent="submitForm" class="presentation__form">
