@@ -10,6 +10,10 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
 
+  plugins: [
+    '~/plugins/phoneMask.ts'
+  ],
+
   routeRules: {
     // Temporary workaround for prerender regression. see https://github.com/nuxt/nuxt/issues/27490
     '/': { prerender: true }

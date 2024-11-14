@@ -7,13 +7,15 @@
           Оставьте свои данные, чтобы скачать бесплатную презентацию и применить проверенные методы уже сегодня.</p>
         <div class="presentation__grid">
           <form @submit.prevent="submitForm" class="presentation__form">
+
             <UInput
+              v-phone-mask
               v-model="phoneNumber"
               id="phone"
               color="blue"
               variant="outline"
               size="lg"
-              placeholder="Телефон"/>
+              placeholder="Телефон +7 (999) 99 99 999"/>
             <UButton
               type="submit"
               class="submit-button"
@@ -51,7 +53,6 @@
         </div>
         <div class="presentation-thank__image">
           <img src="/Dima.png" alt="Подарок"/>
-
         </div>
       </div>
     </template>
@@ -73,8 +74,10 @@ const props = defineProps({
 })
 
 const phoneNumber = ref('')
+
 const isSubmitted = ref(false)
 
+const directiveValue = 'v-phone-mask'
 const submitForm = async () => {
   try {
     await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {

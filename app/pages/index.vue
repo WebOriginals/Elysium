@@ -9,7 +9,7 @@ import PortfolioImg from "~/components/PortfolioImg.vue";
 import BaseModalPresent from "~/components/modal/BaseModalPresent.vue";
 
 
-const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
+const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
 
 useSeoMeta({
   title: page.value.title,
@@ -79,7 +79,7 @@ const openModal = () => {
       />
     </ULandingSection>
 
-    <ULandingSection >
+    <ULandingSection>
       <ULandingCTA
         v-bind="page.cta2"
         :card="true"
@@ -137,7 +137,7 @@ const openModal = () => {
           :key="index"
           class="break-inside-avoid"
         >
-          <ULandingTestimonial v-bind="testimonial" />
+          <ULandingTestimonial v-bind="testimonial"/>
         </div>
       </UPageColumns>
     </ULandingSection>
@@ -173,6 +173,6 @@ const openModal = () => {
     <base-modal-present
       v-if="showModal"
       @close-modal="openModal"
-      />
+    />
   </div>
 </template>
