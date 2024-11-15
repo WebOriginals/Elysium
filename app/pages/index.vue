@@ -7,6 +7,7 @@ import Reformat from "~~/content/icons/reformat.vue";
 import ProxySA from "~~/content/icons/proxySA.vue";
 import PortfolioImg from "~/components/PortfolioImg.vue";
 import BaseModalPresent from "~/components/modal/BaseModalPresent.vue";
+import BaseModalBrief from "~/components/modal/BaseModalBrief.vue";
 
 
 const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
@@ -18,10 +19,14 @@ useSeoMeta({
   ogDescription: page.value.description
 })
 
-const showModal = ref(false)
+const showModalGiftSuccessfulLanding = ref(false)
+const showModalBriff = ref(false)
 
-const openModal = () => {
-  showModal.value = !showModal.value
+const openModalGiftSuccessfulLanding = () => {
+  showModalGiftSuccessfulLanding.value = !showModalGiftSuccessfulLanding.value
+}
+const openModalBriff = () => {
+  showModalBriff.value = !showModalBriff.value
 }
 </script>
 
@@ -70,7 +75,7 @@ const openModal = () => {
       :align="section.align"
       :features="section.features"
       :links="section.links"
-      @click="openModal"
+      @click="openModalGiftSuccessfulLanding"
     >
       <PortfolioImg
         :src-img="section.image.src"
@@ -81,8 +86,9 @@ const openModal = () => {
 
     <ULandingSection>
       <ULandingCTA
-        v-bind="page.cta2"
+        v-bind="page.ctaCostCalculation"
         :card="true"
+        @click="openModalBriff"
 
       />
     </ULandingSection>
@@ -144,8 +150,9 @@ const openModal = () => {
 
     <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
       <ULandingCTA
-        v-bind="page.cta"
+        v-bind="page.ctaGiftSuccessfulLanding"
         :card="false"
+        @click="openModalGiftSuccessfulLanding"
       />
     </ULandingSection>
 
@@ -171,8 +178,12 @@ const openModal = () => {
     </ULandingSection>
 
     <base-modal-present
-      v-if="showModal"
-      @close-modal="openModal"
+      v-if="showModalGiftSuccessfulLanding"
+      @close-modal="openModalGiftSuccessfulLanding"
+    />
+    <base-modal-brief
+      v-if="showModalBriff"
+      @close-modal="openModalBriff"
     />
   </div>
 </template>
