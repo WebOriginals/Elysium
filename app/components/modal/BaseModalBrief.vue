@@ -129,7 +129,7 @@ const closeModal = (value) => {
 const submitForm = async () => {
   try {
     const message = `
-    ОПА БРИФ на разработку пришел
+    ОПА БРИФ ПОЛУЧИЛИ \n
     Название компании: <b>${formData.companyName}</b>
     Контактное лицо: <b>${formData.contactPerson}</b>
     Контактный телефон: <b>${formData.phone}</b>

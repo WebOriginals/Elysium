@@ -80,11 +80,15 @@ const isSubmitted = ref(false)
 const directiveValue = 'v-phone-mask'
 const submitForm = async () => {
   try {
+    const message = `ОПА СКАЧАЛИ ПРЕЗЕНТАЦИЮ \n
+    "5 ключевых элементов успешного лендинга для мероприятий" \n \n
+    Номер телефона: ${phoneNumber.value}`
     await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
       method: 'POST',
       body: {
         chat_id: '931622387',
-        text: `ОПА СКАЧАЛИ ПРЕЗЕНТАЦИЮ \n"5 ключевых элементов успешного лендинга для мероприятий" \n \nНомер телефона: ${phoneNumber.value}`
+        text: message,
+        parse_mode: 'HTML'
       }
     })
     isSubmitted.value = true
