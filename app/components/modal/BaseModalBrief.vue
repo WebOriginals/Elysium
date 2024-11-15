@@ -2,123 +2,49 @@
   <DefaultModal :model-value="true" :title="title" size="l" @update:model-value="(v) => closeModal(v)">
     <template #body>
       <h2>Заполните бриф для создания лендинга</h2>
-      <form @submit.prevent="submitForm">
-        <label>
-          Название компании:
-          <input type="text" v-model="formData.companyName" required/>
-        </label>
-        <label>
-          Контактное лицо (Имя):
-          <input type="text" v-model="formData.contactPerson" required/>
-        </label>
-        <label>
-          Контактный телефон:
-          <input type="tel" v-model="formData.phone" required/>
-        </label>
-        <label>
-          Электронная почта:
-          <input type="email" v-model="formData.email" required/>
-        </label>
-        <h3>Требуется ли создание контента для лендинга?</h3>
-        <label>
-          <input type="radio" value="yes" v-model="formData.contentCreation"/> Да
-        </label>
-        <label>
-          <input type="radio" value="no" v-model="formData.contentCreation"/> Нет, контент уже есть
-        </label>
+      <UForm :schema="schema" :state="formData" class="space-y-4" @submit="submitForm">
+        <UFormGroup label="Ваше имя:" name="name">
+          <UInput v-model="formData.contactPerson"/>
+        </UFormGroup>
+        <UFormGroup label="Телефон:" name="phone">
+          <UInput v-model="formData.phone" v-phone-mask/>
+        </UFormGroup>
+        <UFormGroup label="Опишите основные цели лендинга:" name="goals">
+          <UTextarea v-model="formData.goals" />
+        </UFormGroup>
+        <UFormGroup label="Бюджет" name="Budget">
+          <UInput v-model="formData.contactPerson"/>
+        </UFormGroup>
 
-        <h3>Нужно ли разрабатывать уникальный дизайн?</h3>
-        <label>
-          <input type="radio" value="yes" v-model="formData.designNeeded"/> Да
-        </label>
-        <label>
-          <input type="radio" value="no" v-model="formData.designNeeded"/> Нет, дизайн готов
-        </label>
-
-        <h3>Интеграция с CRM-системами</h3>
-        <label>
-          Требуется ли интеграция с CRM?
-          <select v-model="formData.crmIntegration">
-            <option value="none">Не требуется</option>
-            <option value="bitrix24">Bitrix24</option>
-            <option value="amocrm">AMO CRM</option>
-            <option value="other">Другая (укажите ниже)</option>
-          </select>
-        </label>
-        <label v-if="formData.crmIntegration === 'other'">
-          Название CRM:
-          <input type="text" v-model="formData.otherCrm"/>
-        </label>
-
-        <h3>Цели и задачи лендинга</h3>
-        <label>
-          Опишите основные цели лендинга:
-          <textarea v-model="formData.goals"></textarea>
-        </label>
-
-        <h3>Дополнительные услуги</h3>
-        <label>
-          <input type="checkbox" v-model="formData.additionalServices.seo"/> SEO-оптимизация
-        </label>
-        <label>
-          <input type="checkbox" v-model="formData.additionalServices.analytics"/> Подключение аналитики
-        </label>
-        <label>
-          <input type="checkbox" v-model="formData.additionalServices.copywriting"/> Копирайтинг
-        </label>
-
-        <button type="submit">Отправить бриф</button>
-      </form>
+        <UButton type="submit">
+          Отправить
+        </UButton>
+        </UForm>
     </template>
   </DefaultModal>
 </template>
 
 <script setup lang="ts">
+
 import DefaultModal from '~/components/modal/DefaultModal.vue'
 import {useFetch} from "#app";
 import {ref} from "vue";
 
 const emit = defineEmits(['closeModal']);
-const props = defineProps({
-  title: {
-    type: String,
-    default: ''
-  }
-})
 
 interface FormData {
-  companyName: string;
   contactPerson: string;
   phone: string;
-  email: string;
-  contentCreation: "yes" | "no";
-  designNeeded: "yes" | "no";
-  crmIntegration: "none" | "bitrix24" | "amocrm" | "other";
-  otherCrm: string;
   goals: string;
-  additionalServices: {
-    seo: boolean;
-    analytics: boolean;
-    copywriting: boolean;
-  };
+  budget: string;
 }
 
 const isSubmitted = ref(false)
 const formData = reactive<FormData>({
-  companyName: "",
   contactPerson: "",
   phone: "",
-  email: "",
-  contentCreation: "no",
-  designNeeded: "no",
-  crmIntegration: "none",
-  otherCrm: "",
   goals: "",
-  additionalServices: {
-    seo: false,
-    analytics: false,
-    copywriting: false,
-  }
+  budget: ""
 })
 
 const closeModal = (value) => {
@@ -130,19 +56,11 @@ const submitForm = async () => {
   try {
     const message = `
     ОПА БРИФ ПОЛУЧИЛИ \n
-    Название компании: <b>${formData.companyName}</b>
-    Контактное лицо: <b>${formData.contactPerson}</b>
-    Контактный телефон: <b>${formData.phone}</b>
-    Электронная почта: <b>${formData.email}</b>
-    Требуется ли создание контента: <b>${formData.contentCreation === 'yes' ? 'Да' : 'Нет'}</b>
-    Нужно ли разрабатывать уникальный дизайн: <b>${formData.designNeeded === 'yes' ? 'Да' : 'Нет'}</b>
-    Интеграция с CRM: <b>${formData.crmIntegration}</b>
-    Название CRM: <b>${formData.otherCrm}</b>
+
+    Имя: <b>${formData.contactPerson}</b>
+    Телефон: <b>${formData.phone}</b>
     Цели и задачи лендинга: <b>${formData.goals}</b>
-    Дополнительные услуги:
-      - SEO-оптимизация: <b>${formData.additionalServices.seo ? 'Да' : 'Нет'}</b>
-      - Подключение аналитики: <b>${formData.additionalServices.analytics ? 'Да' : 'Нет'}</b>
-      - Копирайтинг: <b>${formData.additionalServices.copywriting ? 'Да' : 'Нет'}</b>
+    Бюджет: <b>${formData.budget}</b>
     `
 
     await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
