@@ -7,15 +7,29 @@
           Оставьте свои данные, чтобы скачать бесплатную презентацию и применить проверенные методы уже сегодня.</p>
         <div class="presentation__grid">
           <form @submit.prevent="submitForm" class="presentation__form">
+            <UFormGroup label="Ваше имя:" name="name">
+              <UInput
+                v-model="formData.contactPerson"
+                color="blue"
+                variant="outline"
+                size="lg"
+                placeholder="Артем"
+                required
+              />
+            </UFormGroup>
+            <UFormGroup label="Телефон:" name="phone">
+              <UInput
+                v-phone-mask
+                v-model="formData.phone"
+                id="phone"
+                color="blue"
+                variant="outline"
+                size="lg"
+                placeholder="+7 (999) 99 99 999"
+                required
+              />
+            </UFormGroup>
 
-            <UInput
-              v-phone-mask
-              v-model="phoneNumber"
-              id="phone"
-              color="blue"
-              variant="outline"
-              size="lg"
-              placeholder="Телефон +7 (999) 99 99 999"/>
             <UButton
               type="submit"
               class="submit-button"
@@ -59,7 +73,7 @@
   </DefaultModal>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import DefaultModal from '~/components/modal/DefaultModal.vue';
 import {ref} from 'vue'
 import {useFetch} from '#app'
@@ -73,16 +87,27 @@ const props = defineProps({
   }
 })
 
-const phoneNumber = ref('')
+interface FormData {
+  contactPerson: string;
+  phone: string;
+}
+
+const formData = reactive<FormData>({
+  contactPerson: "",
+  phone: "",
+})
+
 
 const isSubmitted = ref(false)
 
-const directiveValue = 'v-phone-mask'
 const submitForm = async () => {
   try {
+    formData.phone = formData.phone.replace(/\s+/g, '')
     const message = `ОПА СКАЧАЛИ ПРЕЗЕНТАЦИЮ \n
-    "5 ключевых элементов успешного лендинга для мероприятий" \n \n
-    Номер телефона: ${phoneNumber.value}`
+<i>"5 ключевых элементов успешного лендинга для мероприятий"</i> \n
+Имя: <b>${formData.contactPerson}</b> \n
+Номер телефона: <b>${formData.phone}</b>`
+
     await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
       method: 'POST',
       body: {
