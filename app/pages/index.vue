@@ -68,6 +68,7 @@ const openModalBriff = () => {
     </ULandingHero>
 
     <ULandingSection
+      id="portfolio"
       v-for="(section, index) in page.sections"
       :key="index"
       :title="section.title"
@@ -81,15 +82,6 @@ const openModalBriff = () => {
         :src-img="section.image.src"
         :alt-img="section.image.alt"
         class-name="object-contain"
-      />
-    </ULandingSection>
-
-    <ULandingSection>
-      <ULandingCTA
-        v-bind="page.ctaCostCalculation"
-        :card="true"
-        @click="openModalBriff"
-
       />
     </ULandingSection>
 
@@ -110,23 +102,13 @@ const openModalBriff = () => {
       </UPageGrid>
     </ULandingSection>
 
+    <ULandingSection>
+      <ULandingCTA
+        v-bind="page.ctaCostCalculation"
+        :card="true"
+        @click="openModalBriff"
 
-    <ULandingSection
-      :title="page.pricing.title"
-      :description="page.pricing.description"
-      :headline="page.pricing.headline"
-    >
-      <UPricingGrid
-        id="pricing"
-        compact
-        class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
-      >
-        <UPricingCard
-          v-for="(plan, index) in page.pricing.plans"
-          :key="index"
-          v-bind="plan"
-        />
-      </UPricingGrid>
+      />
     </ULandingSection>
 
     <ULandingSection
