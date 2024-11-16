@@ -75,8 +75,8 @@ export function useRulesForForm() {
   const RulesForFormName = () => {
     return {
       required: helpers.withMessage('Имя обязательно', required),
-      latinLetterPattern: helpers.withMessage('Имя должно содержать только латинские и кириллические буквы', helpers.regex(/^[A-Za-zА-Яа-я]+$/)),
-      minLength: helpers.withMessage('Поле должно быть не более 28 символов', maxLength(28))
+      latinLetterPattern: helpers.withMessage('Имя должно содержать только латинские и кириллические буквы', helpers.regex(/^[A-Za-zА-Яа-я\s]+$/)),
+      minLength: helpers.withMessage('Поле должно быть не более 28 символов', maxLength(50))
     }
   }
 

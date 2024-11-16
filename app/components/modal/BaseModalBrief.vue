@@ -3,45 +3,61 @@
     <template #body>
       <div v-if="!isSubmitted">
         <h2>Заполните бриф для создания лендинга</h2>
-        <UForm  :schema="schema" :state="formData" class="space-y-4" @submit="submitForm">
-          <UFormGroup label="Ваше имя:" name="name">
-            <UInput
-              v-model="formData.contactPerson"
-              :error="v$.contactPerson.$error"
-              :errors="v$.contactPerson.$errors"
-              :show-error="true"
-              @change="v$.contactPerson.$touch"
-            />
-            <p class="text-xs text-red-500" v-if="v$.contactPerson.$error">{{ v$.contactPerson.$errors[0].$message }}</p>
+        <UForm  :state="formData" class="space-y-4" @submit="submitForm">
+          <UFormGroup
+            label="Ваше имя:"
+            name="name"
+            :error="v$.contactPerson.$error"
+            :errors="v$.contactPerson.$errors"
+            :show-error="true"
+            @change="v$.contactPerson.$touch">
+            <template #default="{ error }">
+              <UInput
+                v-model="formData.contactPerson"
+                icon="i-heroicons-user"
+                :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
+              />
+              <p class="text-xs text-red-500 mt-2" v-if="v$.contactPerson.$error">{{ v$.contactPerson.$errors[0].$message }}</p>
+            </template>
+
           </UFormGroup>
-          <UFormGroup label="Телефон:" name="phone">
+          <UFormGroup
+            label="Телефон:"
+            name="phone"
+            :error="v$.phone.$error"
+            :errors="v$.phone.$errors"
+            :show-error="true"
+            @change="v$.phone.$touch"
+          >
+            <template #default="{ error }">
             <UInput
               v-model="formData.phone"
               v-phone-mask
-              :error="v$.phone.$error"
-              :errors="v$.phone.$errors"
-              :show-error="true"
-              @change="v$.phone.$touch"
+              icon="i-heroicons-phone"
+              :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
             />
-            <p class="text-xs text-red-500" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</p>
+              <p class="text-xs text-red-500  mt-2" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</p>
+            </template>
+
           </UFormGroup>
-          <UFormGroup label="Опишите основные цели лендинга:" name="goals">
+          <UFormGroup label="Опишите основные цели лендинга:" name="goals" class="relative">
             <UTextarea
+              textareaClass="pb-5"
               v-model="formData.goals"
               :error="v$.goals.$error"
               :errors="v$.goals.$errors"
               :show-error="true"
               @change="v$.goals.$touch"
             />
-            <p class="text-xs text-gray-500">Длина текста: {{ formData.goals.length }} символов</p>
-            <p class="text-xs text-red-500" v-if="v$.goals.$error">{{ v$.goals.$errors[0].$message }}</p>
+            <p class="text-xs text-gray-500 absolute bottom-2 right-2 p-0.5 bg-white dark:bg-gray-900" :class="{ 'text-red-500': v$.goals.$error }"> {{ formData.goals.length }} символов</p>
           </UFormGroup>
 
           <URadioGroup
             v-model="formData.budget"
             legend="Требуется ли создание контента для лендинга?"
             :options="optionsBudget"/>
-          <UButton type="submit">
+          <UButton type="submit"
+                   :disabled="v$.$invalid">
             Отправить
           </UButton>
         </UForm>
@@ -49,8 +65,11 @@
       <div class="presentation__thank presentation-thank" v-else>
         <div class="presentation-thank__text">
           <h3>Спасибо, что выбрали Elysium!</h3>
-          <p>Дорогой, {{formData.contactPerson}}. Ваш бриф успешно отправлен, и наша команда уже приступила к его изучению. В ближайшее время мы свяжемся с вами, чтобы предложить решения, идеально подходящие для вашего проекта. <br><br>
-            В знак благодарности мы подготовили для вас подарок – [например: чек-лист, скидку, полезное руководство]. Мы уверены, он станет отличным дополнением к нашему сотрудничеству!<br><br>
+          <p>Дорогой, {{ formData.contactPerson }}. Ваш бриф успешно отправлен, и наша команда уже приступила к его
+            изучению. В ближайшее время мы свяжемся с вами, чтобы предложить решения, идеально подходящие для вашего
+            проекта. <br><br>
+            В знак благодарности мы подготовили для вас подарок – [например: чек-лист, скидку, полезное руководство]. Мы
+            уверены, он станет отличным дополнением к нашему сотрудничеству!<br><br>
             Если у вас возникнут вопросы, наша команда всегда на связи. Спасибо за доверие!
             <br> <br>
             <p style="text-align: right">Основатель Elysium <br> Дмитрий Обора</p>
@@ -65,14 +84,15 @@
 </template>
 
 <script setup lang="ts">
-import { useVuelidate } from '@vuelidate/core';
+import {useVuelidate} from '@vuelidate/core';
 import DefaultModal from '~/components/modal/DefaultModal.vue'
 import {useFetch} from "#app";
 import {ref} from "vue";
 
 const emit = defineEmits(['closeModal'])
-const { RulesForFormName, RulesForFormPhone, RulesForFormGoals } = useRulesForForm();
+const {RulesForFormName, RulesForFormPhone, RulesForFormGoals} = useRulesForForm();
 const toast = useToast()
+
 interface FormData {
   contactPerson: string;
   phone: string;
@@ -116,12 +136,12 @@ const submitForm = async () => {
   v$.value.$validate();
   if (!v$.value.$error) {
     try {
-      formData.phone = formData.phone.replace(/\s+/g, '')
+      const phone = formData.phone.replace(/\s+/g, '');
       const message = `ОПА БРИФ ПОЛУЧИЛИ \n
 Имя: <b>${formData.contactPerson}</b>\n
-Телефон: <b>${formData.phone}</b>\n
-Цели и задачи лендинга: ${formData.goals}\n
-Бюджет: <b>${formData.budget}т. руб.</b>`
+Телефон: <b>${phone}</b>\n
+Цели и задачи лендинга: ${formData.goals ? formData.goals : 'Не указаны'}\n
+Бюджет: <b>${formData.budget ? formData.budget + 'т. руб.' : 'Не указан'}</b>`
 
       await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
         method: 'POST',
@@ -135,11 +155,10 @@ const submitForm = async () => {
         isSubmitted.value = true
       }).catch((error) => {
         console.error('Error sending message to Telegram1:', error)
-        toast.add({ title: 'В пункте "Цели и задачи лендинга" слишком много в символов' })
+        toast.add({title: 'В пункте "Цели и задачи лендинга" слишком много в символов'})
       })
-    }
-    catch (error) {
-      toast.add({ title: 'В пункте "Цели и задачи лендинга" слишком много в символов' })
+    } catch (error) {
+      toast.add({title: 'В пункте "Цели и задачи лендинга" слишком много в символов'})
     }
   }
 }
