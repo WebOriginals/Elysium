@@ -7,27 +7,42 @@
           Оставьте свои данные, чтобы скачать бесплатную презентацию и применить проверенные методы уже сегодня.</p>
         <div class="presentation__grid">
           <form @submit.prevent="submitForm" class="presentation__form">
-            <UFormGroup label="Ваше имя:" name="name">
-              <UInput
-                v-model="formData.contactPerson"
-                color="blue"
-                variant="outline"
-                size="lg"
-                placeholder="Артем"
-                required
-              />
+            <UFormGroup
+              label="Ваше имя:"
+              name="name"
+              :error="v$.contactPerson.$error"
+              :errors="v$.contactPerson.$errors"
+              :show-error="true"
+              @change="v$.contactPerson.$touch">
+              <template #default="{ error }">
+                <UInput
+                  v-model="formData.contactPerson"
+                  icon="i-heroicons-user"
+                  :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
+                />
+                <p class="text-xs text-red-500 mt-2" v-if="v$.contactPerson.$error">
+                  {{ v$.contactPerson.$errors[0].$message }}</p>
+              </template>
+
             </UFormGroup>
-            <UFormGroup label="Телефон:" name="phone">
-              <UInput
-                v-phone-mask
-                v-model="formData.phone"
-                id="phone"
-                color="blue"
-                variant="outline"
-                size="lg"
-                placeholder="+7 (999) 99 99 999"
-                required
-              />
+            <UFormGroup
+              label="Телефон:"
+              name="phone"
+              :error="v$.phone.$error"
+              :errors="v$.phone.$errors"
+              :show-error="true"
+              @change="v$.phone.$touch"
+            >
+              <template #default="{ error }">
+                <UInput
+                  v-model="formData.phone"
+                  v-phone-mask
+                  icon="i-heroicons-phone"
+                  :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
+                />
+                <p class="text-xs text-red-500  mt-2" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</p>
+              </template>
+
             </UFormGroup>
 
             <UButton
@@ -35,6 +50,7 @@
               class="submit-button"
               size="xl"
               color="blue"
+              :disabled="v$.$invalid"
               block
             >
               Получить подарок
@@ -51,15 +67,17 @@
           <h3>Спасибо, что выбрали Elysium!</h3>
           <p>Ваша презентация уже отправлена, и совсем скоро вы сможете познакомиться с ключевыми элементами создания
             успешного лендинга. Мы благодарны за ваше доверие и рады поделиться с вами лучшими практиками, которые
-            помогут вывести ваш проект на новый уровень. <br> <br> Если у вас появятся вопросы или понадобится дополнительная
-            помощь — наша команда всегда на связи и готова поддержать вас на каждом этапе. <br> <br> У нас есть еще интересные статьи , можете с ними ознакомиться на
-          <UButton
-            label="Дзен"
-            to="https://dzen.ru/id/66f503af06ec2b139e271289"
-            color="blue"
-            variant="link"
-            size="md"
-            target="_blank"
+            помогут вывести ваш проект на новый уровень. <br> <br> Если у вас появятся вопросы или понадобится
+            дополнительная
+            помощь — наша команда всегда на связи и готова поддержать вас на каждом этапе. <br> <br> У нас есть еще
+            интересные статьи , можете с ними ознакомиться на
+            <UButton
+              label="Дзен"
+              to="https://dzen.ru/id/66f503af06ec2b139e271289"
+              color="blue"
+              variant="link"
+              size="md"
+              target="_blank"
             />
             <br> <br>
             <p style="text-align: right">Основатель Elysium <br> Дмитрий Обора</p>
@@ -74,52 +92,56 @@
 </template>
 
 <script setup lang="ts">
+import {useVuelidate} from '@vuelidate/core';
 import DefaultModal from '~/components/modal/DefaultModal.vue';
 import {ref} from 'vue'
 import {useFetch} from '#app'
 
 const emit = defineEmits(['closeModal']);
-
-const props = defineProps({
-  title: {
-    type: String,
-    default: ''
-  }
-})
+const {RulesForFormName, RulesForFormPhone} = useRulesForForm();
 
 interface FormData {
-  contactPerson: string;
-  phone: string;
+  contactPerson: string
+  phone: string
 }
+
+const rules = computed(() => {
+  return {
+    contactPerson: RulesForFormName(),
+    phone: RulesForFormPhone()
+  }
+})
 
 const formData = reactive<FormData>({
   contactPerson: "",
   phone: "",
 })
-
-
+const v$ = useVuelidate(rules, formData);
 const isSubmitted = ref(false)
 
 const submitForm = async () => {
-  try {
-    formData.phone = formData.phone.replace(/\s+/g, '')
-    const message = `ОПА СКАЧАЛИ ПРЕЗЕНТАЦИЮ \n
+  v$.value.$validate();
+  if (!v$.value.$error) {
+    try {
+      const phone = formData.phone.replace(/\s+/g, '')
+      const message = `ОПА СКАЧАЛИ ПРЕЗЕНТАЦИЮ \n
 <i>"5 ключевых элементов успешного лендинга для мероприятий"</i> \n
 Имя: <b>${formData.contactPerson}</b> \n
-Номер телефона: <b>${formData.phone}</b>`
+Номер телефона: <b>${phone}</b>`
 
-    await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
-      method: 'POST',
-      body: {
-        chat_id: '931622387',
-        text: message,
-        parse_mode: 'HTML'
-      }
-    })
-    isSubmitted.value = true
-   setTimeout(() => downloadFile(), 10000)
-  } catch (error) {
-    console.error('Error sending message to Telegram:', error)
+      await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
+        method: 'POST',
+        body: {
+          chat_id: '931622387',
+          text: message,
+          parse_mode: 'HTML'
+        }
+      })
+      isSubmitted.value = true
+      setTimeout(() => downloadFile(), 10000)
+    } catch (error) {
+      console.error('Error sending message to Telegram:', error)
+    }
   }
 }
 
@@ -154,6 +176,10 @@ const closeModal = (value) => {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__form {
@@ -167,7 +193,7 @@ const closeModal = (value) => {
     }
 
     .submit-button {
-
+      margin-top: 16px;
     }
   }
 
@@ -203,7 +229,7 @@ const closeModal = (value) => {
       font-size: 16px;
     }
 
-    &__image{
+    &__image {
       display: none;
       @media (min-width: 768px) {
         display: block;

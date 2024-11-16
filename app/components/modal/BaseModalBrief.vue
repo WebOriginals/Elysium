@@ -1,66 +1,74 @@
 <template>
   <DefaultModal :model-value="true" :title="title" size="l" @update:model-value="(v) => closeModal(v)">
     <template #body>
-      <div v-if="!isSubmitted">
-        <h2>Заполните бриф для создания лендинга</h2>
-        <UForm  :state="formData" class="space-y-4" @submit="submitForm">
-          <UFormGroup
-            label="Ваше имя:"
-            name="name"
-            :error="v$.contactPerson.$error"
-            :errors="v$.contactPerson.$errors"
-            :show-error="true"
-            @change="v$.contactPerson.$touch">
-            <template #default="{ error }">
-              <UInput
-                v-model="formData.contactPerson"
-                icon="i-heroicons-user"
-                :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
-              />
-              <p class="text-xs text-red-500 mt-2" v-if="v$.contactPerson.$error">{{ v$.contactPerson.$errors[0].$message }}</p>
-            </template>
-
-          </UFormGroup>
-          <UFormGroup
-            label="Телефон:"
-            name="phone"
-            :error="v$.phone.$error"
-            :errors="v$.phone.$errors"
-            :show-error="true"
-            @change="v$.phone.$touch"
-          >
-            <template #default="{ error }">
-            <UInput
-              v-model="formData.phone"
-              v-phone-mask
-              icon="i-heroicons-phone"
-              :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
-            />
-              <p class="text-xs text-red-500  mt-2" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</p>
-            </template>
-
-          </UFormGroup>
-          <UFormGroup label="Опишите основные цели лендинга:" name="goals" class="relative">
-            <UTextarea
-              textareaClass="pb-5"
-              v-model="formData.goals"
-              :error="v$.goals.$error"
-              :errors="v$.goals.$errors"
+      <div class="presentation" v-if="!isSubmitted">
+        <h2 class="presentation__title">Заполните бриф для создания лендинга</h2>
+        <p class="presentation__subTitle">Расскажите нам о своём проекте, чтобы мы могли создать лендинг, идеально отражающий ваши цели и ценности!</p>
+        <div class="presentation__grid">
+          <UForm :state="formData" class="space-y-4" @submit="submitForm">
+            <UFormGroup
+              label="Ваше имя:"
+              name="name"
+              :error="v$.contactPerson.$error"
+              :errors="v$.contactPerson.$errors"
               :show-error="true"
-              @change="v$.goals.$touch"
-            />
-            <p class="text-xs text-gray-500 absolute bottom-2 right-2 p-0.5 bg-white dark:bg-gray-900" :class="{ 'text-red-500': v$.goals.$error }"> {{ formData.goals.length }} символов</p>
-          </UFormGroup>
+              @change="v$.contactPerson.$touch">
+              <template #default="{ error }">
+                <UInput
+                  v-model="formData.contactPerson"
+                  icon="i-heroicons-user"
+                  :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
+                />
+                <p class="text-xs text-red-500 mt-2" v-if="v$.contactPerson.$error">
+                  {{ v$.contactPerson.$errors[0].$message }}</p>
+              </template>
 
-          <URadioGroup
-            v-model="formData.budget"
-            legend="Требуется ли создание контента для лендинга?"
-            :options="optionsBudget"/>
-          <UButton type="submit"
-                   :disabled="v$.$invalid">
-            Отправить
-          </UButton>
-        </UForm>
+            </UFormGroup>
+            <UFormGroup
+              label="Телефон:"
+              name="phone"
+              :error="v$.phone.$error"
+              :errors="v$.phone.$errors"
+              :show-error="true"
+              @change="v$.phone.$touch"
+            >
+              <template #default="{ error }">
+                <UInput
+                  v-model="formData.phone"
+                  v-phone-mask
+                  icon="i-heroicons-phone"
+                  :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
+                />
+                <p class="text-xs text-red-500  mt-2" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</p>
+              </template>
+
+            </UFormGroup>
+            <UFormGroup label="Опишите основные цели лендинга:" name="goals" class="relative">
+              <UTextarea
+                textareaClass="pb-5"
+                v-model="formData.goals"
+                :error="v$.goals.$error"
+                :errors="v$.goals.$errors"
+                :show-error="true"
+                @change="v$.goals.$touch"
+              />
+              <p class="text-xs text-gray-500 absolute bottom-2 right-2 p-0.5 bg-white dark:bg-gray-900"
+                 :class="{ 'text-red-500': v$.goals.$error }"> {{ formData.goals.length }} символов</p>
+            </UFormGroup>
+
+            <URadioGroup
+              v-model="formData.budget"
+              legend="Требуется ли создание контента для лендинга?"
+              :options="optionsBudget"/>
+            <UButton type="submit"
+                     :disabled="v$.$invalid">
+              Отправить
+            </UButton>
+          </UForm>
+          <div class="presentation__image">
+            <img src="/gift.png" alt="Подарок"/>
+          </div>
+        </div>
       </div>
       <div class="presentation__thank presentation-thank" v-else>
         <div class="presentation-thank__text">
@@ -151,7 +159,6 @@ const submitForm = async () => {
           parse_mode: 'HTML'
         }
       }).then(() => {
-        console.log('Success')
         isSubmitted.value = true
       }).catch((error) => {
         console.error('Error sending message to Telegram1:', error)
@@ -181,6 +188,10 @@ const submitForm = async () => {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__form {
