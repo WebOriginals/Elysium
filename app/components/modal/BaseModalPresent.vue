@@ -147,8 +147,8 @@ const submitForm = async () => {
 
 const downloadFile = () => {
   const link = document.createElement('a')
-  link.href = 'doc/gift.pdf'
-  link.download = 'gift.pdf'
+  link.href = 'doc/5-klyuchevyh-elementov-uspeshnogo-lendinga.pdf'
+  link.download = '5-klyuchevyh-elementov-uspeshnogo-lendinga.pdf'
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
