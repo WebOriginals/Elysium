@@ -5,9 +5,8 @@
         <h2 class="presentation__title">Заполните бриф для создания лендинга</h2>
         <p class="presentation__subTitle">Расскажите нам о своём проекте, чтобы мы могли создать лендинг, идеально отражающий ваши цели и ценности!</p>
         <div class="presentation__grid">
-          <UForm :state="formData" class="space-y-4" @submit="submitForm">
+          <UForm :state="formData" class="presentation__form" @submit="submitForm">
             <UFormGroup
-              label="Ваше имя:"
               name="name"
               :error="v$.contactPerson.$error"
               :errors="v$.contactPerson.$errors"
@@ -15,6 +14,7 @@
               @change="v$.contactPerson.$touch">
               <template #default="{ error }">
                 <UInput
+                  placeholder="Иван Иванов"
                   v-model="formData.contactPerson"
                   icon="i-heroicons-user"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
@@ -25,7 +25,6 @@
 
             </UFormGroup>
             <UFormGroup
-              label="Телефон:"
               name="phone"
               :error="v$.phone.$error"
               :errors="v$.phone.$errors"
@@ -36,6 +35,7 @@
                 <UInput
                   v-model="formData.phone"
                   v-phone-mask
+                  placeholder="+7(999) 99-99-999"
                   icon="i-heroicons-phone"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
                 />
@@ -43,10 +43,13 @@
               </template>
 
             </UFormGroup>
-            <UFormGroup label="Опишите основные цели лендинга:" name="goals" class="relative">
+            <UFormGroup name="goals" class="relative">
               <UTextarea
+                placeholder="Опишите основные цели лендинга"
                 textareaClass="pb-5"
                 v-model="formData.goals"
+                autoresize
+                :maxrows="6"
                 :error="v$.goals.$error"
                 :errors="v$.goals.$errors"
                 :show-error="true"
@@ -58,15 +61,17 @@
 
             <URadioGroup
               v-model="formData.budget"
-              legend="Требуется ли создание контента для лендинга?"
+              legend="Предполагаемый бюджет"
               :options="optionsBudget"/>
             <UButton type="submit"
+                     class="mt-8"
+                     block
                      :disabled="v$.$invalid">
               Отправить
             </UButton>
           </UForm>
           <div class="presentation__image">
-            <img src="/gift.png" alt="Подарок"/>
+            <img src="/brief.jpg" alt="бриф"/>
           </div>
         </div>
       </div>
@@ -76,7 +81,7 @@
           <p>Дорогой, {{ formData.contactPerson }}. Ваш бриф успешно отправлен, и наша команда уже приступила к его
             изучению. В ближайшее время мы свяжемся с вами, чтобы предложить решения, идеально подходящие для вашего
             проекта. <br><br>
-            В знак благодарности мы подготовили для вас подарок – [например: чек-лист, скидку, полезное руководство]. Мы
+            В знак благодарности мы отправили для вас подарок –  Инсайдерский чек-лист для успешного запуска лендинга . Мы
             уверены, он станет отличным дополнением к нашему сотрудничеству!<br><br>
             Если у вас возникнут вопросы, наша команда всегда на связи. Спасибо за доверие!
             <br> <br>
@@ -158,16 +163,22 @@ const submitForm = async () => {
           text: message,
           parse_mode: 'HTML'
         }
-      }).then(() => {
-        isSubmitted.value = true
-      }).catch((error) => {
-        console.error('Error sending message to Telegram1:', error)
-        toast.add({title: 'В пункте "Цели и задачи лендинга" слишком много в символов'})
       })
+      isSubmitted.value = true
+      setTimeout(() => downloadFile(), 10000)
     } catch (error) {
       toast.add({title: 'В пункте "Цели и задачи лендинга" слишком много в символов'})
     }
   }
+}
+
+const downloadFile = () => {
+  const link = document.createElement('a')
+  link.href = 'doc/Chek-list-dlya-uspeshnogo-zapuska-lendinga.pdf'
+  link.download = 'Chek-list-dlya-uspeshnogo-zapuska-lendinga.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 </script>
 
@@ -186,7 +197,7 @@ const submitForm = async () => {
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 20px;
 
     @media (max-width: 768px) {

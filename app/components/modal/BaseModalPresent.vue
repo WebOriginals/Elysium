@@ -17,6 +17,7 @@
               <template #default="{ error }">
                 <UInput
                   v-model="formData.contactPerson"
+                  placeholder="Иван Иванов"
                   icon="i-heroicons-user"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
                 />
@@ -37,6 +38,7 @@
                 <UInput
                   v-model="formData.phone"
                   v-phone-mask
+                  placeholder="+7(999) 99-99-999"
                   icon="i-heroicons-phone"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
                 />
