@@ -197,7 +197,8 @@ sections:
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
-        click: openModal
+        click: openModalGiftSuccessfulLanding
+
 
   - title: V мебельный центр
     description:
@@ -228,6 +229,7 @@ sections:
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
+        click: openModalGiftSuccessfulLanding
 
   - title: IT компания KeepCode
     description:
@@ -259,6 +261,7 @@ sections:
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
+        click: openModalGiftSuccessfulLanding
 
   - title: SMSHUB
     description:
@@ -289,6 +292,8 @@ sections:
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
+        click: openModalGiftSuccessfulLanding
+
 ctaGiftSuccessfulLanding:
   title: Получи подарок от Elysium
   description: 5 ключевых элементов успешного лендинга для мероприятий
@@ -306,7 +311,7 @@ ctaCostCalculation:
       size: xl
       color: blue
       icon: i-heroicons-briefcase
-      click: openModalBrif
+      click: openModalBriff
 faq:
   title: Часто задаваемые вопросы
   description: Ответы на часто задаваемые вопросы всё, что нужно знать о создании и запуске лендинга для вашего бизнеса.

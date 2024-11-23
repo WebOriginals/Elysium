@@ -37,6 +37,10 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
     document.querySelector('#faq')
   ])
 })
+
+const makeCall = () => {
+  window.location.href = 'tel:+79885242737'
+}
 </script>
 
 <template>
@@ -49,12 +53,12 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
       <UColorModeButton size="sm"/>
 
       <UButton
-        label="Заказать звонок"
+        label="Позвонить"
         color="white"
         variant="soft"
         trailing-icon="i-heroicons-device-phone-mobile"
         class="hidden lg:flex"
-        href="tel.:+79885242737"
+        @click="makeCall"
       />
     </template>
 
@@ -64,15 +68,11 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
       <UDivider class="my-6"/>
       <UColorModeButton size="sm"/>
       <UButton
-        label="Заказать звонок"
+        label="Позвонить"
         color="white"
         block
         class="mb-3"
-        href="tel:+79885242737"
-      />
-      <UButton
-        label="Get started"
-        block
+        @click="makeCall"
       />
     </template>
   </UHeader>

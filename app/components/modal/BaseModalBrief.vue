@@ -16,7 +16,6 @@
                 <UInput
                   placeholder="Иван Иванов"
                   v-model="formData.contactPerson"
-                  icon="i-heroicons-user"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
                 />
                 <p class="text-xs text-red-500 mt-2" v-if="v$.contactPerson.$error">
@@ -36,7 +35,6 @@
                   v-model="formData.phone"
                   v-phone-mask
                   placeholder="+7(999) 99-99-999"
-                  icon="i-heroicons-phone"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
                 />
                 <p class="text-xs text-red-500  mt-2" v-if="v$.phone.$error">{{ v$.phone.$errors[0].$message }}</p>

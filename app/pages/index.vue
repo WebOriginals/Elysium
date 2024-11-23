@@ -28,6 +28,14 @@ const openModalGiftSuccessfulLanding = () => {
 const openModalBriff = () => {
   showModalBriff.value = !showModalBriff.value
 }
+
+const handleClick = (clickAction: string) => {
+  if (clickAction === 'openModalGiftSuccessfulLanding') {
+    openModalGiftSuccessfulLanding()
+  } else if (clickAction === 'openModalBriff') {
+    openModalBriff()
+  }
+}
 </script>
 
 <template>
@@ -75,14 +83,21 @@ const openModalBriff = () => {
       :description="section.description"
       :align="section.align"
       :features="section.features"
-      :links="section.links"
-      @click="openModalGiftSuccessfulLanding"
     >
       <PortfolioImg
         :src-img="section.image.src"
         :alt-img="section.image.alt"
         class-name="object-contain"
       />
+
+      <template v-slot:links>
+        <UButton
+          v-for="(link, linkIndex) in section.links"
+          :key="linkIndex"
+          v-bind="link"
+          @click="link.label === 'Получить презентацию' && handleClick(link.click)"
+        />
+      </template>
     </ULandingSection>
 
     <ULandingSection
@@ -106,9 +121,16 @@ const openModalBriff = () => {
       <ULandingCTA
         v-bind="page.ctaCostCalculation"
         :card="true"
-        @click="openModalBriff"
-
-      />
+      >
+        <template v-slot:links>
+          <UButton
+            v-for="(link, linkIndex) in page.ctaCostCalculation.links"
+            :key="linkIndex"
+            v-bind="link"
+            @click="link.label === 'Заполнить бриф' && handleClick(link.click)"
+          />
+        </template>
+      </ULandingCTA>
     </ULandingSection>
 
     <ULandingSection
@@ -134,8 +156,17 @@ const openModalBriff = () => {
       <ULandingCTA
         v-bind="page.ctaGiftSuccessfulLanding"
         :card="false"
-        @click="openModalGiftSuccessfulLanding"
-      />
+      >
+        <template v-slot:links>
+          <UButton
+            v-for="(link, linkIndex) in page.ctaGiftSuccessfulLanding.links"
+            :key="linkIndex"
+            v-bind="link"
+            @click="link.label === 'Получить презентацию' && handleClick(link.click)"
+          />
+        </template>
+
+      </ULandingCTA>
     </ULandingSection>
 
     <ULandingSection
