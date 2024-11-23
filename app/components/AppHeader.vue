@@ -66,7 +66,7 @@ const makeCall = () => {
       <UAsideLinks :links="links"/>
 
       <UDivider class="my-6"/>
-      <UColorModeButton size="sm"/>
+
       <UButton
         label="Позвонить"
         color="white"

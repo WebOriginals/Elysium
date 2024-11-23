@@ -61,6 +61,10 @@
               v-model="formData.budget"
               legend="Предполагаемый бюджет"
               :options="optionsBudget"/>
+            <URadioGroup
+              v-model="formData.date"
+              legend="Когда нужен сайт?"
+              :options="optionsDate"/>
             <UButton type="submit"
                      class="mt-8"
                      block
@@ -109,6 +113,7 @@ interface FormData {
   phone: string;
   goals: string;
   budget: string;
+  date: string;
 }
 
 const optionsBudget = [
@@ -121,12 +126,27 @@ const optionsBudget = [
     label: '150-300 тыс. руб.'
   }
 ]
+const optionsDate = [
+  {
+    value: '0',
+    label: 'Сегодня'
+  },
+  {
+    value: '1',
+    label: 'Через месяц'
+  },
+  {
+    value: '2',
+    label: 'через два месяца'
+  }
+]
 const isSubmitted = ref(false)
 const formData = reactive<FormData>({
   contactPerson: "",
   phone: "",
   goals: "",
-  budget: ""
+  budget: "",
+  date: ""
 })
 
 const rules = computed(() => {
@@ -152,7 +172,8 @@ const submitForm = async () => {
 Имя: <b>${formData.contactPerson}</b>\n
 Телефон: <b>${phone}</b>\n
 Цели и задачи лендинга: ${formData.goals ? formData.goals : 'Не указаны'}\n
-Бюджет: <b>${formData.budget ? formData.budget + 'т. руб.' : 'Не указан'}</b>`
+Бюджет: <b>${formData.budget ? formData.budget + 'т. руб.' : 'Не указан'}</b>\n
+Когда нужен сайт: <b>${formData.date ? optionsDate.find(item => item.value === formData.date).label : 'Не указан'}</b>`;
 
       await useFetch(`https://api.telegram.org/bot8174832694:AAGpV2VFAVww_FIEeDva4w-SKdXFUoEDAMQ/sendMessage`, {
         method: 'POST',
