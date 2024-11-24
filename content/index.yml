@@ -296,6 +296,9 @@ sections:
 ctaGiftSuccessfulLanding:
   title: Получи подарок от Elysium
   description: 5 ключевых элементов успешного лендинга для мероприятий
+  image:
+    src: gift.png
+    alt: gift
   links:
     - label: Получить подарок
       size: xl
@@ -305,6 +308,8 @@ ctaGiftSuccessfulLanding:
 ctaCostCalculation:
   title: Запросить расчет
   description: Заполните бриф и получите расчет стоимости разработки лендинга для вашего мероприятия.
+  image:
+    src: brief0.png
   links:
     - label: Заполнить бриф
       size: xl

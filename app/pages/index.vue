@@ -124,6 +124,7 @@ const handleClick = (clickAction: string) => {
       <ULandingCTA
         v-bind="page.ctaCostCalculation"
         :card="true"
+        align="right"
       >
         <template v-slot:links>
           <UButton
@@ -133,6 +134,11 @@ const handleClick = (clickAction: string) => {
             @click="link.label === 'Заполнить бриф' && handleClick(link.click)"
           />
         </template>
+
+        <img
+          :src="page.ctaCostCalculation.image.src"
+          class="w-full"
+        />
       </ULandingCTA>
     </ULandingSection>
 
@@ -159,6 +165,7 @@ const handleClick = (clickAction: string) => {
       <ULandingCTA
         v-bind="page.ctaGiftSuccessfulLanding"
         :card="false"
+        align="left"
       >
         <template v-slot:links>
           <UButton
@@ -169,7 +176,13 @@ const handleClick = (clickAction: string) => {
           />
         </template>
 
+        <img
+          :src="page.ctaGiftSuccessfulLanding.image.src"
+          class="w-full"
+        />
+
       </ULandingCTA>
+
     </ULandingSection>
 
     <ULandingSection

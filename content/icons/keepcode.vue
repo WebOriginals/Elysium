@@ -15,14 +15,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const colorMode = useColorMode() // Adjust the import according to your project structure
+const fillColor = ref('')
 
-const fillColor = computed(() => {
-  return colorMode.value === 'dark' ? 'white' : 'black'
+const calculateFillColor = () => {
+  fillColor.value = colorMode.value === 'dark' ? 'white' : 'black'
+}
+const calculateFillColorInverse = () => {
+  fillColor.value = colorMode.value === 'dark' ? 'black' : 'white'
+}
+
+onMounted(() => {
+  calculateFillColor()
+  calculateFillColorInverse()
 })
-const fillColorInver = computed(() => {
-  return colorMode.value === 'dark' ? 'black' : 'white'
-})
+
 </script>
