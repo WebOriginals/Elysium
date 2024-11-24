@@ -83,6 +83,9 @@ const handleClick = (clickAction: string) => {
       :description="section.description"
       :align="section.align"
       :features="section.features"
+      :ui="{
+        links: 'flex justify-start space-x-2 -ml-8',
+      }"
     >
       <PortfolioImg
         :src-img="section.image.src"

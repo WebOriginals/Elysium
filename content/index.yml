@@ -196,7 +196,7 @@ sections:
       - label: Получить подарок
         size: xl
         color: blue
-        icon: i-heroicons-presentation-chart-line
+
         click: openModalGiftSuccessfulLanding
 
   - title: V мебельный центр
@@ -227,7 +227,7 @@ sections:
       - label: Получить подарок
         size: xl
         color: blue
-        icon: i-heroicons-presentation-chart-line
+
         click: openModalGiftSuccessfulLanding
 
   - title: IT компания KeepCode
@@ -259,7 +259,7 @@ sections:
       - label: Получить подарок
         size: xl
         color: blue
-        icon: i-heroicons-presentation-chart-line
+
         click: openModalGiftSuccessfulLanding
 
   - title: SMSHUB
@@ -290,7 +290,7 @@ sections:
       - label: Получить подарок
         size: xl
         color: blue
-        icon: i-heroicons-presentation-chart-line
+
         click: openModalGiftSuccessfulLanding
 
 ctaGiftSuccessfulLanding:
