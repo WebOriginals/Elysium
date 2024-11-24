@@ -45,13 +45,13 @@ features:
   items:
     - title: Только уникальные решения
       description: Персонализированный дизайн, программирование и адаптация под аудиторию.
-      icon: i-heroicons-cog
+      icon: i-heroicons-sparkles
     - title: Понимание целевой аудитории
       description: Создание контента, интересного и понятного аудитории мероприятия.
-      icon: i-heroicons-check
+      icon: i-heroicons-users
     - title: Интерактивные элементы
       description: Анимации, всплывающие окна и чаты для вовлечения пользователей.
-      icon: i-heroicons-lock-closed
+      icon: i-heroicons-cog
     - title: Сроки реализации
       description: Способность уложиться в сжатые сроки до даты проведения мероприятия.
       icon: i-heroicons-rocket-launch
@@ -177,13 +177,13 @@ sections:
     features:
       - name: Цель проекта
         description: Разработка современного лендинга для учебного центра “British Academic Centre” с целью улучшения пользовательского опыта и увеличения конверсии записей на курсы.
-        icon: i-heroicons-cog
+        icon: i-heroicons-check
       - name: Процесс разработки
         description: Команда Elysium провела анализ целевой аудитории и конкурентов, разработала прототип и реализовала адаптивный лендинг с использованием HTML5, CSS3 и JavaScript, обеспечив высокую производительность и удобство использования.
-        icon: i-heroicons-check
+        icon: i-heroicons-cog
       - name: Результаты
         description: Готовый лендинг успешно увеличил количество заявок через форму обратной связи и стал универсальным решением для мобильных и десктопных устройств, соответствующим целям учебного центра.
-        icon: i-heroicons-lock-closed
+        icon: i-heroicons-chart-bar
     links:
       - label: Смотреть проект
         to: https://weboriginals.github.io/BAC/
@@ -193,12 +193,11 @@ sections:
         size: md
         class: ml-8
         target: _blank
-      - label: Получить презентацию
+      - label: Получить подарок
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
         click: openModalGiftSuccessfulLanding
-
 
   - title: V мебельный центр
     description:
@@ -212,7 +211,7 @@ sections:
         icon: i-heroicons-rocket-launch
       - name: Процесс разработки
         description: Команда Elysium проанализировала рынок и ожидания клиентов, разработала прототип лендинга и реализовала его с акцентом на стильный дизайн и удобство навигации. Использовались современные технологии для адаптивного дизайна и плавного взаимодействия с пользователем.
-        icon: i-heroicons-currency-dollar
+        icon: i-heroicons-command-line
       - name: Результаты
         description: Созданный лендинг помог повысить вовлечённость клиентов, увеличив количество заявок на услуги компании. Лендинг адаптирован под мобильные устройства, что значительно расширило аудиторию и улучшило клиентский опыт.
         icon: i-heroicons-chart-bar
@@ -225,7 +224,7 @@ sections:
         size: md
         class: ml-8
         target: _blank
-      - label: Получить презентацию
+      - label: Получить подарок
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
@@ -241,13 +240,13 @@ sections:
     features:
       - name: Цель проекта
         description: Создать презентационный лендинг для IT-компании KeepCode, который эффективно представляет компанию, её ценности, услуги и достижения, а также формирует профессиональный и современный имидж бренда.
-        icon: i-heroicons-cog
+        icon: i-heroicons-check
       - name: Процесс разработки
         description: Команда Elysium провела исследование бренда KeepCode и ожиданий целевой аудитории. На основе этих данных был создан прототип с акцентом на минималистичный и технологичный дизайн. Лендинг был разработан с использованием современных веб-технологий для обеспечения высокой производительности и интерактивного пользовательского опыта.
-        icon: i-heroicons-check
+        icon: i-heroicons-cog
       - name: Результаты
         description: Презентационный лендинг успешно подчеркнул уникальность компании KeepCode и улучшил восприятие бренда на рынке. Он привлёк больше клиентов и партнёров, демонстрируя компетенции и профессионализм компании на различных устройствах благодаря адаптивному дизайну.
-        icon: i-heroicons-lock-closed
+        icon: i-heroicons-banknotes
     links:
       - label: Смотреть проект
         to: https://keepcode.org
@@ -257,7 +256,7 @@ sections:
         size: md
         class: ml-8
         target: _blank
-      - label: Получить презентацию
+      - label: Получить подарок
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
@@ -288,7 +287,7 @@ sections:
         size: md
         class: ml-8
         target: _blank
-      - label: Получить презентацию
+      - label: Получить подарок
         size: xl
         color: blue
         icon: i-heroicons-presentation-chart-line
@@ -298,7 +297,7 @@ ctaGiftSuccessfulLanding:
   title: Получи подарок от Elysium
   description: 5 ключевых элементов успешного лендинга для мероприятий
   links:
-    - label: Получить презентацию
+    - label: Получить подарок
       size: xl
       color: blue
       icon: i-heroicons-gift
