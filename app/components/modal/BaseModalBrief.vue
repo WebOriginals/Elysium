@@ -137,7 +137,7 @@ const optionsDate = [
   },
   {
     value: '2',
-    label: 'через два месяца'
+    label: 'Через два месяца'
   }
 ]
 const isSubmitted = ref(false)
