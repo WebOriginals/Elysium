@@ -55,4 +55,8 @@ const calculateFillColor = () => {
 onMounted(() => {
   calculateFillColor()
 })
+
+watch(() => colorMode.value, () => {
+  calculateFillColor()
+})
 </script>

@@ -21,13 +21,12 @@ const fillColor = ref('')
 const calculateFillColor = () => {
   fillColor.value = colorMode.value === 'dark' ? 'white' : 'black'
 }
-const calculateFillColorInverse = () => {
-  fillColor.value = colorMode.value === 'dark' ? 'black' : 'white'
-}
 
 onMounted(() => {
   calculateFillColor()
-  calculateFillColorInverse()
 })
 
+watch(() => colorMode.value, () => {
+  calculateFillColor()
+})
 </script>
