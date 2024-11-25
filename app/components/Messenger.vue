@@ -46,7 +46,7 @@ const openTelegram = () => {
 }
 
 const openVK = () => {
-  window.open('https://vk.com/im?sel=dimaobora', '_blank')
+  window.open('https://vk.me/dimaobora', '_blank')
 }
 
 const openWhatsApp = () => {
