@@ -5,7 +5,10 @@
         <h2 class="presentation__title">Заполните бриф для создания лендинга</h2>
         <p class="presentation__subTitle">Расскажите нам о своём проекте, чтобы мы могли создать лендинг, идеально отражающий ваши цели и ценности!</p>
         <div class="presentation__grid">
-          <UForm :state="formData" class="presentation__form" @submit="submitForm">
+          <UForm
+            :state="formData"
+            class="presentation__form"
+            @submit="submitForm">
             <UFormGroup
               name="name"
               :error="v$.contactPerson.$error"
@@ -14,6 +17,7 @@
               @change="v$.contactPerson.$touch">
               <template #default="{ error }">
                 <UInput
+                  size="xl"
                   placeholder="Иван Иванов"
                   v-model="formData.contactPerson"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
@@ -32,6 +36,7 @@
             >
               <template #default="{ error }">
                 <UInput
+                  size="xl"
                   v-model="formData.phone"
                   v-phone-mask
                   placeholder="+7(999) 99-99-999"
@@ -57,14 +62,34 @@
                  :class="{ 'text-red-500': v$.goals.$error }"> {{ formData.goals.length }} символов</p>
             </UFormGroup>
 
-            <URadioGroup
-              v-model="formData.budget"
-              legend="Предполагаемый бюджет"
-              :options="optionsBudget"/>
-            <URadioGroup
-              v-model="formData.date"
-              legend="Когда нужен сайт?"
-              :options="optionsDate"/>
+
+            <div class="grid gap-2 grid-cols-2">
+              <URadioGroup
+                v-model="formData.budget"
+                legend="Предполагаемый бюджет"
+                :options="optionsBudget"
+                :ui="{
+                wrapper: 'relative flex items-start',
+                fieldset: 'grid gap-2',
+                legend: 'text-sm font-medium text-gray-700 dark:text-gray-200 mb-3',
+                default: {
+                  color: 'primary'
+                }
+              }"/>
+              <URadioGroup
+                v-model="formData.date"
+                legend="Когда нужен сайт?"
+                :options="optionsDate"
+                :ui="{
+                wrapper: 'relative flex items-start',
+                fieldset: 'grid gap-2',
+                legend: 'text-sm font-medium text-gray-700 dark:text-gray-200 mb-3',
+                default: {
+                  color: 'primary'
+                }
+              }"/>
+            </div>
+
             <UButton type="submit"
                      class="mt-8"
                      block
@@ -137,7 +162,7 @@ const optionsDate = [
   },
   {
     value: '2',
-    label: 'Через два месяца'
+    label: 'Через 2 месяца'
   }
 ]
 const isSubmitted = ref(false)
@@ -216,7 +241,7 @@ const downloadFile = () => {
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 20px;
 
     @media (max-width: 768px) {
@@ -227,7 +252,7 @@ const downloadFile = () => {
   &__form {
     display: grid;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
     align-content: center;
 
     .phone-input {

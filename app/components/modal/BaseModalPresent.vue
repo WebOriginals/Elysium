@@ -8,7 +8,6 @@
         <div class="presentation__grid">
           <form @submit.prevent="submitForm" class="presentation__form">
             <UFormGroup
-              label="Ваше имя:"
               name="name"
               :error="v$.contactPerson.$error"
               :errors="v$.contactPerson.$errors"
@@ -16,6 +15,7 @@
               @change="v$.contactPerson.$touch">
               <template #default="{ error }">
                 <UInput
+                  size="xl"
                   v-model="formData.contactPerson"
                   placeholder="Иван Иванов"
                   :trailing-icon="error ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"
@@ -26,7 +26,6 @@
 
             </UFormGroup>
             <UFormGroup
-              label="Телефон:"
               name="phone"
               :error="v$.phone.$error"
               :errors="v$.phone.$errors"
@@ -35,6 +34,7 @@
             >
               <template #default="{ error }">
                 <UInput
+                  size="xl"
                   v-model="formData.phone"
                   v-phone-mask
                   placeholder="+7(999) 99-99-999"
@@ -185,7 +185,7 @@ const closeModal = (value) => {
   &__form {
     display: grid;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
     align-content: center;
 
     .phone-input {
