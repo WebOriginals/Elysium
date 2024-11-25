@@ -5,7 +5,7 @@
       width: `${sizeModal[size]}`,
       rounded: 'rounded-lg lg:rounded-2xl',
       overlay: { background: 'bg-stone-950/75 dark:bg-stone-950/75' },
-      container: 'items-center',
+      container: 'items-center'
     }"
     class="default-modal"
   >
@@ -13,7 +13,7 @@
       <UButton
         color="gray"
         variant="ghost"
-        icon="i-heroicons-x-mark-20-solid"
+        :icon="page.modal.closeIcone"
         class="default-modal__close"
         size="xl"
         @click="emit('update:modelValue', false)"

@@ -1,5 +1,5 @@
 <template>
-  <DefaultModal :model-value="true" :title="title" size="l" @update:model-value="(v) => closeModal(v)">
+  <DefaultModal :model-value="true"  size="l" @update:model-value="(v) => closeModal(v)">
     <template #body>
       <div class="presentation" v-if="!isSubmitted">
         <h2 class="presentation__title">Заполните бриф для создания лендинга</h2>

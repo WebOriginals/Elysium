@@ -292,7 +292,6 @@ sections:
         color: blue
 
         click: openModalGiftSuccessfulLanding
-
 ctaGiftSuccessfulLanding:
   title: Получи подарок от Elysium
   description: 5 ключевых элементов успешного лендинга для мероприятий
@@ -333,3 +332,5 @@ faq:
       content: Мы интегрируем системы аналитики, такие как Google Analytics, для отслеживания посещаемости, конверсий и других ключевых показателей.
     - label: Что входит в стоимость разработки лендинга?
       content: Стоимость включает весь процесс — от анализа ваших потребностей и разработки макета до финального тестирования и публикации на хостинге.
+modal:
+  closeIcone: i-heroicons-x-mark-20-solid
