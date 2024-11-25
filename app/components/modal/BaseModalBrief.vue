@@ -96,6 +96,7 @@
                      :disabled="v$.$invalid">
               Отправить
             </UButton>
+            <p class="presentation__politic">Нажав на кнопку, я даю согласие на обработку персональных данных</p>
           </UForm>
           <div class="presentation__image">
             <img src="/brief.jpg" alt="бриф"/>
@@ -262,6 +263,11 @@ const downloadFile = () => {
     .submit-button {
 
     }
+  }
+
+  &__politic {
+    font-size: 12px;
+    color: #9B9B9B;
   }
 
   &__image {

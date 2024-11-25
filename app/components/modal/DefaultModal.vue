@@ -31,6 +31,7 @@
 </template>
 
 <script setup>
+const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
 const props = defineProps({
   modelValue: {
     type: Boolean,
