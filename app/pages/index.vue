@@ -8,6 +8,7 @@ import ProxySA from "~~/content/icons/proxySA.vue";
 import PortfolioImg from "~/components/PortfolioImg.vue";
 import BaseModalPresent from "~/components/modal/BaseModalPresent.vue";
 import BaseModalBrief from "~/components/modal/BaseModalBrief.vue";
+import Messenger from "~/components/Messenger.vue";
 
 
 const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
@@ -206,6 +207,8 @@ const handleClick = (clickAction: string) => {
       />
     </ULandingSection>
 
+
+    <messenger/>
     <base-modal-present
       v-if="showModalGiftSuccessfulLanding"
       @close-modal="openModalGiftSuccessfulLanding"
