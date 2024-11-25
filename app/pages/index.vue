@@ -98,7 +98,7 @@ const handleClick = (clickAction: string) => {
           v-for="(link, linkIndex) in section.links"
           :key="linkIndex"
           v-bind="link"
-          @click="link.label === 'Получить презентацию' && handleClick(link.click)"
+          @click="link.label === 'Получить подарок' && handleClick(link.click)"
         />
       </template>
     </ULandingSection>
@@ -172,7 +172,7 @@ const handleClick = (clickAction: string) => {
             v-for="(link, linkIndex) in page.ctaGiftSuccessfulLanding.links"
             :key="linkIndex"
             v-bind="link"
-            @click="link.label === 'Получить презентацию' && handleClick(link.click)"
+            @click="link.label === 'Получить подарок' && handleClick(link.click)"
           />
         </template>
 
