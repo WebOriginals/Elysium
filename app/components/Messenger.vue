@@ -2,27 +2,27 @@
   <div class="floating-button-container">
     <UButton
       class="main-button"
-      icon="i-simple-icons-answer"
+      :icon="page.widgit.iconMain"
       @click="toggleButtons"
     />
     <transition-group name="slide">
       <UButton
         v-if="showButtons"
-        icon="i-simple-icons-telegram"
+        :icon="page.widgit.iconTelegram"
         class="sub-button"
         @click="openTelegram"
         key="telegram"
       />
       <UButton
         v-if="showButtons"
-        icon="i-simple-icons-vk"
+        :icon="page.widgit.iconVK"
         class="sub-button"
         @click="openVK"
         key="vk"
       />
       <UButton
         v-if="showButtons"
-        icon="i-simple-icons-whatsapp"
+        :icon="page.widgit.iconWhatsapp"
         class="sub-button"
         @click="openWhatsApp"
         key="whatsapp"
@@ -32,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
 import { ref } from 'vue'
 
 const showButtons = ref(false)
@@ -45,7 +46,7 @@ const openTelegram = () => {
 }
 
 const openVK = () => {
-  window.open('https://vk.com/im?sel=-dimaobora', '_blank')
+  window.open('https://vk.com/im?sel=dimaobora', '_blank')
 }
 
 const openWhatsApp = () => {
@@ -64,6 +65,7 @@ const openWhatsApp = () => {
 }
 
 .main-button {
+  @apply bg-blue-500 text-white;
   background-color: #007bff;
   border: none;
   border-radius: 50%;
@@ -93,7 +95,7 @@ const openWhatsApp = () => {
 }
 .main-button:hover,
 .sub-button:hover {
-  color: #007bff;
+  @apply text-white bg-blue-600 ;
 }
 
 .slide-enter-active, .slide-leave-active {

@@ -334,3 +334,10 @@ faq:
       content: Стоимость включает весь процесс — от анализа ваших потребностей и разработки макета до финального тестирования и публикации на хостинге.
 modal:
   closeIcone: i-heroicons-x-mark-20-solid
+widgit:
+  iconMain: i-simple-icons-answer
+  iconVK: i-simple-icons-vk
+  iconTelegram: i-simple-icons-telegram
+  iconWhatsapp: i-simple-icons-whatsapp
+
+
