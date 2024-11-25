@@ -2,27 +2,27 @@
   <div class="floating-button-container">
     <UButton
       class="main-button"
-      :icon="page.widgit.iconMain"
+      :icon="page.widget.iconMain"
       @click="toggleButtons"
     />
     <transition-group name="slide">
       <UButton
         v-if="showButtons"
-        :icon="page.widgit.iconTelegram"
+        :icon="page.widget.iconTelegram"
         class="sub-button"
         @click="openTelegram"
         key="telegram"
       />
       <UButton
         v-if="showButtons"
-        :icon="page.widgit.iconVK"
+        :icon="page.widget.iconVK"
         class="sub-button"
         @click="openVK"
         key="vk"
       />
       <UButton
         v-if="showButtons"
-        :icon="page.widgit.iconWhatsapp"
+        :icon="page.widget.iconWhatsapp"
         class="sub-button"
         @click="openWhatsApp"
         key="whatsapp"
