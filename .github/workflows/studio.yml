@@ -1,3 +1,4 @@
+
 name: studio-nuxt-build
 run-name: studio nuxt build
 
@@ -22,7 +23,7 @@ concurrency:
 jobs:
   # Build job
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     defaults:
       run:
         working-directory: .
@@ -51,14 +52,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          version: 20
-          cache: pnpm
+          version: ${{ matrix.node }}
+          cache: ${{ steps.pkgman.outputs.cache }}
 
       - name: Install dependencies
-        run: pnpm install
+        run: ${{ steps.pkgman.outputs.package_manager }} install
 
       - name: Install @nuxthq/studio
-        run: pnpm add -D @nuxthq/studio
+        run: ${{ steps.pkgman.outputs.package_manager }} add -D @nuxthq/studio
 
       - name: Create .nuxtrc
         run: echo $'\nautoImport=true\nmodules[]=@nuxthq/studio' >> .nuxtrc
@@ -67,6 +68,7 @@ jobs:
         run: npx nuxi build --preset github_pages
         env:
           NUXT_PUBLIC_STUDIO_API_URL: https://api.nuxt.studio
+          
 
       # Deployment job
       - name: Deploy 🚀
