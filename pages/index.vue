@@ -12,19 +12,14 @@ import Messenger from "~~/components/Messenger.vue";
 import SectionHero from "~~/components/SectionHero.vue";
 import SectionGrid from "~~/components/SectionGrid.vue";
 
+const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
 
-const { data: page } = await useAsyncData('index', async () => {
-  const data = await queryContent('/').findOne();
-
-  useSeoMeta({
-    title: data.title,
-    ogTitle: data.title,
-    description: data.description,
-    ogDescription: data.description
-  });
-
-  return data;
-});
+useSeoMeta({
+  title: page?.value.title,
+  ogTitle: page?.value.title,
+  description: page?.value.description,
+  ogDescription: page?.value.description
+})
 
 const showModalGiftSuccessfulLanding = ref(false)
 const showModalBriff = ref(false)
