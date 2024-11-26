@@ -10,7 +10,6 @@ export default defineNuxtConfig({
   ],
 
   content: {
-    // Options
   },
 
   ssr: true,

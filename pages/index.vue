@@ -12,6 +12,7 @@ import Messenger from "~~/components/Messenger.vue";
 import SectionHero from "~~/components/SectionHero.vue";
 import SectionGrid from "~~/components/SectionGrid.vue";
 
+
 const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
 
 // useSeoMeta({
