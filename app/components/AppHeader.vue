@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import BaseHeader from "~/components/BaseHeader.vue";
+import BaseAsideLinks from "~/components/BaseAsideLinks.vue";
+
 const nuxtApp = useNuxtApp()
 const {activeHeadings, updateHeadings} = useScrollspy()
 
@@ -44,13 +47,13 @@ const makeCall = () => {
 </script>
 
 <template>
-  <UHeader :links="links">
+  <BaseHeader :links="links">
     <template #logo>
       Elysium
     </template>
 
     <template #right>
-      <UColorModeButton size="sm"/>
+      <ColorMode size="sm"/>
 
       <UButton
         label="Позвонить"
@@ -63,7 +66,7 @@ const makeCall = () => {
     </template>
 
     <template #panel>
-      <UAsideLinks :links="links"/>
+      <BaseAsideLinks :links="links"/>
 
       <UDivider class="my-6"/>
 
@@ -75,5 +78,5 @@ const makeCall = () => {
         @click="makeCall"
       />
     </template>
-  </UHeader>
+  </BaseHeader>
 </template>

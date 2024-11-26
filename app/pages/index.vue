@@ -9,6 +9,8 @@ import PortfolioImg from "~/components/PortfolioImg.vue";
 import BaseModalPresent from "~/components/modal/BaseModalPresent.vue";
 import BaseModalBrief from "~/components/modal/BaseModalBrief.vue";
 import Messenger from "~/components/Messenger.vue";
+import SectionHero from "~/components/SectionHero.vue";
+import SectionGrid from "~/components/SectionGrid.vue";
 
 
 const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
@@ -41,17 +43,16 @@ const handleClick = (clickAction: string) => {
 
 <template>
   <div>
-    <ULandingHero
+    <SectionHero
       :title="page.hero.title"
       :description="page.hero.description"
-      :links="page.hero.links"
-    >
+      :links="page.hero.links">
+
       <ImagePlaceholder
         :src-img="page.hero.image.src"
         :alt-img="page.hero.image.alt"
       />
-
-      <ULandingLogos
+      <SectionLogos
         :title="page.logos.title"
         align="center"
       >
@@ -73,10 +74,10 @@ const handleClick = (clickAction: string) => {
         <nuxt-link to="https://weboriginals.github.io/Power_of_three/app/" target="_blank">
           <teejet/>
         </nuxt-link>
-      </ULandingLogos>
-    </ULandingHero>
+      </SectionLogos>
+    </SectionHero>
 
-    <ULandingSection
+    <SectionPortfolio
       id="portfolio"
       v-for="(section, index) in page.sections"
       :key="index"
@@ -102,27 +103,27 @@ const handleClick = (clickAction: string) => {
           @click="link.label === 'Получить подарок' && handleClick(link.click)"
         />
       </template>
-    </ULandingSection>
+    </SectionPortfolio>
 
-    <ULandingSection
+    <DefaultSection
       :title="page.features.title"
       :description="page.features.description"
       :headline="page.features.headline"
     >
-      <UPageGrid
+      <SectionGrid
         id="features"
         class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
       >
-        <ULandingCard
+        <SectionCard
           v-for="(item, index) in page.features.items"
           :key="index"
           v-bind="item"
         />
-      </UPageGrid>
-    </ULandingSection>
+      </SectionGrid>
+    </DefaultSection>
 
-    <ULandingSection>
-      <ULandingCTA
+    <DefaultSection>
+      <SectionCTA
         v-bind="page.ctaCostCalculation"
         :card="true"
         align="right"
@@ -140,15 +141,15 @@ const handleClick = (clickAction: string) => {
           :src="page.ctaCostCalculation.image.src"
           class="w-full"
         />
-      </ULandingCTA>
-    </ULandingSection>
+      </SectionCTA>
+    </DefaultSection>
 
-    <ULandingSection
+    <DefaultSection
       :headline="page.testimonials.headline"
       :title="page.testimonials.title"
       :description="page.testimonials.description"
     >
-      <UPageColumns
+      <SectionColumns
         id="testimonials"
         class="xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
       >
@@ -159,11 +160,11 @@ const handleClick = (clickAction: string) => {
         >
           <ULandingTestimonial v-bind="testimonial"/>
         </div>
-      </UPageColumns>
-    </ULandingSection>
+      </SectionColumns>
+    </DefaultSection>
 
-    <ULandingSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
-      <ULandingCTA
+    <DefaultSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
+      <SectionCTA
         v-bind="page.ctaGiftSuccessfulLanding"
         :card="false"
         align="left"
@@ -182,17 +183,17 @@ const handleClick = (clickAction: string) => {
           class="w-full"
         />
 
-      </ULandingCTA>
+      </SectionCTA>
 
-    </ULandingSection>
+    </DefaultSection>
 
-    <ULandingSection
+    <DefaultSection
       id="faq"
       :title="page.faq.title"
       :description="page.faq.description"
       class="scroll-mt-[var(--header-height)]"
     >
-      <ULandingFAQ
+      <SectionFAQ
         multiple
         :items="page.faq.items"
         :ui="{
@@ -205,8 +206,7 @@ const handleClick = (clickAction: string) => {
         }"
         class="max-w-4xl mx-auto"
       />
-    </ULandingSection>
-
+    </DefaultSection>
 
     <messenger/>
     <base-modal-present
