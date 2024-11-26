@@ -42,7 +42,7 @@ const handleClick = (clickAction: string) => {
 </script>
 
 <template>
-  <div>
+  <ClientOnly>
     <SectionHero
       :title="page?.hero.title"
       :description="page?.hero.description"
@@ -217,5 +217,5 @@ const handleClick = (clickAction: string) => {
       v-if="showModalBriff"
       @close-modal="openModalBriff"
     />
-  </div>
+  </ClientOnly>
 </template>
