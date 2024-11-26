@@ -46,7 +46,7 @@
 import type { PropType } from 'vue'
 import { getULinkProps } from '#ui/utils'
 import type { DeepPartial } from '#ui/types'
-import type { HeaderLink } from '#ui-pro/types'
+
 
 const appConfig = useAppConfig()
 
@@ -56,13 +56,13 @@ const config = computed(() => ({
   active: 'text-primary',
   inactive: 'hover:text-primary',
   trailingIcon: {
-    name: appConfig.ui.icons.chevron,
+    name: 'i-heroicons-chevron-right',
     base: 'w-5 h-5 transform transition-transform duration-200 flex-shrink-0',
     active: 'rotate-180',
     inactive: ''
   },
   externalIcon: {
-    name: appConfig.ui.icons.external,
+    name: 'i-heroicons-arrow-top-right-on-square',
     base: 'w-3 h-3 absolute top-0.5 -right-3.5 text-gray-400 dark:text-gray-500'
   },
   default: {

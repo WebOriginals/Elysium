@@ -83,7 +83,6 @@ import type { PropType } from 'vue'
 import { Dialog, DialogPanel, TransitionRoot, provideUseId } from '@headlessui/vue'
 import { getSlotChildrenText } from '../utils/slot.js'
 import type { DeepPartial } from '#ui/types'
-import type { HeaderLink } from '#ui-pro/types'
 import { useId } from '#imports'
 import BaseHeaderLinks from "~/components/BaseHeaderLinks.vue";
 
@@ -104,8 +103,8 @@ const config = computed(() => ({
   button: {
     base: 'lg:hidden',
     icon: {
-      open: appConfig.ui.icons.menu,
-      close: appConfig.ui.icons.close
+      open: 'i-heroicons-menu',
+      close: 'i-heroicons-x-mark'
     }
   }
 }))

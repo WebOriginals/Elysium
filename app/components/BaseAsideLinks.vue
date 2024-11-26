@@ -28,7 +28,7 @@ import type { PropType } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { getULinkProps } from '#ui/utils'
 import type { DeepPartial } from '#ui/types'
-import type { AsideLink } from '#ui-pro/types'
+
 
 const appConfig = useAppConfig()
 
