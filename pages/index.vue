@@ -46,18 +46,18 @@ const handleClick = (clickAction: string) => {
 </script>
 
 <template>
-  <div v-if="page">
+  <div>
     <SectionHero
-      :title="page.hero.title"
-      :description="page.hero.description"
-      :links="page.hero.links">
+      :title="page?.hero.title"
+      :description="page?.hero.description"
+      :links="page?.hero.links">
 
       <ImagePlaceholder
-        :src-img="page.hero.image.src"
-        :alt-img="page.hero.image.alt"
+        :src-img="page?.hero.image.src"
+        :alt-img="page?.hero.image.alt"
       />
       <SectionLogos
-        :title="page.logos.title"
+        :title="page?.logos.title"
         align="center"
       >
         <nuxt-link to="https://weboriginals.github.io/reformat/" target="_blank">
@@ -83,7 +83,7 @@ const handleClick = (clickAction: string) => {
 
     <SectionPortfolio
       id="portfolio"
-      v-for="(section, index) in page.sections"
+      v-for="(section, index) in page?.sections"
       :key="index"
       :title="section.title"
       :description="section.description"
@@ -110,16 +110,16 @@ const handleClick = (clickAction: string) => {
     </SectionPortfolio>
 
     <DefaultSection
-      :title="page.features.title"
-      :description="page.features.description"
-      :headline="page.features.headline"
+      :title="page?.features.title"
+      :description="page?.features.description"
+      :headline="page?.features.headline"
     >
       <SectionGrid
         id="features"
         class="scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
       >
         <SectionCard
-          v-for="(item, index) in page.features.items"
+          v-for="(item, index) in page?.features.items"
           :key="index"
           v-bind="item"
         />
@@ -128,13 +128,13 @@ const handleClick = (clickAction: string) => {
 
     <DefaultSection>
       <SectionCTA
-        v-bind="page.ctaCostCalculation"
+        v-bind="page?.ctaCostCalculation"
         :card="true"
         align="right"
       >
         <template v-slot:links>
           <UButton
-            v-for="(link, linkIndex) in page.ctaCostCalculation.links"
+            v-for="(link, linkIndex) in page?.ctaCostCalculation.links"
             :key="linkIndex"
             v-bind="link"
             @click="link.label === 'Заполнить бриф' && handleClick(link.click)"
@@ -142,23 +142,23 @@ const handleClick = (clickAction: string) => {
         </template>
 
         <img
-          :src="page.ctaCostCalculation.image.src"
+          :src="page?.ctaCostCalculation.image.src"
           class="w-full"
         />
       </SectionCTA>
     </DefaultSection>
 
     <DefaultSection
-      :headline="page.testimonials.headline"
-      :title="page.testimonials.title"
-      :description="page.testimonials.description"
+      :headline="page?.testimonials.headline"
+      :title="page?.testimonials.title"
+      :description="page?.testimonials.description"
     >
       <SectionColumns
         id="testimonials"
         class="xl:columns-4 scroll-mt-[calc(4rem+140px+128px+96px)]"
       >
         <div
-          v-for="(testimonial, index) in page.testimonials.items"
+          v-for="(testimonial, index) in page?.testimonials.items"
           :key="index"
           class="break-inside-avoid"
         >
@@ -169,13 +169,13 @@ const handleClick = (clickAction: string) => {
 
     <DefaultSection class="bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10">
       <SectionCTA
-        v-bind="page.ctaGiftSuccessfulLanding"
+        v-bind="page?.ctaGiftSuccessfulLanding"
         :card="false"
         align="left"
       >
         <template v-slot:links>
           <UButton
-            v-for="(link, linkIndex) in page.ctaGiftSuccessfulLanding.links"
+            v-for="(link, linkIndex) in page?.ctaGiftSuccessfulLanding.links"
             :key="linkIndex"
             v-bind="link"
             @click="link.label === 'Получить подарок' && handleClick(link.click)"
@@ -183,7 +183,7 @@ const handleClick = (clickAction: string) => {
         </template>
 
         <img
-          :src="page.ctaGiftSuccessfulLanding.image.src"
+          :src="page?.ctaGiftSuccessfulLanding.image.src"
           class="w-full"
         />
 
@@ -193,13 +193,13 @@ const handleClick = (clickAction: string) => {
 
     <DefaultSection
       id="faq"
-      :title="page.faq.title"
-      :description="page.faq.description"
+      :title="page?.faq.title"
+      :description="page?.faq.description"
       class="scroll-mt-[var(--header-height)]"
     >
       <SectionFAQ
         multiple
-        :items="page.faq.items"
+        :items="page?.faq.items"
         :ui="{
           button: {
             label: 'font-semibold',
