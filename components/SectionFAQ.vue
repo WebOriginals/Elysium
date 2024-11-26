@@ -29,8 +29,6 @@
 import type { PropType } from 'vue'
 import type { AccordionItem, DeepPartial } from '#ui/types'
 
-const appConfig = useAppConfig()
-
 const config = computed(() => ({
   wrapper: 'divide-y divide-gray-200 dark:divide-gray-800 -mt-6',
   container: 'divide-y divide-gray-200 dark:divide-gray-800',
@@ -42,7 +40,7 @@ const config = computed(() => ({
     base: 'text-left text-lg py-6 w-full',
     label: 'text-gray-900 dark:text-white',
     trailingIcon: {
-      name: '',
+      name: 'i-heroicons-chevron-down',
       base: 'w-5 h-5 ms-auto transform transition-transform duration-200 flex-shrink-0 mr-1.5',
       active: '',
       inactive: '-rotate-90'

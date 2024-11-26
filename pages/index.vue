@@ -155,14 +155,14 @@ const handleClick = (clickAction: string) => {
     >
       <SectionColumns
         id="testimonials"
-        class="xl:columns-4 scroll-mt-[calc(var(--header-height)+140px+128px+96px)]"
+        class="xl:columns-4 scroll-mt-[calc(4rem+140px+128px+96px)]"
       >
         <div
           v-for="(testimonial, index) in page.testimonials.items"
           :key="index"
           class="break-inside-avoid"
         >
-          <ULandingTestimonial v-bind="testimonial"/>
+          <LandingTestimonial v-bind="testimonial"/>
         </div>
       </SectionColumns>
     </DefaultSection>
