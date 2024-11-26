@@ -1,7 +1,3 @@
-/**
- * Scrollspy allows you to watch visible headings in a specific page.
- * Useful for table of contents live style updates.
- */
 export const useScrollspy = () => {
   const observer = ref<IntersectionObserver>()
   const visibleHeadings = ref<string[]>([])
@@ -25,7 +21,9 @@ export const useScrollspy = () => {
         return
       }
 
-      observer.value.observe(heading)
+      if (heading instanceof Element) {
+        observer.value.observe(heading)
+      }
     })
   }
 
