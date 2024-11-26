@@ -14,12 +14,12 @@ import SectionGrid from "~~/components/SectionGrid.vue";
 
 const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
 
-useSeoMeta({
-  title: page?.value.title,
-  ogTitle: page?.value.title,
-  description: page?.value.description,
-  ogDescription: page?.value.description
-})
+// useSeoMeta({
+//   title: page?.value.title,
+//   ogTitle: page?.value.title,
+//   description: page?.value.description,
+//   ogDescription: page?.value.description
+// })
 
 const showModalGiftSuccessfulLanding = ref(false)
 const showModalBriff = ref(false)

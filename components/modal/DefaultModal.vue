@@ -13,7 +13,7 @@
       <UButton
         color="gray"
         variant="ghost"
-        :icon="page.modal.closeIcone"
+        :icon="page?.modal.closeIcone"
         class="default-modal__close"
         size="xl"
         @click="emit('update:modelValue', false)"
