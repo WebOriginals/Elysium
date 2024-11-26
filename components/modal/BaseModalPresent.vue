@@ -93,7 +93,7 @@
 
 <script setup lang="ts">
 import {useVuelidate} from '@vuelidate/core';
-import DefaultModal from '~/components/modal/DefaultModal.vue';
+import DefaultModal from '~~/components/modal/DefaultModal.vue';
 import {ref} from 'vue'
 import {useFetch} from '#app'
 

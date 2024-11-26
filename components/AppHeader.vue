@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BaseHeader from "~/components/BaseHeader.vue";
-import BaseAsideLinks from "~/components/BaseAsideLinks.vue";
+import BaseHeader from "~~/components/BaseHeader.vue";
+import BaseAsideLinks from "~~/components/BaseAsideLinks.vue";
 
 const nuxtApp = useNuxtApp()
 const {activeHeadings, updateHeadings} = useScrollspy()
@@ -57,7 +57,7 @@ const makeCall = () => {
 
       <UButton
         label="Позвонить"
-        color="white"
+        color="primary"
         variant="soft"
         trailing-icon="i-heroicons-device-phone-mobile"
         class="hidden lg:flex"

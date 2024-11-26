@@ -9,6 +9,12 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
 
+  content: {
+    // Options
+  },
+
+  css: ['~/assets/css/tailwind.scss'],
+
   plugins: [
     '~/plugins/phoneMask.ts'
   ],

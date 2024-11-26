@@ -1,17 +1,14 @@
 <template>
-  <ClientOnly v-if="!colorMode?.forced">
+  <ClientOnly>
     <UButton
-      :icon="isDark ? appConfig.ui.icons.dark : appConfig.ui.icons.light"
-      v-bind="{
-        ...($ui?.button?.secondary as any),
-        ...$attrs
-      }"
-      :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
+      :icon="isDark ? 'i-heroicons-moon-20-solid' : 'i-heroicons-sun-20-solid'"
+      color="gray"
+      variant="ghost"
+      aria-label="Theme"
       @click="isDark = !isDark"
-    />
-
+    ></UButton>
     <template #fallback>
-      <div class="w-8 h-8" />
+      <div class="w-8 h-8"></div>
     </template>
   </ClientOnly>
 </template>
@@ -22,8 +19,7 @@ defineOptions({
 })
 
 const colorMode = useColorMode()
-const appConfig = useAppConfig()
-const { $ui } = useNuxtApp()
+
 
 // Computed
 

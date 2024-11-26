@@ -42,7 +42,7 @@ const config = computed(() => ({
     base: 'text-left text-lg py-6 w-full',
     label: 'text-gray-900 dark:text-white',
     trailingIcon: {
-      name: appConfig.ui.icons.chevron,
+      name: '',
       base: 'w-5 h-5 ms-auto transform transition-transform duration-200 flex-shrink-0 mr-1.5',
       active: '',
       inactive: '-rotate-90'

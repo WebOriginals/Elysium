@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import BaseFooter from "~~/components/BaseFooter.vue";
+
 const links = [{
   label: 'Resources',
   children: [{
@@ -54,15 +56,11 @@ function onSubmit() {
 </script>
 
 <template>
-  <UFooter>
+  <BaseFooter>
     <template #left>
       <p class="text-gray-500 dark:text-gray-400 text-sm">
-        Copyright © {{ new Date().getFullYear() }}. All rights reserved.
+        Copyright © {{ new Date().getFullYear() }}.
       </p>
     </template>
-
-    <template #right>
-      <UColorModeButton size="sm" />
-    </template>
-  </UFooter>
+  </BaseFooter>
 </template>

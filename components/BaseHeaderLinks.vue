@@ -44,7 +44,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import { getULinkProps } from '../utils/links.ts'
+import { getULinkProps } from '#ui/utils'
 import type { DeepPartial } from '#ui/types'
 
 

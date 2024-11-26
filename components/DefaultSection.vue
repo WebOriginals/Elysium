@@ -166,7 +166,7 @@ const config = computed(() => {
       description: 'text-gray-500 dark:text-gray-400 leading-6',
       icon: {
         base: 'absolute left-0 top-1 h-5 w-5 text-primary',
-        name: appConfig.ui.icons.check
+        name: ''
       }
     }
   }

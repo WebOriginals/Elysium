@@ -5,22 +5,26 @@ import Mishako from "~~/content/icons/mishako.vue";
 import Teejet from "~~/content/icons/teejet.vue";
 import Reformat from "~~/content/icons/reformat.vue";
 import ProxySA from "~~/content/icons/proxySA.vue";
-import PortfolioImg from "~/components/PortfolioImg.vue";
-import BaseModalPresent from "~/components/modal/BaseModalPresent.vue";
-import BaseModalBrief from "~/components/modal/BaseModalBrief.vue";
-import Messenger from "~/components/Messenger.vue";
-import SectionHero from "~/components/SectionHero.vue";
-import SectionGrid from "~/components/SectionGrid.vue";
+import PortfolioImg from "~~/components/PortfolioImg.vue";
+import BaseModalPresent from "~~/components/modal/BaseModalPresent.vue";
+import BaseModalBrief from "~~/components/modal/BaseModalBrief.vue";
+import Messenger from "~~/components/Messenger.vue";
+import SectionHero from "~~/components/SectionHero.vue";
+import SectionGrid from "~~/components/SectionGrid.vue";
 
 
-const {data: page} = await useAsyncData('index', () => queryContent('/').findOne())
+const { data: page } = await useAsyncData('index', async () => {
+  const data = await queryContent('/').findOne();
 
-useSeoMeta({
-  title: page.value.title,
-  ogTitle: page.value.title,
-  description: page.value.description,
-  ogDescription: page.value.description
-})
+  useSeoMeta({
+    title: data.title,
+    ogTitle: data.title,
+    description: data.description,
+    ogDescription: data.description
+  });
+
+  return data;
+});
 
 const showModalGiftSuccessfulLanding = ref(false)
 const showModalBriff = ref(false)
@@ -42,7 +46,7 @@ const handleClick = (clickAction: string) => {
 </script>
 
 <template>
-  <div>
+  <div v-if="page">
     <SectionHero
       :title="page.hero.title"
       :description="page.hero.description"

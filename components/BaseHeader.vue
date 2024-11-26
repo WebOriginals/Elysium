@@ -23,10 +23,12 @@
         <slot name="panel-button" :open="isHeaderDialogOpen">
           <UButton
             v-if="links.length || $slots.panel"
+            color="black"
+            variant="ghost"
             :class="ui.button.base"
             v-bind="($ui?.button?.secondary as any)"
             :aria-label="`${isHeaderDialogOpen ? 'Close' : 'Open'} Menu`"
-            :icon="isHeaderDialogOpen ? ui.button.icon.close : ui.button.icon.open"
+            :icon="isHeaderDialogOpen ? 'i-heroicons-x-mark-20-solid' : 'i-heroicons-bars-3'"
             @click="isHeaderDialogOpen = !isHeaderDialogOpen"
           />
         </slot>
@@ -58,9 +60,11 @@
                 <slot name="panel-button" :open="isHeaderDialogOpen">
                   <UButton
                     :class="ui.button.base"
+                    color="black"
+                    variant="ghost"
                     v-bind="($ui?.button?.secondary as any)"
                     :aria-label="`${isHeaderDialogOpen ? 'Close' : 'Open'} Menu`"
-                    :icon="isHeaderDialogOpen ? ui.button.icon.close : ui.button.icon.open"
+                    :icon="isHeaderDialogOpen ? 'i-heroicons-x-mark-20-solid' : 'i-heroicons-bars-3'"
                     @click="isHeaderDialogOpen = !isHeaderDialogOpen"
                   />
                 </slot>
@@ -81,30 +85,28 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { Dialog, DialogPanel, TransitionRoot, provideUseId } from '@headlessui/vue'
-import { getSlotChildrenText } from '../utils/slot.js'
 import type { DeepPartial } from '#ui/types'
 import { useId } from '#imports'
-import BaseHeaderLinks from "~/components/BaseHeaderLinks.vue";
+import BaseHeaderLinks from "~~/components/BaseHeaderLinks.vue";
 
-const appConfig = useAppConfig()
 
 const config = computed(() => ({
-  wrapper: 'bg-background/75 backdrop-blur border-b border-gray-200 dark:border-gray-800 -mb-px sticky top-0 z-50',
+  wrapper: 'bg-background/75 py-2 dark:border-gray-800 -mb-px sticky top-0 z-50',
   container: 'flex items-center justify-between gap-3 h-[--header-height]',
   left: 'lg:flex-1 flex items-center gap-1.5',
   center: 'hidden lg:flex',
   right: 'flex items-center justify-end lg:flex-1 gap-1.5',
   logo: 'flex-shrink-0 font-bold text-xl text-gray-900 dark:text-white flex items-end gap-1.5',
   panel: {
-    wrapper: 'fixed inset-0 z-50 overflow-y-auto bg-background lg:hidden',
-    header: 'px-4 sm:px-6',
-    body: 'px-4 sm:px-6 pt-3 pb-6'
+    wrapper: 'fixed  inset-0 z-50 overflow-y-auto bg-background lg:hidden',
+    header: 'bg-primary-50 dark:bg-gray-950 px-4 sm:px-6',
+    body: 'bg-primary-50 dark:bg-gray-950 px-4 sm:px-6 pt-3 pb-6'
   },
   button: {
     base: 'lg:hidden',
     icon: {
-      open: 'i-heroicons-menu',
-      close: 'i-heroicons-x-mark'
+      open: 'i-heroicons-menu-20-solid',
+      close: 'i-heroicons-x-mark-20-solid'
     }
   }
 }))

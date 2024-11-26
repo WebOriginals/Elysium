@@ -7,13 +7,13 @@ useHead({
     { rel: 'icon', href: '/favicon.ico' }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: 'ru'
   }
 })
 
 useSeoMeta({
-  ogImage: 'https://landing-template.nuxt.dev/social-card.png',
-  twitterImage: 'https://landing-template.nuxt.dev/social-card.png',
+  ogImage: './public/social-card.png',
+  twitterImage: './public/social-card.png',
   twitterCard: 'summary_large_image'
 })
 </script>

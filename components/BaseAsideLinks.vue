@@ -44,7 +44,7 @@ const config = computed(() => ({
     inactive: 'bg-gray-100/50 dark:bg-gray-800/50 ring-gray-300 dark:ring-gray-700 group-hover:bg-primary group-hover:ring-primary group-hover:text-background'
   },
   externalIcon: {
-    name: appConfig.ui.icons.external,
+    name: '',
     base: 'w-3 h-3 absolute top-0.5 -right-3.5 text-gray-400 dark:text-gray-500'
   },
   label: 'text-sm/6 relative'
