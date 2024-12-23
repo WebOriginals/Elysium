@@ -35,6 +35,7 @@ function toggleMenu() {
   }
 }
 
+// TODO перенести в переводы
 const links = computed(() => [
   {
     label: t('Nav.portfolio'),

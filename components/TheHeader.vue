@@ -21,6 +21,7 @@
 const { width } = useGetWidth();
 const {t} = useI18n();
 
+// TODO перенести в переводы
 const links = computed(() => [
   {
     label: t('Nav.portfolio'),
