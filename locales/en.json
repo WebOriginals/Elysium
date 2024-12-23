@@ -1,0 +1,30 @@
+{
+  "NotFoundPage": {
+    "title": "Page not found",
+    "info": "It seems we have lost this page in the virtual wilds. Please use the navigation above to find your way, or return to the main page to start over.",
+    "link": "To the main page"
+  },
+  "Cookie": {
+    "title": "We use cookies",
+    "description": "It's safe: cookies are stored only on your device. If you don't mind, click «Accept all cookies» or continue browsing the site.",
+    "link": "Personal data processing policy.",
+    "btn_accept": "Accept",
+    "btn_settings": "Configure",
+    "btn_accept_all": "Accept all cookies",
+    "min": "Strictly necessary cookies",
+    "mid": "Cookies that enhance system functionality",
+    "ceo": "Marketing cookies"
+  },
+  "Nav": {
+    "portfolio": "Portfolio",
+    "about_us": "About us",
+    "services": "Services",
+    "FAQ": "FAQ"
+  },
+  "Buttons": {
+    "request_a_call": "Request a call",
+    "leave_a_request": "Leave a request",
+    "go_to_website": "Go to website",
+    "subscribe": "Subscribe"
+  }
+}
