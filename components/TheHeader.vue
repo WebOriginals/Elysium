@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'sticky-header': isSticky }">
     <div class="header__container">
       <IconTheLogo class="header__logo"/>
-      <nav class="header__nav header-nav">
+      <nav v-if="width > 768" class="header__nav header-nav">
         <NuxtLink
           v-for="(link) in links"
           :to="link.to"
@@ -11,14 +11,14 @@
           {{ link.label }}
         </NuxtLink>
       </nav>
-      <UiButtonTransparent label="Заказать звонок"/>
-      <UiMobileMenu/>
+      <UiButtonTransparent v-if="width > 768" label="Заказать звонок"/>
+      <UiMobileMenu v-if="width <= 768"/>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-
+const { width } = useGetWidth();
 const {t} = useI18n();
 
 const links = computed(() => [

@@ -15,6 +15,7 @@
         @click="toggleMenu" >
         {{ link.label }}
       </NuxtLink>
+      <UiButtonTransparent label="Заказать звонок"/>
     </div>
   </div>
 </template>
