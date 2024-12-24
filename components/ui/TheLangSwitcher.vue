@@ -90,7 +90,7 @@ const p = {
 
 <style lang="scss">
 .langSelect {
-  @apply rounded-lg;
+  @apply rounded-lg z-20 relative;
 
   .wr__img {
     @apply w-6 h-4;

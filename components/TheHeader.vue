@@ -12,9 +12,11 @@
           {{ $rt(link.label) }}
         </NuxtLink>
       </nav>
-      <UiButtonTransparent v-if="width > 768" :label="$t('Buttons.request_a_call')"/>
-      <UiTheLangSwitcher v-if="width > 768" class="langSelect"/>
-      <UiMobileMenu v-if="width <= 768"/>
+      <div class="flex gap-2 items-center">
+        <UiButtonTransparent v-if="width > 768" :label="$t('Buttons.request_a_call')"/>
+        <UiTheLangSwitcher class="header__langSelect langSelect"/>
+        <UiMobileMenu v-if="width <= 768"/>
+      </div>
     </div>
   </header>
 </template>

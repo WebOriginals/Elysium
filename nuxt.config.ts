@@ -11,6 +11,7 @@ export default defineNuxtConfig({
 
   css: ['~/assets/scss/tailwind.scss'],
   compatibilityDate: '2024-11-01',
+  extends: 'content-wind',
   devtools: { enabled: true },
 
   modules: [
@@ -68,7 +69,6 @@ export default defineNuxtConfig({
     },
   },
 
-  extends: 'content-wind',
   experimental: {
     watcher: 'parcel',
   },

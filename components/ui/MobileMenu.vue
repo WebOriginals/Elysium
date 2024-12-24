@@ -14,12 +14,8 @@
         @click="toggleMenu($rt(link.to))">
         {{ $rt(link.label) }}
       </div>
-      <div class="grid grid-cols-[1fr_80px] items-center gap-2.5 justify-center">
-        <UiButtonTransparent block :label="$t('Buttons.request_a_call')"/>
-        <UiTheLangSwitcher class="langSelect"></UiTheLangSwitcher>
+      <UiButtonTransparent block :label="$t('Buttons.request_a_call')"/>
       </div>
-      </div>
-
   </div>
 </template>
 
