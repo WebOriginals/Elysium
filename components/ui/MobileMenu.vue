@@ -7,18 +7,18 @@
       <span class="line"></span>
     </button>
     <div class="menu-mobile"  :class="{ 'is-active': isOpen, 'is-closing': isClosing }">
-      <NuxtLink
+      <div
         v-for="(link) in $tm('Nav')"
-        :to="$rt(link.to)"
         :key="$rt(link.to)"
         class="menu-mobile__link"
-        @click="toggleMenu" >
+        @click="toggleMenu($rt(link.to))">
         {{ $rt(link.label) }}
-      </NuxtLink>
+      </div>
       <UiButtonTransparent block :label="$t('Buttons.request_a_call')"/>
     </div>
   </div>
 </template>
+
 
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -26,7 +26,12 @@ import { ref } from 'vue';
 const isOpen = ref(false);
 const isClosing = ref(false);
 
-const toggleMenu = (): void => {
+/**
+ * Метод для открытия/закрытия меню.
+ * Если передан параметр `to`, выполняет плавный скролл к указанному якорю.
+ * @param {string | undefined} to - Путь для скролла к якорю.
+ */
+const toggleMenu = (to?: string): void => {
   if (isOpen.value) {
     // Закрытие меню
     document.body.classList.remove('no-scroll');
@@ -34,14 +39,32 @@ const toggleMenu = (): void => {
     setTimeout(() => {
       isOpen.value = false;
       isClosing.value = false;
-    }, 400); // Задержка для анимации закрытия
+    }, 400);// Задержка для анимации закрытия
+    setTimeout(() => {
+      // Выполнить скролл после закрытия меню, если указан якорь
+      if (to) {
+        scrollTo(to);
+      }
+    },500)
   } else {
     // Открытие меню
     isOpen.value = true;
     document.body.classList.add('no-scroll');
   }
 };
+
+/**
+ * Метод для выполнения плавного скролла к указанному якорю.
+ * @param {string} to - Идентификатор элемента (например, "#section").
+ */
+const scrollTo = (to: string): void => {
+  const targetElement = document.querySelector(to);
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 </script>
+
 
 <style scoped lang="scss">
 .burger-menu {
@@ -98,7 +121,7 @@ const toggleMenu = (): void => {
   }
 
   &__link {
-    @apply block w-full py-3 text-center;
+    @apply block w-full py-3 text-center cursor-pointer;
   }
 }
 </style>

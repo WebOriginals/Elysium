@@ -62,6 +62,12 @@ export default defineNuxtConfig({
     defaultLocale: 'ru',
   },
 
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    },
+  },
+
   extends: 'content-wind',
   experimental: {
     watcher: 'parcel',
