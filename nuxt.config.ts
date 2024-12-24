@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   $production: undefined,
   $test: undefined,
 
-
   css: ['~/assets/scss/tailwind.scss'],
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -61,12 +60,6 @@ export default defineNuxtConfig({
     ],
 
     defaultLocale: 'ru',
-  },
-
-  router: {
-    options: {
-      scrollBehaviorType: 'smooth'
-    }
   },
 
   extends: 'content-wind',

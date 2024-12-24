@@ -1,12 +1,12 @@
 <template>
   <div class="burger-menu">
-    <div class="bg-overlay" :class="{ 'is-active': isOpen }" @click="toggleMenu"></div>
+    <div class="bg-overlay"  :class="{ 'is-active': isOpen, 'is-closing': isClosing }"  @click="toggleMenu"></div>
     <button class="burger-button" :class="{ 'is-active': isOpen }" @click="toggleMenu">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
     </button>
-    <div class="menu-mobile" :class="{ 'is-active': isOpen }">
+    <div class="menu-mobile"  :class="{ 'is-active': isOpen, 'is-closing': isClosing }">
       <NuxtLink
         v-for="(link) in $tm('Nav')"
         :to="$rt(link.to)"
@@ -24,15 +24,23 @@
 import { ref } from 'vue';
 
 const isOpen = ref(false);
+const isClosing = ref(false);
 
-function toggleMenu() {
-  isOpen.value = !isOpen.value;
+const toggleMenu = (): void => {
   if (isOpen.value) {
-    document.body.classList.add('no-scroll');
-  } else {
+    // Закрытие меню
     document.body.classList.remove('no-scroll');
+    isClosing.value = true;
+    setTimeout(() => {
+      isOpen.value = false;
+      isClosing.value = false;
+    }, 400); // Задержка для анимации закрытия
+  } else {
+    // Открытие меню
+    isOpen.value = true;
+    document.body.classList.add('no-scroll');
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -46,10 +54,14 @@ function toggleMenu() {
   &.is-active {
     @apply w-[500vw] h-[500vw];
   }
+
+  &.is-closing {
+    @apply delay-[250ms];
+  }
 }
 
 .burger-button {
-  @apply relative w-10 h-8 flex flex-col  justify-between items-center cursor-pointer z-20;
+  @apply relative w-10 h-8 flex flex-col justify-between items-center cursor-pointer z-20;
 
   & .line {
     @apply w-10 h-1 bg-black rounded transition-transform duration-300;
@@ -75,14 +87,19 @@ function toggleMenu() {
 }
 
 .menu-mobile {
-  @apply invisible fixed top-0 left-0 w-full h-full z-10 grid items-center content-center gap-2.5 p-8 transition-all duration-300 delay-[200ms] ;
+  @apply invisible fixed top-0 left-0 w-full h-full z-10 grid items-center content-center gap-2.5 p-8 transition-all duration-300 delay-[250ms];
 
   &.is-active {
-    @apply  visible ;
+    @apply visible ;
   }
 
-  &__link{
+  &.is-closing {
+    @apply invisible delay-[0ms];
+  }
+
+  &__link {
     @apply block w-full py-3 text-center;
   }
 }
 </style>
+
