@@ -15,12 +15,24 @@
     "mid": "Cookie, повышающие функциональность системы",
     "ceo": "Маркетинговые cookie"
   },
-  "Nav": {
-    "portfolio": "Портфолио",
-    "about_us": "О нас",
-    "services": "Услуги",
-    "FAQ": "FAQ"
-  },
+  "Nav": [
+    {
+      "label": "Портфолио",
+      "to": "#portfolio"
+    },
+    {
+      "label": "О нас",
+      "to": "#about_us"
+    },
+    {
+      "label": "Услуги",
+      "to": "#services"
+    },
+    {
+      "label": "FAQ",
+      "to": "#faq"
+    }
+  ],
   "Buttons": {
     "request_a_call": "Заказать звонок",
     "leave_a_request": "Оставить заявку",

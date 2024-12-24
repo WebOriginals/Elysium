@@ -8,14 +8,14 @@
     </button>
     <div class="menu-mobile" :class="{ 'is-active': isOpen }">
       <NuxtLink
-        v-for="link in links"
-        :key="link.to"
-        :to="link.to"
-        class="header-nav__link"
+        v-for="(link) in $tm('Nav')"
+        :to="$rt(link.to)"
+        :key="$rt(link.to)"
+        class="menu-mobile__link"
         @click="toggleMenu" >
-        {{ link.label }}
+        {{ $rt(link.label) }}
       </NuxtLink>
-      <UiButtonTransparent label="Заказать звонок"/>
+      <UiButtonTransparent block :label="$t('Buttons.request_a_call')"/>
     </div>
   </div>
 </template>
@@ -23,7 +23,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const { t } = useI18n();
 const isOpen = ref(false);
 
 function toggleMenu() {
@@ -34,26 +33,6 @@ function toggleMenu() {
     document.body.classList.remove('no-scroll');
   }
 }
-
-// TODO перенести в переводы
-const links = computed(() => [
-  {
-    label: t('Nav.portfolio'),
-    to: '#portfolio',
-  },
-  {
-    label: t('Nav.about_us'),
-    to: '#about_us',
-  },
-  {
-    label: t('Nav.services'),
-    to: '#services',
-  },
-  {
-    label: t('Nav.FAQ'),
-    to: '#faq',
-  },
-]);
 </script>
 
 <style scoped lang="scss">
@@ -96,10 +75,14 @@ const links = computed(() => [
 }
 
 .menu-mobile {
-  @apply hidden fixed top-0 left-0 w-full h-full  z-10;
+  @apply invisible fixed top-0 left-0 w-full h-full z-10 grid items-center content-center gap-2.5 p-8 transition-all duration-300 delay-[200ms] ;
 
   &.is-active {
-    @apply grid justify-center place-content-center gap-8 text-center;
+    @apply  visible ;
+  }
+
+  &__link{
+    @apply block w-full py-3 text-center;
   }
 }
 </style>

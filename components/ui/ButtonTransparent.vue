@@ -10,7 +10,11 @@ const props = defineProps({
   },
   ui: {
     type: Object,
-    default: {rounded: 'rounded-full'}
+    default: { rounded: 'rounded-full' }
+  },
+  block:{
+    type: Boolean,
+    default: false
   }
 })
 
@@ -19,7 +23,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <UButton class="button-transparent" :label="label"  :size="size" :ui="ui" color="transparent"/>
+  <UButton class="button-transparent" :label="label"  :block="block" :size="size" :ui="ui" color="transparent"/>
 </template>
 
 <style scoped lang="scss">

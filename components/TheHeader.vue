@@ -4,14 +4,15 @@
       <IconTheLogo class="header__logo"/>
       <nav v-if="width > 768" class="header__nav header-nav">
         <NuxtLink
-          v-for="(link) in links"
-          :to="link.to"
+          v-for="(link) in $tm('Nav')"
+          :to="$rt(link.to)"
+          :key="$rt(link.to)"
           class="header-nav__link"
         >
-          {{ link.label }}
+          {{ $rt(link.label) }}
         </NuxtLink>
       </nav>
-      <UiButtonTransparent v-if="width > 768" label="Заказать звонок"/>
+      <UiButtonTransparent v-if="width > 768" :label="$t('Buttons.request_a_call')"/>
       <UiMobileMenu v-if="width <= 768"/>
     </div>
   </header>
@@ -19,27 +20,6 @@
 
 <script setup lang="ts">
 const { width } = useGetWidth();
-const {t} = useI18n();
-
-// TODO перенести в переводы
-const links = computed(() => [
-  {
-    label: t('Nav.portfolio'),
-    to: '#portfolio',
-  },
-  {
-    label: t('Nav.about_us'),
-    to: '#about_us',
-  },
-  {
-    label: t('Nav.services'),
-    to: '#services',
-  },
-  {
-    label: t('Nav.FAQ'),
-    to: '#faq',
-  }
-])
 
 const isSticky = ref(false);
 

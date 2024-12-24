@@ -15,12 +15,24 @@
     "mid": "Cookies that enhance system functionality",
     "ceo": "Marketing cookies"
   },
-  "Nav": {
-    "portfolio": "Portfolio",
-    "about_us": "About us",
-    "services": "Services",
-    "FAQ": "FAQ"
-  },
+  "Nav": [
+    {
+      "label": "Portfolio",
+      "to": "#portfolio"
+    },
+    {
+      "label": "About us",
+      "to": "#about_us"
+    },
+    {
+      "label": "Services",
+      "to": "#services"
+    },
+    {
+      "label": "FAQ",
+      "to": "#faq"
+    }
+  ],
   "Buttons": {
     "request_a_call": "Request a call",
     "leave_a_request": "Leave a request",

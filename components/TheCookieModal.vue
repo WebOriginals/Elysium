@@ -36,15 +36,15 @@
           </div>
         </div>
         <div class="cookie__button">
-          <UiBaseButton v-if="isShowSettings" size="xxl" :label="$t('Cookie.btn_accept_all')" @click="closeCookie" />
-          <UiBaseButton
+          <UiButtonBlue v-if="isShowSettings" size="xl" block :label="$t('Cookie.btn_accept_all')" @click="closeCookie" />
+          <UiButtonTransparent
+            block
             v-if="isShowSettings"
-            size="xxl"
-            variant="soft"
+            size="xl"
             :label="$t('Cookie.btn_settings')"
             @click="isShowSettings = !isShowSettings"
           />
-          <UiBaseButton v-else size="xxl" :label="$t('Cookie.btn_accept')" @click="closeCookie" />
+          <UiButtonBlue v-else size="xl" block :label="$t('Cookie.btn_accept')" @click="closeCookie" />
         </div>
       </div>
     </div>
