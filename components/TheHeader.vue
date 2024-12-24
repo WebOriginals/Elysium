@@ -13,6 +13,7 @@
         </NuxtLink>
       </nav>
       <UiButtonTransparent v-if="width > 768" :label="$t('Buttons.request_a_call')"/>
+      <UiTheLangSwitcher v-if="width > 768" class="langSelect"/>
       <UiMobileMenu v-if="width <= 768"/>
     </div>
   </header>
