@@ -30,7 +30,7 @@ $mobileSmall: em(479.98); // Телефоны S
 
 @if ($responsiveType==1) {
   // Отзывчивая
-  [class*='__container'] {
+  [class*='__container']:not(.fancybox__container) {
     @if ($maxWidthContainer>0) {
       max-width: rem($maxWidthContainer);
       box-sizing: content-box;

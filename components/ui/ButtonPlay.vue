@@ -1,5 +1,5 @@
 <template>
-  <div class="link">
+  <a class="link" href="https://vkvideo.ru/video-219407444_456239041" data-fancybox="gallery" data-type="iframe">
     <svg
       viewBox="0 0 200 200"
       width="200"
@@ -15,18 +15,24 @@
         stroke="none"
         fill="none"
       />
-      <path
-        class="link__arrow"
-        d="M 75 100 L 125 100 L 110 85 M 125 100 L 110 115"
-        fill="none"
-      />
+<!--      <path-->
+<!--        class="link__arrow"-->
+<!--        d="M 75 100 L 125 100 L 110 85 M 125 100 L 110 115"-->
+<!--        fill="none"-->
+<!--      />-->
+
+      <g transform="translate(70, 70)" width="61" height="61" >
+        <circle cx="30.625" cy="30.1177" r="36"  fill-opacity="0.1" stroke="none"/>
+        <path d="M36.625 28.5848C37.9583 29.3546 37.9583 31.2791 36.625 32.0489L27.625 37.245C26.2917 38.0148 24.625 37.0526 24.625 35.513L24.625 25.1207C24.625 23.5811 26.2917 22.6188 27.625 23.3886L36.625 28.5848Z" fill="white"/>
+      </g>
+
       <text class="link__text">
         <textPath href="#link-circle" stroke="none">
-          смотреть о нас&ensp; смотреть о нас
+          {{$t('Buttons.play')}}
         </textPath>
       </text>
     </svg>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -49,6 +55,7 @@ export default {
 
 
 .link {
+  position: relative;
 }
 
 .link__svg {
@@ -63,13 +70,13 @@ export default {
 }
 
 .link__arrow {
-  transform-origin: 50% 50%;
+  transform-origin: 50% 50%;  /* Центрирование элемента */
   transition: transform var(--hoverDuration) / 2 var(--easeIn);
 }
 
 .link:hover .link__arrow {
   transform: scale(1.1);
-  transition: transform var(--hoverDuration) var(--easeOut);
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .link__arrow {
@@ -77,7 +84,7 @@ export default {
 }
 
 .link__text {
-  animation: rotateScale var(--rotationDuration) linear infinite;
+  animation: rotateScale 20s linear infinite;
   transform-origin: 50% 50%;
   font-size: 0.5em; /* Уменьшение текста в два раза */
 }
@@ -94,10 +101,10 @@ export default {
 
 @keyframes rotateScale {
   from {
-    transform: scale(1) rotate(0deg);
+    transform:  rotate(0deg);
   }
   to {
-    transform: scale(0.5) rotate(360deg);
+    transform:  rotate(360deg);
   }
 }
 </style>

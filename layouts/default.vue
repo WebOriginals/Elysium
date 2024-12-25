@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" :class="{ lock: lockScrollValue }">
-    <TheHeader @lock-scroll="lockScroll"/>
-    <main class="page" >
+    <TheHeader @lock-scroll="lockScroll" />
+    <main class="page">
       <slot></slot>
     </main>
     <TheFooter></TheFooter>
@@ -34,6 +34,12 @@ useHead({
       body: true,
     },
   ],
+  link: [
+    {
+      rel: `stylesheet`,
+      href: `https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css`,
+    },
+  ],
   script: [
     {
       src: `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_ID_GOOGLE_TAG}`,
@@ -45,6 +51,10 @@ useHead({
     },
     {
       src: '/js/yandexMetrika.js',
+      tagPosition: 'head',
+    },
+    {
+      src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js',
       tagPosition: 'head',
     },
   ],
