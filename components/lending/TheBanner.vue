@@ -61,7 +61,7 @@
 
       @media only screen and (min-width: 1024px) {
         animation: combined 9s ease-in-out 1 backwards;
-        animation-delay: 5s;
+        animation-delay: 3s;
       }
 
 

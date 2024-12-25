@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'sticky-header': isSticky }">
     <div class="header__container">
       <IconTheLogo class="header__logo"/>
-      <nav v-if="width > 768" class="header__nav header-nav">
+      <nav v-if="width > 840" class="header__nav header-nav">
         <NuxtLink
           v-for="(link) in $tm('Nav')"
           :to="$rt(link.to)"
@@ -12,10 +12,11 @@
           {{ $rt(link.label) }}
         </NuxtLink>
       </nav>
-      <div class="flex gap-2 items-center">
-        <UiButtonTransparent v-if="width > 768" :label="$t('Buttons.request_a_call')"/>
+      <div class="grid grid-cols-[1fr_auto_auto] items-center gap-2">
+        <UiButtonBlue v-if="width > 840" size="xl" block variant="outline" :label="$t('Buttons.request_a_call')"/>
+        <UiColorModeButton/>
         <UiTheLangSwitcher class="header__langSelect langSelect"/>
-        <UiMobileMenu v-if="width <= 768"/>
+        <UiMobileMenu v-if="width <= 840"/>
       </div>
     </div>
   </header>
@@ -44,7 +45,14 @@ const isSticky = ref(false);
     @apply flex gap-3 justify-between items-center;
 
     &__link{
-      @apply p-2
+      @apply p-2 relative after:content-[''];
+
+      &:after {
+        @apply absolute bottom-0 left-0 w-0 h-[2px] bg-sky-600  transition-all ease-in-out duration-300;
+      }
+      &:hover::after {
+        @apply w-full;
+      }
     }
   }
 }

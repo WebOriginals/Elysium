@@ -27,10 +27,10 @@ const props = defineProps({
 })
 const solid = {
   disabled: 'disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ',
-  dark: 'dark:text-red dark:bg-{color}-800 w-full sm:w-auto ',
+  dark: 'dark:text-red dark:bg-{color}-800 ',
   darkFocus: 'dark:focus-visible:outline-{color}-400',
   darkHover: 'dark:hover:bg-{color}-600',
-  light: 'shadow-sm text-white bg-sky-500 w-full sm:w-auto ',
+  light: 'shadow-sm text-white bg-sky-500',
   lightFocus:
     'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500',
   lightHover: 'hover:bg-white hover:text-black',
@@ -38,20 +38,20 @@ const solid = {
 const outline = {
   disabled:
     'disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 dark:disabled:border dark:disabled:ring-sky-300 disabled:border disabled:ring-sky-300 dark:disabled:text-sky-400',
-  dark: 'dark:text-sky-800 dark:border-sky-800 dark:bg-transparent',
-  darkFocus: 'dark:focus-visible:border-{color}-400',
-  darkHover: 'dark:hover:bg-{color}-500 dark:hover:text-white dark:hover:border-sky-500',
-  light: 'border border-sky-950 border-current bg-transparent text-sky-950',
+  dark: 'dark:text-sky-600 dark:border-sky-600 dark:bg-transparent dark:ring-sky-600',
+  darkFocus: 'dark:focus-visible:border-sky-900',
+  darkHover: 'dark:hover:bg-sky-900 dark:hover:text-white dark:hover:border-sky-900 dark:hover:ring-sky-900',
+  light: 'ring-sky-950 border-current bg-transparent text-sky-950',
   lightFocus: 'focus-visible:ring-2 focus-visible:border-sky-500',
-  lightHover: 'hover:border-sky-600 hover:bg-sky-600 hover:text-white',
+  lightHover: 'hover:ring-sky-950 hover:bg-sky-950 hover:text-white',
 };
 const soft = {
   disabled:
     'dark:disabled:bg-transparent disabled:ring-sky-300 dark:disabled:text-sky-400 disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ',
-  dark: 'dark:text-white dark:bg-sky-900 ',
-  darkFocus: 'dark:focus-visible:ring-sky-900',
-  darkHover: 'dark:hover:bg-{color}-500 dark:hover:text-white',
-  light: 'text-sky-500 ',
+  dark: 'dark:text-white dark:bg-sky-700 ',
+  darkFocus: 'dark:focus-visible:ring-sky-700',
+  darkHover: 'dark:hover:bg-sky-950 dark:hover:text-white',
+  light: 'text-sky-500 bg-sky-200',
   lightFocus: 'focus-visible:ring-2 focus-visible:ring-sky-500',
   lightHover: 'hover:bg-sky-100 hover:text-sky-600',
 };
@@ -94,6 +94,6 @@ const btnStyle = {
 </script>
 
 <template>
-  <UButton :ui="btnStyle" :label="label" :block="block" :size="size" />
+  <UButton :ui="btnStyle" :variant="variant" :label="label" :block="block" :size="size" />
 </template>
 

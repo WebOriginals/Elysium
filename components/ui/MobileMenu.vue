@@ -87,11 +87,13 @@ const scrollTo = (to: string): void => {
   @apply relative w-10 h-8 flex flex-col justify-between items-center cursor-pointer z-20;
 
   & .line {
-    @apply w-10 h-1 bg-black rounded transition-transform duration-300;
+    @apply w-10 h-1 bg-black dark:bg-white rounded transition-transform duration-300;
   }
 
   &.is-active {
     .line {
+     @apply dark:bg-black;
+
       &:nth-child(1) {
         transform: rotate(39deg) translate(8px, 10px);
         width: 3rem;

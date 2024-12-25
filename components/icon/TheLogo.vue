@@ -43,7 +43,7 @@
 
 <style scoped lang="scss">
 .logo {
-  @apply w-auto h-[41] md:w-[167px] md:h-[41];
+  @apply  h-[41px] xl:w-[167px] md:h-[41px];
 }
 </style>
 <script setup lang="ts">

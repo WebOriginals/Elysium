@@ -37,8 +37,9 @@
         </div>
         <div class="cookie__button">
           <UiButtonBlue v-if="isShowSettings" size="xl" block :label="$t('Cookie.btn_accept_all')" @click="closeCookie" />
-          <UiButtonTransparent
+          <UiButtonBlue
             block
+            variant="outline"
             v-if="isShowSettings"
             size="xl"
             :label="$t('Cookie.btn_settings')"
@@ -70,7 +71,7 @@ const closeCookie = () => (showCookie.value = false);
   @apply fixed bottom-11 flex justify-center w-full px-4 z-10;
 
   &__body {
-    @apply bg-white rounded-2xl px-4 md:px-16 py-4 md:py-11 max-w-[938px] border border-sky-200  shadow-[0_0px_24px_0px_rgba(0,0,0,0.08)] relative;
+    @apply bg-white dark:bg-sky-950 rounded-2xl px-4 md:px-16 py-4 md:py-11 max-w-[938px] border border-sky-200  shadow-[0_0px_24px_0px_rgba(0,0,0,0.08)] relative;
   }
 
   &__close {
@@ -86,7 +87,7 @@ const closeCookie = () => (showCookie.value = false);
   }
 
   &__title {
-    @apply dark:text-black;
+    @apply dark:text-stone-500;
   }
 
   &-text {
