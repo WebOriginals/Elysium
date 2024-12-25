@@ -13,9 +13,9 @@
 <!--        <UiButtonAnimation class="banner__button-request"/>-->
       </div>
       <div class="banner__animation banner-animation">
-
+        <UiButtonPlay/>
         <div class="banner-animation__img">
-          <img src="/img/dollar rocket_3D.png" alt="">
+          <img class="" src="/img/dollar rocket_3D.png" alt="">
         </div>
         
       </div>
@@ -28,7 +28,7 @@
   @apply bg-sky-950 text-white rounded-3xl overflow-hidden p-5 md:p-12;
 
   &__container{
-    @apply grid gap-9 md:grid-cols-[610px_1fr];
+    @apply grid gap-9 md:grid-cols-[410px_1fr] lg:grid-cols-[510px_1fr] xl:grid-cols-[610px_1fr];
   }
 
   &__content{
@@ -53,9 +53,10 @@
   }
 
   &-animation{
+    @apply grid justify-items-end;
 
     &__img{
-      @apply transform -rotate-[30deg] translate-y-28 translate-x-20 w-[300px] scale-125 ;
+      @apply transform -rotate-[30deg] -translate-y-4 -translate-x-32 w-[100px] scale-[2] md:translate-y-12 md:-translate-x-4 md:w-[200px] md:scale-[1.4] lg:scale-[1.9]   xl:translate-y-8 xl:-translate-x-24;
 
       img{
         @apply w-full h-full;

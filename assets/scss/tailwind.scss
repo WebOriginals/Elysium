@@ -17,7 +17,7 @@ html {
 }
 
 h1 {
-  @include adaptiveValue(font-size, 60, 30);
+  @include adaptiveValue(font-size, 60, 28);
   @apply leading-[100%] font-semibold;
 }
 
