@@ -26,7 +26,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .buttonBlue{
-  @apply bg-[#3D5AF1] text-white;
+  @apply bg-[#3D5AF1] text-white h-16 text-2xl;
 
 }
 </style>

@@ -37,6 +37,13 @@
     "request_a_call": "Request a call",
     "leave_a_request": "Leave a request",
     "go_to_website": "Go to website",
-    "subscribe": "Subscribe"
+    "subscribe": "Subscribe",
+    "see_about_us": "See about us"
+  },
+  "Lending": {
+    "banner": {
+      "title": "We develop landing pages in 14 days on a turnkey basis <br><span> with 24/7 support</span>",
+      "description": "Turn your website into a powerful tool that attracts customers and helps your business grow"
+    }
   }
 }

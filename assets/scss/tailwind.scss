@@ -18,12 +18,12 @@ html {
 
 h1 {
   @include adaptiveValue(font-size, 60, 30);
-  @apply leading-[48px] font-semibold;
+  @apply leading-[100%] font-semibold;
 }
 
 h2 {
   @include adaptiveValue(font-size, 40, 30);
-  @apply leading-[48px] font-semibold;
+  @apply leading-[100%] font-semibold;
 }
 
 p {
