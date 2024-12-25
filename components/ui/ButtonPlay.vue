@@ -1,5 +1,5 @@
 <template>
-  <a class="link" href="https://vkvideo.ru/video-219407444_456239041" data-fancybox="gallery" data-type="iframe">
+  <a class="link" href="https://vk.com/video_ext.php?oid=95186187&id=456239939&hd=2&autoplay=1" data-fancybox="gallery" data-type="iframe">
     <svg
       viewBox="0 0 200 200"
       width="200"
@@ -34,12 +34,6 @@
     </svg>
   </a>
 </template>
-
-<script>
-export default {
-  name: 'LinkButton',
-};
-</script>
 
 <style scoped>
 :root {

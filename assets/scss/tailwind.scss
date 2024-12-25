@@ -30,6 +30,10 @@ p {
   @apply leading-6 text-stone-500 text-base ;
 }
 
+.fancybox__content{
+  padding: 0!important;
+}
+
 .scrollCust {
   &::-webkit-scrollbar-button {
     background-repeat: no-repeat;
