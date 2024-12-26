@@ -74,7 +74,7 @@
       @apply bg-sky-950
     }
     &:nth-child(3){
-      @apply bg-sky-950
+      @apply bg-sky-600
     }
     &:nth-child(4){
       @apply bg-sky-950
