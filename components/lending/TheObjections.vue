@@ -15,7 +15,7 @@
 
 <style scoped lang="scss">
 .objections{
-  @apply p-5 md:p-12 my-14 md:my-24  bg-sky-300 rounded-3xl overflow-hidden;
+  @apply p-5 md:p-12 my-14 md:my-24  bg-sky-300 dark:bg-sky-900 rounded-3xl overflow-hidden;
 
   &__wrapper{
     @apply grid gap-14 lg:gap-8 lg:grid-cols-[max(430px)_1fr]

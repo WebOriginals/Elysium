@@ -62,19 +62,24 @@
       "list": [
         {
           "title": " Lost profits",
-          "description": "Your products and services are left without a buyer, and the income goes into someone else's pockets."
+          "description": "Your products and services are left without a buyer, and the income goes into someone else's pockets.",
+          "img": "/img/money.png"
         },
         {
           "title": "Dependence on unstable platforms",
-          "description": "Social networks and sites can change algorithms or be blocked, leaving you without access to the audience."
+          "description": "Social networks and sites can change algorithms or be blocked, leaving you without access to the audience.",
+          "img": "/img/shiel_icon_glass.png"
         },
         {
           "title": "Missed hot requests",
-          "description": "Without a landing page, your customers cannot quickly contact you or leave an order."
+          "description": "Without a landing page, your customers cannot quickly contact you or leave an order.",
+          "img": "/img/Deadline_3D.png"
         },
         {
           "title": "Delay in scaling your business",
-          "description": "Without a website, you lose a tool that increases the volume of orders and allows you to work more efficiently." }
+          "description": "Without a website, you lose a tool that increases the volume of orders and allows you to work more efficiently.",
+          "img": "/img/Deadline_3D.png"
+        }
       ],
       "tips": [
         "Hot clients are leaving",
