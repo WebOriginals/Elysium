@@ -43,8 +43,66 @@
   },
   "Lending": {
     "banner": {
-      "title": "We develop landing pages in 14 days on a turnkey basis <br><span> with 24/7 support</span>",
-      "description": "Turn your website into a powerful tool that attracts customers and helps your business grow"
+      "title": "Turnkey landing pages from 14 days with<br><span> 24/7 support</span>",
+      "description": "Landing pages that bring in customers, increase sales and pay for themselves from the first orders."
+    },
+    "objections": {
+      "title": "Doubt whether your business needs a landing page?",
+      "items": [
+        "A landing page is long and expensive to develop",
+        "Social networks are enough for promotion",
+        "A landing page will not bring in customers and will not pay for itself",
+        "You will have to constantly update and support it.",
+        "It's too complicated: you need a designer, a programmer and a bunch of other specialists."
+      ]
+    },
+    "missed_chance": {
+      "title": "Result?",
+      "description": "Every day without a landing page, you miss opportunities that will never come back:",
+      "list": [
+        {
+          "title": " Lost profits",
+          "description": "Your products and services are left without a buyer, and the income goes into someone else's pockets."
+        },
+        {
+          "title": "Dependence on unstable platforms",
+          "description": "Social networks and sites can change algorithms or be blocked, leaving you without access to the audience."
+        },
+        {
+          "title": "Missed hot requests",
+          "description": "Without a landing page, your customers cannot quickly contact you or leave an order."
+        },
+        {
+          "title": "Delay in scaling your business",
+          "description": "Without a website, you lose a tool that increases the volume of orders and allows you to work more efficiently." }
+      ],
+      "tips": [
+        "Hot clients are leaving",
+        "Profits are being taken away by competitors",
+        "You depend on social networks",
+        "Time is being wasted",
+        "Business is not growing"
+      ]
+    },
+    "solution": {
+      "title": "There is a solution. A landing page that attracts clients and increases sales.",
+      "description": "A website that brings in applications, works 24/7 and does not depend on social networks or VPN.",
+      "list": [
+        {
+          "up_title": "Visibility 2.0",
+          "title": "Audience reach grows without unnecessary costs.",
+          "description": "A landing page increases your position in search, collects information in one place and makes your business visible to clients." },
+        {
+          "up_title": "Non-stop sales",
+          "title": "The landing page works for you 24/7.",
+          "description": "Customers can leave a request or buy your product at any time, even at night, without unnecessary correspondence."
+        },
+        {
+          "up_title": "Platform independence",
+          "title": "The landing page is always available, wherever the client is.",
+          "description": "Your site works even if social networks are blocked and clients do not use VPN."
+        }
+      ]
     }
   }
 }

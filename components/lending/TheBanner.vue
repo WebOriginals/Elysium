@@ -4,7 +4,7 @@
 
 <template>
   <section class="banner">
-    <div class="banner__container">
+    <div class="banner__wrapper">
       <div class="banner__content">
         <H1 v-html="$t('Lending.banner.title')"></H1>
         <p>{{$t('Lending.banner.description')}}</p>
@@ -27,9 +27,9 @@
 
 <style scoped lang="scss">
 .banner {
-  @apply bg-sky-950 text-white rounded-3xl overflow-hidden p-5 md:p-12;
+  @apply bg-sky-950 text-white rounded-3xl overflow-hidden p-5 md:p-12 mb-14 md:mb-24;
 
-  &__container {
+  &__wrapper {
     @apply grid gap-9 md:grid-cols-[410px_1fr] lg:grid-cols-[510px_1fr] xl:grid-cols-[610px_1fr];
   }
 

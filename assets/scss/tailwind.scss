@@ -22,7 +22,7 @@ h1 {
 }
 
 h2 {
-  @include adaptiveValue(font-size, 40, 30);
+  @include adaptiveValue(font-size, 40, 24);
   @apply leading-[100%] font-semibold;
 }
 
