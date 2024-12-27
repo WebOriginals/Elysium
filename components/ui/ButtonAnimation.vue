@@ -1,156 +1,115 @@
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
-import * as THREE from "three";
-import { gsap } from "gsap";
-
-const isHovered = ref(false);
-
-onMounted(() => {
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ alpha: true });
-  renderer.setSize(200, 200);
-
-  const container = document.getElementById("three-button")!;
-  container.appendChild(renderer.domElement);
-
-  camera.position.z = 5;
-
-  // Заменяем одну фигуру на ракету
-  const geometries = [
-    new THREE.BoxGeometry(),
-    new THREE.SphereGeometry(0.7, 32, 32),
-    new THREE.CylinderGeometry(0.2, 0.5, 1.5, 32), // Тело ракеты
-  ];
-
-  const materials = [
-    new THREE.MeshStandardMaterial({ color: 0xff5733 }), // Оранжевый
-    new THREE.MeshStandardMaterial({ color: 0x33ff57 }), // Зелёный
-    new THREE.MeshStandardMaterial({ color: 0xffffff, wireframe: false }), // Белый для ракеты
-  ];
-
-  const meshes = geometries.map((geo, index) => {
-    const mesh = new THREE.Mesh(geo, materials[index]);
-    mesh.position.set(0, 0, 0); // Начальная позиция
-    mesh.scale.set(0, 0, 0); // Скрытые фигуры
-    scene.add(mesh);
-    return mesh;
-  });
-
-  // Освещение
-  const light = new THREE.PointLight(0xffffff, 1);
-  light.position.set(2, 2, 5);
-  scene.add(light);
-
-  // Анимация появления с случайной позицией
-  const showFigures = () => {
-    meshes.forEach((mesh, index) => {
-      const randomX = (Math.random() - 0.5) * 3; // Случайное X
-      const randomY = (Math.random() - 0.5) * 3 + 1; // Случайное Y
-      const randomZ = (Math.random() - 0.5) * 3; // Случайное Z
-
-      gsap.to(mesh.scale, { x: 1, y: 1, z: 1, duration: 0.7, ease: "power2.out", delay: index * 0.2 });
-      gsap.to(mesh.position, {
-        x: randomX,
-        y: randomY,
-        z: randomZ,
-        duration: 0.7,
-        ease: "power2.out",
-        delay: index * 0.2,
-      });
-    });
-  };
-
-  // Анимация исчезновения
-  const hideFigures = () => {
-    meshes.forEach((mesh, index) => {
-      gsap.to(mesh.scale, { x: 0, y: 0, z: 0, duration: 0.7, ease: "power2.in", delay: index * 0.2 });
-      gsap.to(mesh.position, {
-        x: 0,
-        y: 0, // Возвращаем фигуры в центр кнопки
-        z: 0,
-        duration: 0.7,
-        ease: "power2.in",
-        delay: index * 0.2,
-      });
-    });
-  };
-
-  // Анимация вращения и рендер
-  const animate = () => {
-    requestAnimationFrame(animate);
-    meshes.forEach((mesh, index) => {
-      if (mesh.scale.x > 0) {
-        mesh.rotation.x += 0.005 + index * 0.001; // Медленное вращение
-        mesh.rotation.y += 0.005 + index * 0.001;
-      }
-    });
-    renderer.render(scene, camera);
-  };
-  animate();
-
-  // Обработчики событий
-  container.addEventListener("mouseover", () => {
-    isHovered.value = true;
-    showFigures();
-  });
-  container.addEventListener("mouseleave", () => {
-    isHovered.value = false;
-    hideFigures();
-  });
-
-  // Очистка ресурсов
-  onUnmounted(() => {
-    renderer.dispose();
-    meshes.forEach((mesh) => scene.remove(mesh));
-  });
-});
-</script>
-
 <template>
-  <div
-    id="three-button"
-    style="
-      width: 200px;
-      height: 200px;
-      position: relative;
-      margin: auto;
-    "
-  >
-    <button
-      style="
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: transparent;
-        color: white;
-        border: 2px solid white;
-        border-radius: 8px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-
-      "
-    >
-      Hover Me
-    </button>
-  </div>
+  <UiButtonBlue class="banner__button-request bubbly-button" size="xxl" block  :label="$t('Buttons.leave_a_request')" @click="animateButton"/>
 </template>
 
-<style>
-#three-button {
+<script setup lang="ts">
+const animateButton = (e) => {
+  e.preventDefault();
+  e.target.classList.remove('animate');
+  e.target.classList.add('animate');
+
+  setTimeout(() => {
+    e.target.classList.remove('animate');
+  }, 700);
+};
+</script>
+
+<style scoped lang="scss">
+.bubbly-button {
+  margin-top: 100px;
+  margin-bottom: 60px;
   position: relative;
-  z-index: 1;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 140%;
+    height: 100%;
+    left: -20%;
+    z-index: -1000;
+    transition: all ease-in-out 0.5s;
+    background-repeat: no-repeat;
+  }
+
+  &:before {
+    display: none;
+    top: -75%;
+    background-image:
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle,  transparent 20%, #0E082D 20%, transparent 30%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle,  transparent 10%, #0E082D 15%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+  }
+
+  &:after {
+    display: none;
+    bottom: -75%;
+    background-image:
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle,  transparent 10%, #0E082D 15%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%),
+      radial-gradient(circle, #0E082D 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+  }
+
+  &:active {
+    transform: scale(0.9);
+    background-color: darken(#0E082D, 5%);
+    color: #FFFFFF;
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+  }
+
+  &.animate {
+    &:before {
+      display: block;
+      animation: topBubbles ease-in-out 0.75s forwards;
+    }
+    &:after {
+      display: block;
+      animation: bottomBubbles ease-in-out 0.75s forwards;
+    }
+  }
 }
-#three-button canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2; /* Канвас выше кнопки */
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
 }
-#three-button:hover button {
-  color: #ff5733;
-  border-color: #ff5733;
+
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
 }
 </style>
