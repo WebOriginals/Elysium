@@ -1,26 +1,22 @@
 <template>
-  <UiButtonBlue class="banner__button-request bubbly-button" size="xxl" block  :label="$t('Buttons.leave_a_request')" @click="animateButton"/>
+  <UiButtonBlue class="banner__button-request bubbly-button w-[300px]" :class="{ 'animate': isAnimate }" size="xxl" block  :label="$t('Buttons.leave_a_request')" @click="animateButton"/>
 </template>
 
 <script setup lang="ts">
-const animateButton = (e) => {
-  e.preventDefault();
-  e.target.classList.remove('animate');
-  e.target.classList.add('animate');
+const isAnimate = ref(null)
+const animateButton = () => {
+  isAnimate.value = true
 
   setTimeout(() => {
-    e.target.classList.remove('animate');
+    isAnimate.value = false
   }, 700);
 };
 </script>
 
 <style scoped lang="scss">
 .bubbly-button {
-  margin-top: 100px;
-  margin-bottom: 60px;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-
 
   &:focus {
     outline: 0;
@@ -42,15 +38,15 @@ const animateButton = (e) => {
     display: none;
     top: -75%;
     background-image:
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle,  transparent 20%, #0E082D 20%, transparent 30%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle,  transparent 10%, #0E082D 15%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%);
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle,  transparent 20%, #1500FF 20%, transparent 30%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle,  transparent 10%, #1500FF 15%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%);
     background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
   }
 
@@ -58,21 +54,20 @@ const animateButton = (e) => {
     display: none;
     bottom: -75%;
     background-image:
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle,  transparent 10%, #0E082D 15%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%),
-      radial-gradient(circle, #0E082D 20%, transparent 20%);
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle,  transparent 10%, #1500FF 15%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%),
+      radial-gradient(circle, #1500FF 20%, transparent 20%);
     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
   }
 
   &:active {
     transform: scale(0.9);
-    background-color: darken(#0E082D, 5%);
+    background-color: darken(#1500FF, 5%);
     color: #FFFFFF;
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
   }
 
   &.animate {

@@ -27,31 +27,33 @@ const props = defineProps({
 })
 const solid = {
   disabled: 'disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ',
-  dark: 'dark:text-red dark:bg-{color}-800 ',
+  dark: 'dark:text-red dark:bg-{color}-800 active:scale-[0.9]',
   darkFocus: 'dark:focus-visible:outline-{color}-400',
   darkHover: 'dark:hover:bg-{color}-600',
-  light: 'shadow-sm text-white bg-sky-500',
+  light: 'shadow-sm text-white bg-sky-500 active:scale-[0.9]  active:bg-sky-950 active:text-white',
   lightFocus:
-    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500',
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-{color}-500 ',
   lightHover: 'hover:bg-white hover:text-black',
+
+
 };
 const outline = {
   disabled:
     'disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 dark:disabled:border dark:disabled:ring-sky-300 disabled:border disabled:ring-sky-300 dark:disabled:text-sky-400',
-  dark: 'dark:text-sky-600 dark:border-sky-600 dark:bg-transparent dark:ring-sky-600',
+  dark: 'dark:text-sky-600 dark:border-sky-600 dark:bg-transparent dark:ring-sky-600 active:scale-[0.9]',
   darkFocus: 'dark:focus-visible:border-sky-900',
   darkHover: 'dark:hover:bg-sky-900 dark:hover:text-white dark:hover:border-sky-900 dark:hover:ring-sky-900',
-  light: 'ring-sky-950 border-current bg-transparent text-sky-950',
+  light: 'ring-sky-950 border-current bg-transparent text-sky-950 active:scale-[0.9]',
   lightFocus: 'focus-visible:ring-2 focus-visible:border-sky-500',
   lightHover: 'hover:ring-sky-950 hover:bg-sky-950 hover:text-white',
 };
 const soft = {
   disabled:
     'dark:disabled:bg-transparent disabled:ring-sky-300 dark:disabled:text-sky-400 disabled:bg-sky-300 disabled:text-sky-400 disabled:opacity-100 dark:disabled:bg-sky-300 ',
-  dark: 'dark:text-white dark:bg-sky-700 ',
+  dark: 'dark:text-white dark:bg-sky-700 active:scale-[0.9]',
   darkFocus: 'dark:focus-visible:ring-sky-700',
   darkHover: 'dark:hover:bg-sky-950 dark:hover:text-white',
-  light: 'text-sky-500 bg-sky-200',
+  light: 'text-sky-500 bg-sky-200 active:scale-[0.9]',
   lightFocus: 'focus-visible:ring-2 focus-visible:ring-sky-500',
   lightHover: 'hover:bg-sky-100 hover:text-sky-600',
 };
