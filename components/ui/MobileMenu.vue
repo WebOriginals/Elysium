@@ -14,7 +14,7 @@
         @click="toggleMenu($rt(link.to))">
         {{ $rt(link.label) }}
       </div>
-      <UiButtonTransparent block :label="$t('Buttons.request_a_call')"/>
+      <UiButtonBlue  size="xl" block variant="outline" :label="$t('Buttons.request_a_call')"/>
       </div>
   </div>
 </template>
@@ -72,7 +72,7 @@ const scrollTo = (to: string): void => {
 }
 
 .bg-overlay {
-  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full w-0 h-0 transition-all duration-300 z-10;
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-sky-950 rounded-full w-0 h-0 transition-all duration-300 z-10;
 
   &.is-active {
     @apply w-[500vw] h-[500vw];
@@ -92,7 +92,7 @@ const scrollTo = (to: string): void => {
 
   &.is-active {
     .line {
-     @apply dark:bg-black;
+     @apply dark:bg-white;
 
       &:nth-child(1) {
         transform: rotate(39deg) translate(8px, 10px);

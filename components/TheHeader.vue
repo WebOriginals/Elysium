@@ -31,10 +31,24 @@ const isSticky = ref(false);
 
 <style scoped lang="scss">
 .header{
-  @apply py-8 relative;
+  @apply py-3 md:py-8 fixed top-0 left-0 w-full z-40;
 
   &__container{
-    @apply flex gap-3 justify-between items-center;
+    @apply flex gap-3 justify-between items-center relative ;
+
+    &:after{
+      content: '';
+      position: absolute;
+      width: calc(100% + 16px);
+      height: calc(100% + 16px);
+      margin-left:-8px;
+      margin-top: -8px;
+      left: 0;
+      top: 0;
+      border-radius: 50px;
+      z-index: -1;
+      @apply bg-white dark:bg-sky-950;
+    }
   }
 
   &__logo{

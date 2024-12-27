@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" :class="{ lock: lockScrollValue }">
     <TheHeader @lock-scroll="lockScroll" />
-    <main class="page">
+    <main class="page pt-28">
       <slot></slot>
     </main>
     <TheFooter></TheFooter>

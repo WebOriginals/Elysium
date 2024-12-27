@@ -4,6 +4,7 @@
     <LendingTheObjections/>
     <LendingTheMissedChance/>
     <LendingTheSolution/>
+    <LendingThePortfolio/>
 
 
     <UiButtonBlue class="banner__button-request" size="xxl" block  :label="$t('Buttons.leave_a_request')"/>

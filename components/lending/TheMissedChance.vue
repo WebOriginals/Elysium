@@ -60,7 +60,7 @@ function resetAnimation(event: MouseEvent) {
 
 <style scoped lang="scss">
 .missed-chance{
-  @apply p-5 md:p-12 my-14 md:my-24  bg-sky-300 dark:bg-sky-900 rounded-3xl overflow-hidden;
+  @apply p-5 md:p-12 my-14 md:my-24  bg-sky-300 dark:bg-sky-950 rounded-3xl overflow-hidden;
 
   &-top{
     @apply grid gap-4 lg:gap-8 lg:grid-cols-[max(350px)_max(525px)] md:justify-between mb-12;
@@ -98,16 +98,16 @@ function resetAnimation(event: MouseEvent) {
     }
 
     &:nth-child(1){
-      @apply bg-sky-500
+      @apply bg-sky-500 dark:bg-sky-500;
     }
     &:nth-child(2){
-      @apply bg-sky-950
+      @apply bg-sky-950 dark:bg-sky-600 ;
     }
     &:nth-child(3){
-      @apply bg-sky-600
+      @apply bg-sky-600 dark:bg-sky-500 ;
     }
     &:nth-child(4){
-      @apply bg-sky-950
+      @apply bg-sky-950 dark:bg-sky-600 ;
     }
   }
 }
