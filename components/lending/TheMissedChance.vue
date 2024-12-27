@@ -1,5 +1,34 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 
+// Функция для обработки направления отскока
+function handleMouseEnter(event: MouseEvent) {
+  const element = event.currentTarget as HTMLElement;
+  const rect = element.getBoundingClientRect();
+
+  // Координаты попадания мыши
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+
+  // Центр элемента
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  // Вычисляем направление
+  const offsetX = x < centerX ? -10 : 10;
+  const offsetY = y < centerY ? -10 : 10;
+
+  // Применяем трансформацию
+  element.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(1.05)`;
+  element.style.transition = 'transform 0.2s ease';
+}
+
+// Сброс анимации
+function resetAnimation(event: MouseEvent) {
+  const element = event.currentTarget as HTMLElement;
+  element.style.transform = 'translate(0, 0) scale(1)';
+  element.style.transition = 'transform 0.2s ease';
+}
 </script>
 
 <template>
@@ -20,7 +49,7 @@
         <div class="missed-chance__card missed-chance-card" v-for="(item, index) in $tm('Lending.missed_chance.list')" :key="$rt(index)">
           <div class="missed-chance-card__title">{{ $rt(item.title) }}</div>
           <div class="missed-chance-card__description">{{ $rt(item.description) }}</div>
-          <div class="missed-chance-card__img">
+          <div class="missed-chance-card__img"@mouseenter="handleMouseEnter" @mouseleave="resetAnimation">
             <img :src="$rt(item.img)" alt="">
           </div>
         </div>
@@ -61,6 +90,7 @@
     &__img{
       @apply w-[190px] md:w-[150px] ml-auto mt-auto;
 
+
       img{
         //@apply w-full h-full;
       }
@@ -80,6 +110,16 @@
       @apply bg-sky-950
     }
   }
+}
 
+.missed-chance-card__img {
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.missed-chance-card__img img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 </style>
