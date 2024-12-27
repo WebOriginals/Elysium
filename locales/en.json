@@ -95,15 +95,18 @@
       "list": [
         {
           "up_title": "Visibility 2.0",
+          "icon": "/img/faer.gif",
           "title": "Audience reach grows without unnecessary costs.",
           "description": "A landing page increases your position in search, collects information in one place and makes your business visible to clients." },
         {
           "up_title": "Non-stop sales",
+          "icon": "/img/clock.gif",
           "title": "The landing page works for you 24/7.",
           "description": "Customers can leave a request or buy your product at any time, even at night, without unnecessary correspondence."
         },
         {
           "up_title": "Platform independence",
+          "icon": "/img/rock.gif",
           "title": "The landing page is always available, wherever the client is.",
           "description": "Your site works even if social networks are blocked and clients do not use VPN."
         }
