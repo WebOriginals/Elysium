@@ -7,9 +7,6 @@
     <LendingThePortfolio/>
 
 
-    <UiButtonBlue class="banner__button-request" size="xxl" block  :label="$t('Buttons.leave_a_request')"/>
-    <UiButtonBlue class="banner__button-request" size="xl" block variant="outline"  :label="$t('Buttons.leave_a_request')"/>
-    <UiButtonBlue class="banner__button-request" size="lg" block variant="soft" :label="$t('Buttons.leave_a_request')"/>
 
 
     <section id="portfolio">Главная</section>
