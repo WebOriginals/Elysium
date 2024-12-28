@@ -45,12 +45,12 @@
     }
 
     p {
-      @apply text-sky-400 md:w-[340px];
+      @apply text-white md:w-[340px];
     }
   }
 
   &__button-request {
-    @apply md:w-[340px];
+    @apply md:w-[340px] max-h-[60px] self-end;
   }
 
   &-animation {

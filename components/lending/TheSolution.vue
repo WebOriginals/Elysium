@@ -6,7 +6,7 @@
   <section class="solution">
     <div class="solution__wrapper">
       <div class="solution__left">
-        <h2>{{ $t('Lending.solution.title') }}</h2>
+        <h2 v-html="$t('Lending.solution.title')"></h2>
         <p>{{ $t('Lending.solution.description') }}</p>
         <UiButtonBlue
           class="solution__button w-2/3 max-lg:hidden"
@@ -45,7 +45,7 @@
   @apply p-5 md:p-12 my-14 md:my-24  bg-sky-950 dark:bg-sky-900 rounded-3xl overflow-hidden;
 
   &__wrapper{
-    @apply grid gap-14 lg:grid-cols-[5fr_max(460px)] xl:grid-cols-[5fr_max(560px)];
+    @apply grid gap-14 lg:grid-cols-[5fr_max(460px)] xl:grid-cols-[5fr_max(560px)] 2xl:grid-cols-[max(700px)_max(560px)] justify-between;
   }
 
   h3, h2, p{
@@ -62,7 +62,7 @@
   }
 
   &__button{
-    @apply  mt-auto lg:w-2/3 max-lg:mt-3.5 h-fit sm:self-end lg:self-start;
+    @apply  mt-auto lg:w-[300px] max-lg:mt-3.5 h-fit sm:self-end lg:self-start;
   }
 
   &-card{

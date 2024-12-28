@@ -30,7 +30,7 @@ useScrollAnimation({
           <div class="portfolio-card__description">
             <div class="portfolio-card__text" v-html="$rt(item.description)"></div>
             <UiButtonBlue
-              class="solution__button mt-8 w-2/3"
+              class="portfolio-card__button mt-8 w-2/3"
               size="xxl"
               block
               :label="$t('Buttons.leave_a_request')"
@@ -50,24 +50,31 @@ useScrollAnimation({
     @apply mb-8 md:mb-14;
   }
 
+
   &__grid{
     @apply grid gap-3.5;
   }
 
   &-card{
-    @apply grid grid-cols-2 gap-2 relative overflow-hidden;
+    @apply grid grid-cols-2 gap-2 relative overflow-hidden 2xl:min-h-[700px] ;
 
 
     &._anim-items{
+      .portfolio-card__cover{
+        transition: width 1s ease-in-out;
+        z-index: 10;
+      }
+
+      .portfolio-card__description{
+        transition: opacity 1s ease-in-out;
+      }
 
       &._active{
         .portfolio-card__cover{
-          transition: width 1s ease-in-out;
           width: calc(50% - 4px);
         }
 
         .portfolio-card__description{
-          transition: opacity 1s ease-in-out;
           transition-delay: 1s;
           opacity: 1;
         }
@@ -93,7 +100,11 @@ useScrollAnimation({
     }
 
     &__description{
-      @apply bg-sky-300 p-8 rounded-3xl opacity-0;
+      @apply bg-sky-300 p-8 rounded-3xl opacity-0 grid;
+    }
+
+    &__button{
+      @apply self-end lg:w-[350px];
     }
   }
 }
