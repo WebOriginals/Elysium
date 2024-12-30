@@ -13,6 +13,32 @@ useScrollAnimation({
     console.log(`Element ${el} is now hidden.`);
   },
 });
+
+const isWatch = ref(false)
+
+const toggleVideo = (event: Event) => {
+  isWatch.value = !isWatch.value;
+
+  const clickedCover = (event.target as HTMLElement).closest('.portfolio-card__cover');
+  const covers = document.querySelectorAll('.portfolio-card__cover');
+
+  covers.forEach((cover) => {
+    if (cover !== clickedCover) {
+      (cover as HTMLElement).style.opacity = '0';
+    } else {
+      (cover as HTMLElement).style.opacity = '1';
+    }
+  });
+
+  if (isWatch.value) {
+    document.body.classList.add('no-scroll');
+  } else {
+    covers.forEach((cover) => {
+      (cover as HTMLElement).style.opacity = '1'; // Восстановление opacity
+    });
+    document.body.classList.remove('no-scroll');
+  }
+};
 </script>
 
 <template>
@@ -20,11 +46,12 @@ useScrollAnimation({
     <div class="portfolio__wrapper">
       <h2>{{ $t('Lending.portfolio.title') }}</h2>
       <div class="portfolio__grid">
-        <div class="portfolio__card portfolio-card _anim-items " v-for="(item, index) in $tm('Lending.portfolio.items')" :key="$rt(index)">
+        <div class="portfolio__card portfolio-card _anim-items" v-for="(item, index) in $tm('Lending.portfolio.items')" :key="$rt(index)">
           <div class="portfolio-card__cover" :style="{ backgroundImage: `url('${$rt(item.bg_url)}')` }">
             <div class="portfolio-card__logo" >
               <img :src="$rt(item.logo_url)" alt="">
             </div>
+            <UiTheVideo class="portfolio-card__video" @click="toggleVideo" :video="seeVisWatchideo"/>
           </div>
           <div class="fake"></div>
           <div class="portfolio-card__description">
@@ -56,7 +83,27 @@ useScrollAnimation({
   }
 
   &-card{
-    @apply grid lg:grid-cols-2 gap-2 relative overflow-hidden 2xl:min-h-[700px] ;
+    @apply grid lg:grid-cols-2 gap-2 relative  2xl:min-h-[700px] ;
+
+    &__video{
+     visibility: hidden;
+      opacity: 0;
+      @media only screen and (max-width: 1024px) {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &__logo{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      @media only screen and (max-width: 1024px) {
+        display: none;
+      }
+    }
+
 
 
     @media only screen and (min-width: 1024px) {
@@ -79,6 +126,18 @@ useScrollAnimation({
             transition-delay: 1s;
             opacity: 1;
           }
+
+          .portfolio-card__logo{
+            transition: opacity 1s ease-in-out;
+            visibility: hidden;
+            opacity: 0;
+          }
+          .portfolio-card__video{
+            animation-delay: 2s;
+            transition: opacity 1s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
 
@@ -88,7 +147,7 @@ useScrollAnimation({
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+
       border-radius: 24px;
       background-position: center;
       background-repeat: no-repeat;
