@@ -30,14 +30,14 @@
   @apply bg-sky-950 text-white rounded-3xl overflow-hidden p-5 md:p-12 mb-14 md:mb-24;
 
   &__wrapper {
-    @apply grid gap-9 md:grid-cols-[410px_1fr] lg:grid-cols-[510px_1fr] xl:grid-cols-[610px_1fr];
+    @apply grid gap-9 md:grid-cols-[410px_1fr] lg:grid-cols-[510px_1fr] xl:grid-cols-[660px_1fr];
   }
 
   &__content {
     @apply grid gap-5;
 
     h1 {
-      @apply mb-20;
+      //@apply mb-20;
 
       :deep(span) {
         @apply text-sky-600;

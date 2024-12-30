@@ -17,15 +17,12 @@
       </div>
       <div class="solution__right">
         <div class="solution__card solution-card" v-for="(item, index) in $tm('Lending.solution.list')" :key="$rt(index)">
-
-          <div class="flex mb-14 items-center justify-between">
+          <div class="flex mb-6 xl:mb-14 items-center justify-between">
             <div class="solution-card__up-title">{{ $rt(item.up_title) }}</div>
             <div class="solution-card__icon">
               <img :src="$rt(item.icon)" alt="">
             </div>
           </div>
-
-
           <h3 class="solution-card__title">{{ $rt(item.title) }}</h3>
           <p>{{ $rt(item.description) }}</p>
         </div>

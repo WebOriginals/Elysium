@@ -84,10 +84,10 @@ const scrollTo = (to: string): void => {
 }
 
 .burger-button {
-  @apply relative w-10 h-8 flex flex-col justify-between items-center cursor-pointer z-20;
+  @apply relative p-1.5 w-10 h-10 flex flex-col justify-between items-center cursor-pointer z-20;
 
   & .line {
-    @apply w-10 h-1 bg-black dark:bg-white rounded transition-transform duration-300;
+    @apply w-7 h-0.5 bg-black dark:bg-white rounded transition-transform duration-300;
   }
 
   &.is-active {
@@ -96,7 +96,7 @@ const scrollTo = (to: string): void => {
 
       &:nth-child(1) {
         transform: rotate(39deg) translate(8px, 10px);
-        width: 3rem;
+        width: 28px;
       }
 
       &:nth-child(2) {
@@ -105,7 +105,7 @@ const scrollTo = (to: string): void => {
 
       &:nth-child(3) {
         transform: rotate(-40deg) translate(9px, -11px);
-        width: 3rem;
+        width: 28px;
       }
     }
   }

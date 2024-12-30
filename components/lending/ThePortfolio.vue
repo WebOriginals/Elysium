@@ -30,7 +30,7 @@ useScrollAnimation({
           <div class="portfolio-card__description">
             <div class="portfolio-card__text" v-html="$rt(item.description)"></div>
             <UiButtonBlue
-              class="portfolio-card__button mt-8 w-2/3"
+              class="portfolio-card__button "
               size="xxl"
               block
               :label="$t('Buttons.leave_a_request')"
@@ -56,32 +56,33 @@ useScrollAnimation({
   }
 
   &-card{
-    @apply grid grid-cols-2 gap-2 relative overflow-hidden 2xl:min-h-[700px] ;
+    @apply grid lg:grid-cols-2 gap-2 relative overflow-hidden 2xl:min-h-[700px] ;
 
 
-    &._anim-items{
-      .portfolio-card__cover{
-        transition: width 1s ease-in-out;
-        z-index: 10;
-      }
-
-      .portfolio-card__description{
-        transition: opacity 1s ease-in-out;
-      }
-
-      &._active{
+    @media only screen and (min-width: 1024px) {
+      &._anim-items{
         .portfolio-card__cover{
-          width: calc(50% - 4px);
+          transition: width 1s ease-in-out;
+          z-index: 10;
         }
 
         .portfolio-card__description{
-          transition-delay: 1s;
-          opacity: 1;
+          transition: opacity 1s ease-in-out;
+        }
+
+        &._active{
+          .portfolio-card__cover{
+            width: calc(50% - 4px);
+          }
+
+          .portfolio-card__description{
+            transition-delay: 1s;
+            opacity: 1;
+          }
         }
       }
 
     }
-
 
     &__cover{
       display: flex;
@@ -92,19 +93,27 @@ useScrollAnimation({
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      width: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
+      min-height: 340px;
+
+
+
+      @media only screen and (min-width: 1024px){
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+      }
     }
 
+
+
     &__description{
-      @apply bg-sky-300 p-8 rounded-3xl opacity-0 grid;
+      @apply bg-sky-300 p-8 rounded-3xl lg:opacity-0 grid;
     }
 
     &__button{
-      @apply self-end lg:w-[350px];
+      @apply self-end max-w-[350px] mt-8 ;
     }
   }
 }
