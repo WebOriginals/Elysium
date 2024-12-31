@@ -28,7 +28,7 @@
   --color-invert: #ffffff;
   --clip-path: circle(15px at left);
   --clip-path-hover: circle(70px at left);
-  --clip-path-clicked: circle(100vw at left);
+  --clip-path-clicked: circle(200vw at left);
   --duration: .4s;
   --timing-function: ease;
   position: relative;
@@ -95,10 +95,10 @@
         padding-left: 26px;
       }
       &::before {
-        color: var(--color);
+        color: #ffffff;
       }
       &::after {
-        color: #0E082D;
+        color: #ffffff;
         clip-path: var(--clip-path);
         transition: clip-path var(--duration) var(--timing-function);
         position: absolute;
@@ -107,8 +107,8 @@
     }
   }
   input {
-    width: 220px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     margin: auto;
     position: absolute;
     left: 0;

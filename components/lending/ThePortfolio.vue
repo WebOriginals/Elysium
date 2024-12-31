@@ -1,45 +1,47 @@
 <script setup lang="ts">
 import { useScrollAnimation } from '@/composables/useScrollAnimation';
+
+
+// Используем composable для анимации прокрутки
 useScrollAnimation({
   className: '_anim-items',
   activeClass: '_active',
   noHideClass: '_anim-no-hide',
   animStartRatio: 1,
   throttleMs: 200,
-  onVisible: (el) => {
-    console.log(`Element ${el} is now visible.`);
-  },
-  onHidden: (el) => {
-    console.log(`Element ${el} is now hidden.`);
-  },
+  onVisible: (el) => console.log(`Element ${el} is now visible.`),
+  onHidden: (el) => console.log(`Element ${el} is now hidden.`),
 });
 
-const isWatch = ref(false)
+// Управление состоянием просмотра видео
+const isWatch = ref(false);
 
 const toggleVideo = (event: Event) => {
+  // Инвертируем состояние
   isWatch.value = !isWatch.value;
 
-  const clickedCover = (event.target as HTMLElement).closest('.portfolio-card__cover');
-  const covers = document.querySelectorAll('.portfolio-card__cover');
+  // Определяем элементы
+  const clickedCover = (event.target as HTMLElement)?.closest('.portfolio-card__cover');
+  const covers = document.querySelectorAll<HTMLElement>('.portfolio-card__cover');
 
+  // Скрываем или показываем обложки
   covers.forEach((cover) => {
-    if (cover !== clickedCover) {
-      (cover as HTMLElement).style.opacity = '0';
+    if (cover === clickedCover) {
+      setTimeout(() => (cover.style.opacity = '1'), isWatch.value ? 1000 : 500);
+      cover.style.zIndex = cover === clickedCover ? '39' : '-1';
     } else {
-      (cover as HTMLElement).style.opacity = '1';
+      setTimeout(() => {
+        cover.style.removeProperty('z-index');
+        cover.style.opacity = isWatch.value ? '0' : '1';
+      }, isWatch.value ? 0 : 250);
     }
   });
 
-  if (isWatch.value) {
-    document.body.classList.add('no-scroll');
-  } else {
-    covers.forEach((cover) => {
-      (cover as HTMLElement).style.opacity = '1'; // Восстановление opacity
-    });
-    document.body.classList.remove('no-scroll');
-  }
+  // Управление скроллом
+  document.body.classList.toggle('no-scroll', isWatch.value);
 };
 </script>
+
 
 <template>
   <section class="portfolio">
