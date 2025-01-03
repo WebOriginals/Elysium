@@ -69,15 +69,10 @@ onUnmounted(() => {
   @apply py-3 md:py-8 absolute top-0 left-0 w-full z-40;
 
   &.fixed-on {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 40;
-    @apply md:py-2 bg-white;
+    @apply md:py-2 bg-white dark:bg-sky-950 fixed top-0 left-0 z-40;
   }
   &.fixed-on:not(.visible) {
-    transform: translateY(-100%);
-    opacity: 0;
+    @apply transform -translate-y-full opacity-0;
   }
   &__container{
     @apply flex gap-3 justify-between items-center relative ;
