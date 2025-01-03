@@ -112,6 +112,35 @@
           "description": "Your site works even if social networks are blocked and clients do not use VPN."
         }
       ]
+    },
+    "portfolio": {
+      "title": "The best proof is our clients' results",
+      "items": [
+        {
+          "bg_url": "/img/bca.png",
+          "logo_url": "/img/bca_logo.svg",
+          "description": "<h3>BAC Training Center</h3> <br> <h3>Project Goal:</h3><p>Development of a modern landing page for the British Academic Centre training center in order to improve user experience and increase conversion of course registrations.</p><br><h3>Development Process:</h3><p>The Elysium team analyzed the target audience and competitors, developed a prototype and implemented an adaptive landing page using HTML5, CSS3 and JavaScript, ensuring high performance and ease of use.</p><br><h3>Results:</h3><p>The finished landing page successfully increased the number of applications through the feedback form and became a universal solution for mobile and desktop devices, corresponding to the goals of the training center.</p>",
+          "video_url": "https://youtu.be/IB-rNbt8KT8?si=aQi7FjtCqkQN3z-E"
+        },
+        {
+          "bg_url": "/img/bca.png",
+          "logo_url": "/img/bca_logo.svg",
+          "description": "<h3>Training center «BAC»</h3> <br> <h3>Project goal:</h3><p>Development of a modern landing page for the training center «British Academic Centre» in order to improve user experience and increase the conversion of course registrations.</p><br><h3>Development process:</h3><p>The Elysium team analyzed the target audience and competitors, developed a prototype and implemented an adaptive landing page using HTML5, CSS3 and JavaScript, providing high performance and ease of use.</p><br><h3>Results:</h3><p>The finished landing page successfully increased the number of applications via the feedback form and became a universal solution for mobile and desktop devices, corresponding to the goals of the training center.</p>",
+          "video_url": "https://youtu.be/IB-rNbt8KT8?si=aQi7FjtCqkQN3z-E"
+        },
+        {
+          "bg_url": "/img/bca.png",
+          "logo_url": "/img/bca_logo.svg",
+          "description": "<h3>Training center «BAC»</h3> <br> <h3>Project goal:</h3><p>Development of a modern landing page for the training center «British Academic Centre» in order to improve the user experience and increase the conversion of course registrations.</p><br><h3>Process developments:</h3><p>The Elysium team conducted an analysis of the target audience and competitors, developed a prototype and implemented a responsive landing page using HTML5, CSS3 and JavaScript, ensuring high performance and ease of use.</p><br><h3>Results:</h3><p>The finished landing page successfully increased the number of applications through the feedback form and became a universal solution for mobile and desktop devices, corresponding to the goals of the training center.</p>",
+          "video_url": "https://youtu.be/IB-rNbt8KT8?si=aQi7FjtCqkQN3z-E"
+        },
+        {
+          "bg_url": "/img/bca.png",
+          "logo_url": "/img/bca_logo.svg",
+          "description": "<h3>Training center «BAC»</h3> <br> <h3>Goal project:</h3><p>Development of a modern landing page for the educational center 'British Academic Centre' in order to improve the user experience and increase the conversion of course registrations.</p><br><h3>Development process:</h3><p>The Elysium team analyzed the target audience and competitors, developed a prototype and implemented a responsive landing page using HTML5, CSS3 and JavaScript, ensuring high performance and ease of use.</p><br><h3>Results:</h3><p>The finished landing page successfully increased the number of applications through the feedback form and became a universal solution for mobile and desktop devices, corresponding to the goals of the educational center.</p>",
+          "video_url": "https://youtu.be/IB-rNbt8KT8?si=aQi7FjtCqkQN3z-E"
+        }
+      ]
     }
   }
 }

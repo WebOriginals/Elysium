@@ -5,6 +5,7 @@
     <LendingTheMissedChance/>
     <LendingTheSolution/>
     <LendingThePortfolio/>
+    <LendingTheAboutUs/>
 
 
 
