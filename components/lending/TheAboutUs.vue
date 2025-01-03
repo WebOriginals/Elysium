@@ -12,14 +12,14 @@
           :key="$rt(index)"
         >
           <template v-if="item.tips">
-            <ul class="about-us-card__tips relative z-10" >
+            <ul class="about-us-card__tips " >
               <li v-for="(tip, idx) in item.tips"  :key="$rt(idx)">
                 {{ $rt(tip) }}
               </li>
             </ul>
           </template>
-          <h3 class="about-us-card__title relative z-10">{{ $rt(item.title) }}</h3>
-          <div class="about-us-card__description relative z-10">{{ $rt(item.description) }}</div>
+          <h3 class="about-us-card__title ">{{ $rt(item.title) }}</h3>
+          <div class="about-us-card__description ">{{ $rt(item.description) }}</div>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
     @apply text-white rounded-3xl p-5 md:p-8 bg-sky-950 grid gap-4 items-end content-end min-h-52 relative overflow-hidden;
 
     &__tips{
-      @apply flex flex-col gap-2.5 flex-wrap text-sm items-end;
+      @apply flex flex-col gap-2.5 flex-wrap text-sm items-end relative z-10;
 
       li{
         @apply rounded-full border-2 text-xs  px-4 py-3 text-center text-white dark:text-sky-400 w-auto border-white dark:border-sky-400;
@@ -111,6 +111,12 @@
       }
     }
 
+    &__title{
+      @apply relative z-10 max-w-xl;
+    }
+    &__description{
+      @apply relative z-10 max-w-xl;
+    }
   }
 }
 </style>

@@ -141,6 +141,34 @@
           "video_url": "https://youtu.be/IB-rNbt8KT8?si=aQi7FjtCqkQN3z-E"
         }
       ]
+    },
+    "about_us": {
+      "title": "How do we achieve great results?",
+      "items": [
+        {
+          "tips": ["Turnkey website development","Project support after completion"],
+          "bg_url": "/img/bca.png",
+          "title": "We work for results",
+          "description": "We are focused on long-term partnerships, so we do not abandon you after the completion of the project, but provide comprehensive turnkey services with 24/7 support"
+        },
+        {
+          "bg_url": "/img/bca.png",
+          "title": "Since 2019",
+          "description": "We work in the IT market",
+          "video_url": "https://youtu.be/IB-rNbt8KT8?si=aQi7FjtCqkQN3z-E"
+        },
+        {
+          "bg_url": "/img/bca.png",
+          "title": "> 15 people in the team",
+          "description": "Fans of their business from developers to marketers"
+        },
+        {
+          "tips": ["Online stores","Services", "Corporate sites"],
+          "bg_url": "/img/bca.png",
+          "title": "Extensive experience",
+          "description": "We develop not only landings, but also complex systems and services"
+        }
+      ]
     }
   }
 }
