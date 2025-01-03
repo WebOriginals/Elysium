@@ -168,6 +168,11 @@ const toggleVideo = (event: Event) => {
     }
 
 
+    &__text{
+      @apply dark:text-black;
+
+    }
+
 
     &__description{
       @apply bg-sky-300 p-8 rounded-3xl lg:opacity-0 grid;
